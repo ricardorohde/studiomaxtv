@@ -65,7 +65,7 @@ class Seo {
         switch ($this->File):
             //SEO:: INDEX
             case 'index':
-                $this->Data = [SITENAME . " - A informação é a nossa prioridade", SITEDESC, HOME, INCLUDE_PATH . '/images/logo_midia.jpg'];
+                $this->Data = [SITENAME . " - A sua TV na Internet", SITEDESC, HOME, INCLUDE_PATH . '/images/logo_midia.jpg'];
                 break;
             
             //SEO:: BUSCA

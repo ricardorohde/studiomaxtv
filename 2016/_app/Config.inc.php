@@ -23,8 +23,8 @@ define('CIDADE', 'Rolim de Moura');
 define('UF', 'RO');
 
 // DEFINE A BASE DO SITE ####################
-define('HOME', 'http://localhost/servidor/inforondonia/2016');
-define('THEME', 'inforondonia');
+define('HOME', 'http://localhost/servidor/studiomaxtv/2016');
+define('THEME', 'studiomaxtv');
 
 define('INCLUDE_PATH', HOME . DIRECTORY_SEPARATOR . 'themes' . DIRECTORY_SEPARATOR . THEME);
 define('REQUIRE_PATH', 'themes' . DIRECTORY_SEPARATOR . THEME);
