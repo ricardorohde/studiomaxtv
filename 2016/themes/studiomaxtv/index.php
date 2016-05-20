@@ -3,7 +3,12 @@
 </section>
 <div class="content">
     <section class="wrapper-player">
-
+        <div class="player-box"></div>
+        <div class="player-dados">
+            <div class="player-status">AO VIVO</div>
+            <div class="player-tit">TITULO DO VIDEO EM EXECUÇÃO</div>
+            <div class="player-desc">Descrição sobre o video em execução, trazendo informações sobre o que o usário irá assistir.</div>
+        </div>
     </section>
     <section class="wrapper-busca">
         <div class="busca-tit">Buscar</div>
@@ -78,6 +83,19 @@
     <section class="wrapper-newsletter">
         <div class="vin vin-purple">
             <span class="vin-title">Newsletter</span>
+        </div>
+        <div class="newsletter-form">
+            <form action="">
+            <div class="newsletter-input">
+                <label for="news_nome">NOME</label>
+                <input type="text" id="news_nome" name="nome" placeholder="Digite seu nome">
+            </div>
+            <div class="newsletter-input">
+                <label for="news_email">E-MAIL</label>
+                <input type="text" id="news_email" name="email" placeholder="Digite seu e-mail">
+            </div>
+                <button type="submit" class="newsletter-btn btn-purple">Cadastrar</button>
+            </form>
         </div>
     </section>
 </div>
