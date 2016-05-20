@@ -20,6 +20,7 @@ Check::UserOnline();
         <link rel='stylesheet' type='text/css' href='https://fonts.googleapis.com/css?family=Oxygen:400,700'>
         <link rel="stylesheet" type='text/css' href="<?= HOME; ?>/_cdn/font-awesome/css/font-awesome.min.css">
         <link rel="stylesheet" type="text/css" href="<?= INCLUDE_PATH; ?>/css/style.min.css"/>
+        <link rel="stylesheet" type='text/css' href="<?= HOME; ?>/_cdn/flexslider/flexslider.css">
     </head>
     <body>
         <?php
@@ -37,6 +38,7 @@ Check::UserOnline();
     </body>
     <!-- JS -->
     <script src="<?= HOME; ?>/_cdn/jquery.js"></script>
+    <script src="<?= HOME; ?>/_cdn/flexslider/flexslider.min.js"></script>
     <script src="<?= HOME; ?>/_cdn/_scripts.conf.js"></script>
     <!-- REMOVER EM PROD. -->
     <script src="<?= HOME; ?>/_cdn/live.js"></script>
