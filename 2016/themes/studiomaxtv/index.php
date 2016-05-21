@@ -41,7 +41,7 @@
             <div class="video-group">
                 <?php for ($v = 1; $v <= 5; $v++): ?>
                     <div class="video-box">
-                        <div class="video-thumb"></div>
+                        <div class="video-thumb"><img src="https://placeimg.com/640/380/arch" alt="Video EXE"></div>
                         <div class="video-title">Titulo do video aparecerá aqui para visualização</div>
                     </div>
                 <?php endfor; ?>
@@ -56,7 +56,7 @@
             <div class="video-group">
                 <?php for ($v = 1; $v <= 5; $v++): ?>
                     <div class="video-box">
-                        <div class="video-thumb"></div>
+                        <div class="video-thumb"><img src="https://placeimg.com/640/380/people" alt="Video EXE"></div>
                         <div class="video-title">Titulo do video aparecerá aqui para visualização</div>
                     </div>
                 <?php endfor; ?>
@@ -71,7 +71,7 @@
             <div class="video-group">
                 <?php for ($v = 1; $v <= 5; $v++): ?>
                     <div class="video-box">
-                        <div class="video-thumb"></div>
+                        <div class="video-thumb"><img src="https://placeimg.com/640/380/nature" alt="Video EXE"></div>
                         <div class="video-title">Titulo do video aparecerá aqui para visualização</div>
                     </div>
                 <?php endfor; ?>
@@ -86,7 +86,7 @@
             <div class="video-group">
                 <?php for ($v = 1; $v <= 5; $v++): ?>
                     <div class="video-box">
-                        <div class="video-thumb"></div>
+                        <div class="video-thumb"><img src="https://placeimg.com/640/380/tech" alt="Video EXE"></div>
                         <div class="video-title">Titulo do video aparecerá aqui para visualização</div>
                     </div>
                 <?php endfor; ?>
