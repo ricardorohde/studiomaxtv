@@ -4,9 +4,14 @@
             <span class="vin-title">Filtrar</span>
         </div>
         <ul>
-            <li><a href="<?= HOME . '/categoria/politica'; ?>" class="txt-red">POLÍTICA</a></li>
-            <li><a href="<?= HOME . '/categoria/esporte'; ?>" class="txt-blue">ESPORTE</a></li>
-            <li><a href="<?= HOME . '/categoria/saude'; ?>" class="txt-orange">SAÚDE</a></li>
+            <li><a href="<?= HOME . '/categoria/politica'; ?>" class="txt-categories">EDUCAÇÃO</a></li>
+            <li><a href="<?= HOME . '/categoria/politica'; ?>" class="txt-categories">ENTRETENIMENTO</a></li>
+            <li><a href="<?= HOME . '/categoria/esporte'; ?>" class="txt-categories">ESPORTE</a></li>
+            <li><a href="<?= HOME . '/categoria/politica'; ?>" class="txt-categories">POLICÍA</a></li>
+            <li><a href="<?= HOME . '/categoria/politica'; ?>" class="txt-categories">POLÍTICA</a></li>
+            <li><a href="<?= HOME . '/categoria/politica'; ?>" class="txt-categories">BRONCA LIVRE</a></li>
+            <li><a href="<?= HOME . '/categoria/politica'; ?>" class="txt-categories">TRIBUNA LIVRE</a></li>
+            <li><a href="<?= HOME . '/categoria/saude'; ?>" class="txt-categories">SAÚDE</a></li>
         </ul>
     </section>
     <section class="wrapper-busca">

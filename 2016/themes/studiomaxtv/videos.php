@@ -4,9 +4,14 @@
             <span class="vin-title">Filtrar</span>
         </div>
         <ul>
-            <li><a href="<?= HOME . '/categoria/politica'; ?>" class="txt-red">POLÍTICA</a></li>
-            <li><a href="<?= HOME . '/categoria/esporte'; ?>" class="txt-blue">ESPORTE</a></li>
-            <li><a href="<?= HOME . '/categoria/saude'; ?>" class="txt-orange">SAÚDE</a></li>
+            <li><a href="<?= HOME . '/categoria/politica'; ?>" class="txt-categories">EDUCAÇÃO</a></li>
+            <li><a href="<?= HOME . '/categoria/politica'; ?>" class="txt-categories">ENTRETENIMENTO</a></li>
+            <li><a href="<?= HOME . '/categoria/esporte'; ?>" class="txt-categories">ESPORTE</a></li>
+            <li><a href="<?= HOME . '/categoria/politica'; ?>" class="txt-categories">POLICÍA</a></li>
+            <li><a href="<?= HOME . '/categoria/politica'; ?>" class="txt-categories">POLÍTICA</a></li>
+            <li><a href="<?= HOME . '/categoria/politica'; ?>" class="txt-categories">BRONCA LIVRE</a></li>
+            <li><a href="<?= HOME . '/categoria/politica'; ?>" class="txt-categories">TRIBUNA LIVRE</a></li>
+            <li><a href="<?= HOME . '/categoria/saude'; ?>" class="txt-categories">SAÚDE</a></li>
         </ul>
     </section>
     <section class="wrapper-busca">
@@ -27,22 +32,7 @@
             <div class="video-group">
                 <?php for ($v = 1; $v <= 5; $v++): ?>
                     <div class="video-box">
-                        <div class="video-thumb"></div>
-                        <div class="video-title">Titulo do video aparecerá aqui para visualização</div>
-                    </div>
-                <?php endfor; ?>
-            </div>
-        </div>
-
-        <div class="wrapper-category">
-            <div class="vin vin-red">
-                <span class="vin-title">Política</span>
-                <span class="vin-btn btn-red">VER MAIS</span>
-            </div>
-            <div class="video-group">
-                <?php for ($v = 1; $v <= 5; $v++): ?>
-                    <div class="video-box">
-                        <div class="video-thumb"></div>
+                        <div class="video-thumb"><img src="https://placeimg.com/640/380/arch" alt="Video EXE"></div>
                         <div class="video-title">Titulo do video aparecerá aqui para visualização</div>
                     </div>
                 <?php endfor; ?>
@@ -51,13 +41,28 @@
 
         <div class="wrapper-category">
             <div class="vin vin-blue">
-                <span class="vin-title">Esporte</span>
+                <span class="vin-title">Política</span>
                 <span class="vin-btn btn-blue">VER MAIS</span>
             </div>
             <div class="video-group">
                 <?php for ($v = 1; $v <= 5; $v++): ?>
                     <div class="video-box">
-                        <div class="video-thumb"></div>
+                        <div class="video-thumb"><img src="https://placeimg.com/640/380/people" alt="Video EXE"></div>
+                        <div class="video-title">Titulo do video aparecerá aqui para visualização</div>
+                    </div>
+                <?php endfor; ?>
+            </div>
+        </div>
+
+        <div class="wrapper-category">
+            <div class="vin vin-red">
+                <span class="vin-title">Policía</span>
+                <span class="vin-btn btn-red">VER MAIS</span>
+            </div>
+            <div class="video-group">
+                <?php for ($v = 1; $v <= 5; $v++): ?>
+                    <div class="video-box">
+                        <div class="video-thumb"><img src="https://placeimg.com/640/380/nature" alt="Video EXE"></div>
                         <div class="video-title">Titulo do video aparecerá aqui para visualização</div>
                     </div>
                 <?php endfor; ?>
@@ -72,7 +77,7 @@
             <div class="video-group">
                 <?php for ($v = 1; $v <= 5; $v++): ?>
                     <div class="video-box">
-                        <div class="video-thumb"></div>
+                        <div class="video-thumb"><img src="https://placeimg.com/640/380/tech" alt="Video EXE"></div>
                         <div class="video-title">Titulo do video aparecerá aqui para visualização</div>
                     </div>
                 <?php endfor; ?>

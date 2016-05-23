@@ -34,17 +34,8 @@ body{ background-color: #F1F1F1; }
 .btn-purple{ color: #FFF; background: #79698C;}
 .btn-purple:hover{ background: #660066; cursor: pointer;}
 /*txt*/
-.txt-green{ color: #00B22D;}
-.txt-green:hover{ color: #009933;}
-.txt-red{ color: #FF4D4D;}
-.txt-red:hover{ color: #ff3333;}
-.txt-blue{ color: #99B3FF;}
-.txt-blue:hover{ color: #3366ff;}
-.txt-orange{ color: #FF9673;}
-.txt-orange:hover{ color: #ff9933;}
-.txt-purple{ color: #79698C;}
-.txt-purple:hover{ color: #660066;}
-
+.txt-categories{ color: #0096BD;}
+.txt-categories:hover{ color: #FF6600;}
 /*=== HEADER ===*/
 .main-header{ width: 100%; padding: 1.5% 0; border-bottom: 1px solid #CCC; float: left; background: #FFF;}
 .main-header-logo{ width: 100%; max-width: 156px; height: 93px; font-size: 0; float: left; background: url(../images/logo_topo.png) center center no-repeat; background-size: 100% auto;}
@@ -77,8 +68,8 @@ body{ background-color: #F1F1F1; }
 .video-group{ width: 100%; margin-top: 10px; float: left;}
 .video-box{ width: 19.2%; float: left; margin-right: 1%;}
 .video-box:last-child{ margin-right: 0;}
-.video-thumb{ width: 100%; float: left; background: url(../images/ico-play.png) center center no-repeat #CCC;}
-.video-title{ width: 100%; font-size: 0.875em; float: left;}
+.video-thumb{ width: 100%; min-height: 128px; float: left; background: url(../images/ico-play.png) center center no-repeat #CCC;}
+.video-title{ width: 100%; padding-top: 3px; font-size: 0.875em; float: left;}
 .wrapper-newsletter{ width: 100%; padding: 10px 5px; margin: 10px 0; float: left; background: #FFF;}
 .newsletter-form{ width: 100%; float: left;}
 .newsletter-input{ width: 40%; float: left; margin: 10px 1% 0 0;}

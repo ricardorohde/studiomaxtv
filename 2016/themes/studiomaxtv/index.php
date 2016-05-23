@@ -49,9 +49,9 @@
         </div>
 
         <div class="wrapper-category">
-            <div class="vin vin-red">
+            <div class="vin vin-blue">
                 <span class="vin-title">Política</span>
-                <span class="vin-btn btn-red">VER MAIS</span>
+                <span class="vin-btn btn-blue">VER MAIS</span>
             </div>
             <div class="video-group">
                 <?php for ($v = 1; $v <= 5; $v++): ?>
@@ -64,9 +64,9 @@
         </div>
 
         <div class="wrapper-category">
-            <div class="vin vin-blue">
-                <span class="vin-title">Esporte</span>
-                <span class="vin-btn btn-blue">VER MAIS</span>
+            <div class="vin vin-red">
+                <span class="vin-title">Policía</span>
+                <span class="vin-btn btn-red">VER MAIS</span>
             </div>
             <div class="video-group">
                 <?php for ($v = 1; $v <= 5; $v++): ?>
