@@ -1,18 +1,27 @@
-<section class="wrapper-slide">
-    <div class="flexslider">
-        <ul class="slides">
-            <li>
-                <img src="<?= HOME . '/tim.php?src=' . HOME . '/uploads/banners/slide1.jpg&w=1920&h=480&zc=0'; ?>" />
-            </li>
-            <li>
-                <img src="<?= HOME . '/tim.php?src=' . HOME . '/uploads/banners/slide2.jpg&w=1920&h=480&zc=0'; ?>" />
-            </li>
-            <li>
-                <img src="<?= HOME . '/tim.php?src=' . HOME . '/uploads/banners/slide3.jpg&w=1920&h=480&zc=0'; ?>" />
-            </li>
-        </ul>
-    </div>
-</section>
+<?php
+$ReadMain = new Read;
+$banners = $ReadMain;
+$banners->ExeRead("banners", "WHERE tipo = :idtipo AND data_inicial <= CURRENT_DATE() AND data_final >= CURRENT_DATE() ORDER BY RAND()", "idtipo=1");
+if ($banners->getResult()):
+    ?>
+    <section class="wrapper-slide">
+        <div class="flexslider">
+            <ul class="slides">
+                <?php
+                foreach ($banners->getResult() as $bnr):
+                    echo "<li>";
+                    echo "<a href=\"{$bnr['link']}\" title=\"{$bnr['titulo']}\" target=\"_blank\">";
+                    echo "<img alt=\"{$bnr['titulo']}\" title=\"{$bnr['titulo']}\" src=\"" . HOME . "/tim.php?src=" . HOME . "/uploads/{$bnr['banner']}&w=1920&h=480&zc=0\" class=\"banner\" />";
+                    echo "</a>";
+                    echo "</li>";
+                endforeach;
+                ?>
+            </ul>
+        </div>
+    </section>
+    <?php
+endif;
+?>
 <div class="content">
     <section class="wrapper-player">
         <div class="player-box"><img src="<?= INCLUDE_PATH; ?>/images/EXE_player.jpg" alt="PLAYER"></div>

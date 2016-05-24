@@ -1,7 +1,7 @@
 <?php
 ob_start();
 require('./_app/Config.inc.php');
-$Session = new Session(10);
+$Session = new Session;
 Check::UserOnline();
 ?>
 <!DOCTYPE html>
@@ -40,8 +40,6 @@ Check::UserOnline();
     <script src="<?= HOME; ?>/_cdn/jquery.js"></script>
     <script src="<?= HOME; ?>/_cdn/flexslider/flexslider.min.js"></script>
     <script src="<?= HOME; ?>/_cdn/_scripts.conf.js"></script>
-    <!-- REMOVER EM PROD. -->
-    <script src="<?= HOME; ?>/_cdn/live.js"></script>
 </html>
 <?php
 ob_end_flush();

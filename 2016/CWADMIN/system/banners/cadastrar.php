@@ -39,7 +39,7 @@
                                     <div class="row">
                                         <div class="col-md-12">
                                             <label for="titulo">Titulo</label>
-                                            <input type="text" name="titulo" class="form-control" id="titulo" value="<?= isset($dados['titulo']) ? $dados['titulo'] : ''; ?>" placeholder="Informe o titulo da revista">
+                                            <input type="text" name="titulo" class="form-control" id="titulo" value="<?= isset($dados['titulo']) ? $dados['titulo'] : ''; ?>" placeholder="Informe o titulo do banner">
                                         </div>
                                     </div>
                                 </div>
@@ -47,7 +47,7 @@
                                     <div class="row">
                                         <div class="col-md-12">
                                             <label for="link">Link</label>
-                                            <input type="text" name="link" class="form-control" id="link" value="<?= isset($dados['link']) ? $dados['link'] : ''; ?>" placeholder="Informe o link da revista">
+                                            <input type="text" name="link" class="form-control" id="link" value="<?= isset($dados['link']) ? $dados['link'] : ''; ?>" placeholder="Informe o link do banner">
                                         </div>
                                     </div>
                                 </div>
