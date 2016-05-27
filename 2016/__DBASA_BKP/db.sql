@@ -206,17 +206,19 @@ CREATE TABLE IF NOT EXISTS `menu` (
   `case` varchar(100) NOT NULL,
   `pagina` varchar(150) NOT NULL,
   `ico_menu` varchar(50) NOT NULL DEFAULT '',
+  `ativo` char(5) NOT NULL DEFAULT 'true',
   PRIMARY KEY (`id_menu`),
   KEY `fk_menu_id_menutipo` (`id_menu_tipo`),
   CONSTRAINT `fk_menu_id_menu_tipo` FOREIGN KEY (`id_menu_tipo`) REFERENCES `menu_tipo` (`id_menu_tipo`)
-) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8 COMMENT='Menu';
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8 COMMENT='Menu';
 
--- Copiando dados para a tabela _studiomaxtv_2016.menu: ~3 rows (aproximadamente)
+-- Copiando dados para a tabela _studiomaxtv_2016.menu: ~4 rows (aproximadamente)
 /*!40000 ALTER TABLE `menu` DISABLE KEYS */;
-REPLACE INTO `menu` (`id_menu`, `id_menu_tipo`, `titulo`, `case`, `pagina`, `ico_menu`) VALUES
-	(1, 1, 'Usuários', 'usuarios', '#', 'fa-users'),
-	(5, 1, 'Videos', 'videos', '#', 'fa-video-camera'),
-	(14, 1, 'Banners', 'banners', '#', 'fa-photo');
+REPLACE INTO `menu` (`id_menu`, `id_menu_tipo`, `titulo`, `case`, `pagina`, `ico_menu`, `ativo`) VALUES
+	(1, 1, 'Usuários', 'usuarios', '#', 'fa-users', 'true'),
+	(2, 1, 'TV', 'tvs', '#', 'fa-desktop', 'true'),
+	(5, 1, 'Videos', 'videos', '#', 'fa-video-camera', 'true'),
+	(14, 1, 'Banners', 'banners', '#', 'fa-photo', 'true');
 /*!40000 ALTER TABLE `menu` ENABLE KEYS */;
 
 -- Copiando estrutura para tabela _studiomaxtv_2016.menu_sub
@@ -232,9 +234,9 @@ CREATE TABLE IF NOT EXISTS `menu_sub` (
   KEY `fkmenu_sub_id_menu` (`id_menu`),
   KEY `idx_menu_sub_titulo` (`titulo`),
   CONSTRAINT `fk_menu_sub_id_menu` FOREIGN KEY (`id_menu`) REFERENCES `menu` (`id_menu`)
-) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8 COMMENT='Menu Sub';
+) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8 COMMENT='Menu Sub';
 
--- Copiando dados para a tabela _studiomaxtv_2016.menu_sub: ~6 rows (aproximadamente)
+-- Copiando dados para a tabela _studiomaxtv_2016.menu_sub: ~8 rows (aproximadamente)
 /*!40000 ALTER TABLE `menu_sub` DISABLE KEYS */;
 REPLACE INTO `menu_sub` (`id_menu_sub`, `id_menu`, `titulo`, `case`, `pagina`, `ico_menu`) VALUES
 	(1, 1, 'Novo Cadastro', 'usuarios', 'cadastrar', 'fa-angle-double-right'),
@@ -242,7 +244,9 @@ REPLACE INTO `menu_sub` (`id_menu_sub`, `id_menu`, `titulo`, `case`, `pagina`, `
 	(7, 5, 'Novo Cadastro', 'videos', 'cadastrar', 'fa-angle-double-right'),
 	(8, 5, 'Listar Cadastros', 'videos', 'listar', 'fa-angle-double-right'),
 	(9, 14, 'Novo Cadastro', 'banners', 'cadastrar', 'fa-angle-double-right'),
-	(10, 14, 'Listar Cadastros', 'banners', 'listar', 'fa-angle-double-right');
+	(10, 14, 'Listar Cadastros', 'banners', 'listar', 'fa-angle-double-right'),
+	(17, 2, 'Novo Cadastro', 'tvs', 'cadastrar', 'fa-angle-double-right'),
+	(18, 2, 'Listar Cadastros', 'tvs', 'listar', 'fa-angle-double-right');
 /*!40000 ALTER TABLE `menu_sub` ENABLE KEYS */;
 
 -- Copiando estrutura para tabela _studiomaxtv_2016.menu_sub_nav
@@ -336,10 +340,13 @@ CREATE TABLE IF NOT EXISTS `noticias_categoria` (
 DROP TABLE IF EXISTS `tv`;
 CREATE TABLE IF NOT EXISTS `tv` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
+  `url_name` varchar(255) NOT NULL,
+  `categoria` varchar(50) NOT NULL,
   `titulo` varchar(100) NOT NULL,
   `url` varchar(255) NOT NULL,
-  `lateral` char(10) NOT NULL DEFAULT 'false',
-  `tv` char(10) NOT NULL DEFAULT 'false',
+  `aovivo` char(5) NOT NULL DEFAULT 'false',
+  `descricao` text NOT NULL,
+  `ativo` char(5) NOT NULL DEFAULT 'true',
   `qm_cadastr` int(11) NOT NULL,
   `data_cadastr` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `qm_alterou` int(11) DEFAULT NULL,
@@ -348,14 +355,16 @@ CREATE TABLE IF NOT EXISTS `tv` (
   KEY `fk_tv_qm_cadastr` (`qm_cadastr`),
   KEY `fk_tv_qm_alterou` (`qm_alterou`),
   KEY `titulo` (`titulo`),
+  KEY `fk_tv_categoria` (`categoria`),
+  CONSTRAINT `fk_tv_categoria` FOREIGN KEY (`categoria`) REFERENCES `videos_categoria` (`url_name`),
   CONSTRAINT `fk_tv_qm_alterou` FOREIGN KEY (`qm_alterou`) REFERENCES `usuarios` (`id`),
   CONSTRAINT `fk_tv_qm_cadastr` FOREIGN KEY (`qm_cadastr`) REFERENCES `usuarios` (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COMMENT='Link de Iframe para exibir a TV';
 
--- Copiando dados para a tabela _studiomaxtv_2016.tv: ~0 rows (aproximadamente)
+-- Copiando dados para a tabela _studiomaxtv_2016.tv: ~1 rows (aproximadamente)
 /*!40000 ALTER TABLE `tv` DISABLE KEYS */;
-REPLACE INTO `tv` (`id`, `titulo`, `url`, `lateral`, `tv`, `qm_cadastr`, `data_cadastr`, `qm_alterou`, `data_alterou`) VALUES
-	(4, 'TV Jornet Teste', 'http://www.tvjornet.com/parceiros/iframe.asp?id=10', 'true', 'true', 1, '2016-05-07 00:20:34', 1, '2016-05-07 00:47:05');
+REPLACE INTO `tv` (`id`, `url_name`, `categoria`, `titulo`, `url`, `aovivo`, `descricao`, `ativo`, `qm_cadastr`, `data_cadastr`, `qm_alterou`, `data_alterou`) VALUES
+	(4, '', 'ao-vivo', 'TV Jornet Teste', 'http://www.tvjornet.com/parceiros/iframe.asp?id=10', 'true', '', 'true', 1, '2016-05-07 00:20:34', 1, '2016-05-07 00:47:05');
 /*!40000 ALTER TABLE `tv` ENABLE KEYS */;
 
 -- Copiando estrutura para tabela _studiomaxtv_2016.usuarios
@@ -388,7 +397,7 @@ CREATE TABLE IF NOT EXISTS `usuarios` (
 -- Copiando dados para a tabela _studiomaxtv_2016.usuarios: ~1 rows (aproximadamente)
 /*!40000 ALTER TABLE `usuarios` DISABLE KEYS */;
 REPLACE INTO `usuarios` (`id`, `url_name`, `nome`, `email`, `data_nasc`, `sexo`, `login`, `senha`, `foto`, `ativo`, `nivel`, `cont_acesso`, `ip`, `ultimo_acesso`, `qm_cadastr`, `dt_cadastr`, `qm_alterou`, `dt_alterou`) VALUES
-	(1, 'creative-websites', 'Creative Websites', 'suporte@creativewebsites.com.br', '2015-02-14', 1, 'creative', '19d910ef608e4947aa0c6dcee352a3e8', 'usuarios/2015/03/creative.jpeg', 's', 1, 52, '::1', '2015-02-13 22:33:25', 1, NULL, 1, '2015-03-25 21:57:12');
+	(1, 'creative-websites', 'Creative Websites', 'suporte@creativewebsites.com.br', '2015-02-14', 1, 'creative', '19d910ef608e4947aa0c6dcee352a3e8', 'usuarios/2015/03/creative.jpeg', 's', 1, 53, '::1', '2015-02-13 22:33:25', 1, NULL, 1, '2015-03-25 21:57:12');
 /*!40000 ALTER TABLE `usuarios` ENABLE KEYS */;
 
 -- Copiando estrutura para tabela _studiomaxtv_2016.videos
@@ -396,6 +405,7 @@ DROP TABLE IF EXISTS `videos`;
 CREATE TABLE IF NOT EXISTS `videos` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `url_name` varchar(255) NOT NULL,
+  `categoria` varchar(50) NOT NULL,
   `titulo` varchar(250) NOT NULL,
   `url` varchar(50) NOT NULL,
   `link` varchar(50) NOT NULL,
@@ -403,6 +413,7 @@ CREATE TABLE IF NOT EXISTS `videos` (
   `autor` varchar(50) DEFAULT NULL,
   `data` timestamp NULL DEFAULT NULL,
   `foto` varchar(250) NOT NULL,
+  `descricao` text NOT NULL,
   `qm_cadastr` int(9) NOT NULL,
   `dt_cadastr` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `qm_alterou` int(9) DEFAULT NULL,
@@ -412,6 +423,8 @@ CREATE TABLE IF NOT EXISTS `videos` (
   KEY `titulo` (`titulo`),
   KEY `fk_videos_qm_cadastr` (`qm_cadastr`),
   KEY `fk_videos_qm_alterou` (`qm_alterou`),
+  KEY `fk_videos_categoria` (`categoria`),
+  CONSTRAINT `fk_videos_categoria` FOREIGN KEY (`categoria`) REFERENCES `videos_categoria` (`url_name`),
   CONSTRAINT `fk_videos_qm_alterou` FOREIGN KEY (`qm_alterou`) REFERENCES `usuarios` (`id`),
   CONSTRAINT `fk_videos_qm_cadastr` FOREIGN KEY (`qm_cadastr`) REFERENCES `usuarios` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Armazena informações de cadastro de videos.';
@@ -419,6 +432,31 @@ CREATE TABLE IF NOT EXISTS `videos` (
 -- Copiando dados para a tabela _studiomaxtv_2016.videos: ~0 rows (aproximadamente)
 /*!40000 ALTER TABLE `videos` DISABLE KEYS */;
 /*!40000 ALTER TABLE `videos` ENABLE KEYS */;
+
+-- Copiando estrutura para tabela _studiomaxtv_2016.videos_categoria
+DROP TABLE IF EXISTS `videos_categoria`;
+CREATE TABLE IF NOT EXISTS `videos_categoria` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `url_name` varchar(50) NOT NULL,
+  `categoria` varchar(50) NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `url_name` (`url_name`),
+  KEY `categoria` (`categoria`)
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8 COMMENT='Categorias de Videos';
+
+-- Copiando dados para a tabela _studiomaxtv_2016.videos_categoria: ~9 rows (aproximadamente)
+/*!40000 ALTER TABLE `videos_categoria` DISABLE KEYS */;
+REPLACE INTO `videos_categoria` (`id`, `url_name`, `categoria`) VALUES
+	(1, 'educacao', 'Educação'),
+	(2, 'entretenimento', 'Entretenimento'),
+	(3, 'esporte', 'Esporte'),
+	(4, 'policia', 'Policía'),
+	(5, 'politica', 'Política'),
+	(6, 'bronca-livre', 'Bronca Livre'),
+	(7, 'tribuna-livre', 'Tribuna Livre'),
+	(8, 'saude', 'Saúde'),
+	(9, 'ao-vivo', 'Ao Vivo');
+/*!40000 ALTER TABLE `videos_categoria` ENABLE KEYS */;
 
 -- Copiando estrutura para tabela _studiomaxtv_2016.ws_siteviews
 DROP TABLE IF EXISTS `ws_siteviews`;
@@ -430,12 +468,13 @@ CREATE TABLE IF NOT EXISTS `ws_siteviews` (
   `siteviews_pages` decimal(10,0) NOT NULL,
   PRIMARY KEY (`siteviews_id`),
   KEY `idx_1` (`siteviews_date`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
--- Copiando dados para a tabela _studiomaxtv_2016.ws_siteviews: ~0 rows (aproximadamente)
+-- Copiando dados para a tabela _studiomaxtv_2016.ws_siteviews: ~2 rows (aproximadamente)
 /*!40000 ALTER TABLE `ws_siteviews` DISABLE KEYS */;
 REPLACE INTO `ws_siteviews` (`siteviews_id`, `siteviews_date`, `siteviews_users`, `siteviews_views`, `siteviews_pages`) VALUES
-	(1, '2016-05-24', 1, 1, 3);
+	(1, '2016-05-24', 1, 1, 3),
+	(2, '2016-05-26', 1, 1, 11);
 /*!40000 ALTER TABLE `ws_siteviews` ENABLE KEYS */;
 
 -- Copiando estrutura para tabela _studiomaxtv_2016.ws_siteviews_agent
@@ -448,10 +487,10 @@ CREATE TABLE IF NOT EXISTS `ws_siteviews_agent` (
   KEY `idx_1` (`agent_name`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
--- Copiando dados para a tabela _studiomaxtv_2016.ws_siteviews_agent: ~0 rows (aproximadamente)
+-- Copiando dados para a tabela _studiomaxtv_2016.ws_siteviews_agent: ~1 rows (aproximadamente)
 /*!40000 ALTER TABLE `ws_siteviews_agent` DISABLE KEYS */;
 REPLACE INTO `ws_siteviews_agent` (`agent_id`, `agent_name`, `agent_views`) VALUES
-	(1, 'Chrome', 1);
+	(1, 'Chrome', 2);
 /*!40000 ALTER TABLE `ws_siteviews_agent` ENABLE KEYS */;
 
 -- Copiando estrutura para tabela _studiomaxtv_2016.ws_siteviews_online
@@ -466,12 +505,12 @@ CREATE TABLE IF NOT EXISTS `ws_siteviews_online` (
   `online_agent` varchar(255) CHARACTER SET latin1 NOT NULL,
   `agent_name` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`online_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 
 -- Copiando dados para a tabela _studiomaxtv_2016.ws_siteviews_online: ~1 rows (aproximadamente)
 /*!40000 ALTER TABLE `ws_siteviews_online` DISABLE KEYS */;
 REPLACE INTO `ws_siteviews_online` (`online_id`, `online_session`, `online_startview`, `online_endview`, `online_ip`, `online_url`, `online_agent`, `agent_name`) VALUES
-	(3, 'so0lknhkgd3k5gntek3o89a6t6', '2016-05-24 00:43:07', '2016-05-24 01:04:48', '::1', '/servidor/studiomaxtv/2016/', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2746.0 Safari/537.36', 'Chrome');
+	(4, 'gv5ih5tua6rpvp8d5aa8pk25t3', '2016-05-26 19:19:11', '2016-05-26 20:27:47', '::1', '/servidor/studiomaxtv/2016/', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2747.0 Safari/537.36', 'Chrome');
 /*!40000 ALTER TABLE `ws_siteviews_online` ENABLE KEYS */;
 
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;

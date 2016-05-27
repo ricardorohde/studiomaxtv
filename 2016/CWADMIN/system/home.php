@@ -37,53 +37,73 @@
                 </div>
             </div>
         </div>
-        <div class="col-md-3">
-            <div class="info-box">
-                <?php
-                $News = $ReadDash;
-                $News->FullRead("SELECT count(*) AS count FROM noticias");
-                $CountNews = $News->getResult()[0];
-                ?>
-                <div class="info-box-icon bg-green">
-                    <i class="fa fa-newspaper-o"></i>
-                </div>
-                <div class="info-box-content">
-                    <span class="info-box-text">Noticias Cadastradas</span>
-                    <span class="info-box-number"><?= $CountNews['count']; ?></span>                    
-                </div>
-            </div>
-        </div>
-        <div class="col-md-3">
-            <div class="info-box">
-                <?php
-                $Events = $ReadDash;
-                $Events->FullRead("SELECT count(*) AS count FROM eventos");
-                $CountEvents = $Events->getResult()[0];
-                ?>
-                <div class="info-box-icon bg-aqua-active">
-                    <i class="fa fa-camera-retro"></i>
-                </div>
-                <div class="info-box-content">
-                    <span class="info-box-text">Eventos Cadastrados</span>
-                    <span class="info-box-number"><?= $CountEvents['count']; ?></span>                    
+        <?php
+        $CheckMod = $ReadDash;
+        $CheckMod->ExeRead('menu m', "WHERE m.case = :case AND m.ativo = :ativo", "case=noticias&ativo=true");
+        if ($CheckMod->getResult()):
+            ?>
+            <div class="col-md-3">
+                <div class="info-box">
+                    <?php
+                    $News = $ReadDash;
+                    $News->FullRead("SELECT count(*) AS count FROM noticias");
+                    $CountNews = $News->getResult()[0];
+                    ?>
+                    <div class="info-box-icon bg-green">
+                        <i class="fa fa-newspaper-o"></i>
+                    </div>
+                    <div class="info-box-content">
+                        <span class="info-box-text">Noticias Cadastradas</span>
+                        <span class="info-box-number"><?= $CountNews['count']; ?></span>                    
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="col-md-3">
-            <div class="info-box">
-                <?php
-                $Videos = $ReadDash;
-                $Videos->FullRead("SELECT count(*) AS count FROM videos");
-                $CountVideos = $Videos->getResult()[0];
-                ?>
-                <div class="info-box-icon bg-red">
-                    <i class="fa fa-play-circle"></i>
-                </div>
-                <div class="info-box-content">
-                    <span class="info-box-text">Vídeos Cadastrados</span>
-                    <span class="info-box-number"><?= $CountVideos['count']; ?></span>                    
+            <?php
+        endif;
+
+        $CheckMod->setPlaces("case=eventos&ativo=true");
+        if ($CheckMod->getResult()):
+            ?>
+            <div class="col-md-3">
+                <div class="info-box">
+                    <?php
+                    $Events = $ReadDash;
+                    $Events->FullRead("SELECT count(*) AS count FROM eventos");
+                    $CountEvents = $Events->getResult()[0];
+                    ?>
+                    <div class="info-box-icon bg-aqua-active">
+                        <i class="fa fa-camera-retro"></i>
+                    </div>
+                    <div class="info-box-content">
+                        <span class="info-box-text">Eventos Cadastrados</span>
+                        <span class="info-box-number"><?= $CountEvents['count']; ?></span>                    
+                    </div>
                 </div>
             </div>
-        </div>
+            <?php
+        endif;
+
+        $CheckMod->setPlaces("case=videos&ativo=true");
+        if ($CheckMod->getResult()):
+            ?>
+            <div class="col-md-3">
+                <div class="info-box">
+                    <?php
+                    $Videos = $ReadDash;
+                    $Videos->FullRead("SELECT count(*) AS count FROM videos");
+                    $CountVideos = $Videos->getResult()[0];
+                    ?>
+                    <div class="info-box-icon bg-red">
+                        <i class="fa fa-play-circle"></i>
+                    </div>
+                    <div class="info-box-content">
+                        <span class="info-box-text">Vídeos Cadastrados</span>
+                        <span class="info-box-number"><?= $CountVideos['count']; ?></span>                    
+                    </div>
+                </div>
+            </div>
+            <?php
+        endif;
+        ?>
     </div>
 </section><!-- /.content -->

@@ -24,7 +24,7 @@
             <?php
             //SQL Menu
             $menu = new Read;
-            $menu->ExeRead('menu', "WHERE id_menu_tipo = :tm ORDER BY titulo ASC", "tm=1");
+            $menu->ExeRead('menu', "WHERE id_menu_tipo = :tm AND ativo = :ativo ORDER BY titulo ASC", "tm=1&ativo=true");
             if ($menu->getResult()):
                 foreach ($menu->getResult() as $mn):
                     $idMenu = $mn['id_menu'];

@@ -4,14 +4,16 @@
             <span class="vin-title">Filtrar</span>
         </div>
         <ul>
-            <li><a href="<?= HOME . '/categoria/politica'; ?>" class="txt-categories">EDUCAÇÃO</a></li>
-            <li><a href="<?= HOME . '/categoria/politica'; ?>" class="txt-categories">ENTRETENIMENTO</a></li>
-            <li><a href="<?= HOME . '/categoria/esporte'; ?>" class="txt-categories">ESPORTE</a></li>
-            <li><a href="<?= HOME . '/categoria/politica'; ?>" class="txt-categories">POLICÍA</a></li>
-            <li><a href="<?= HOME . '/categoria/politica'; ?>" class="txt-categories">POLÍTICA</a></li>
-            <li><a href="<?= HOME . '/categoria/politica'; ?>" class="txt-categories">BRONCA LIVRE</a></li>
-            <li><a href="<?= HOME . '/categoria/politica'; ?>" class="txt-categories">TRIBUNA LIVRE</a></li>
-            <li><a href="<?= HOME . '/categoria/saude'; ?>" class="txt-categories">SAÚDE</a></li>
+            <?php
+            $ReadVideo = new Read;
+            $Categories = $ReadVideo;
+            $Categories->ExeRead('videos_categoria', "WHERE categoria != :cat AND url_name != :url ORDER BY categoria ASC", "cat=''&url=''");
+            if ($Categories->getResult()):
+                foreach ($Categories->getResult() as $Cat):
+                    echo '<li><a href="' . HOME . '/categoria/' . $Cat['url_name'] . '" class="txt-categories">' . mb_strtoupper($Cat['categoria'], 'UTF-8') . '</a></li>';
+                endforeach;
+            endif;
+            ?>
         </ul>
     </section>
     <section class="wrapper-busca">
