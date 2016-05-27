@@ -45,6 +45,29 @@
                                 </div>
                                 <div class="form-group">
                                     <div class="row">
+                                        <div class="col-md-6">
+                                            <label for="categoria">Categoria</label>
+                                            <select name="categoria" class="form-control" id="categoria">
+                                                <option value="">Selecione...</option>
+                                                <?php
+                                                $readCat = new Read;
+                                                $readCat->ExeRead("videos_categoria", "ORDER BY categoria ASC");
+                                                if ($readCat->getRowCount() >= 1):
+                                                    foreach ($readCat->getResult() as $cat):
+                                                        echo "<option ";
+                                                        if ($dados['categoria'] == $cat['url_name']):
+                                                            echo "selected=\"selected\" ";
+                                                        endif;
+                                                        echo "value=\"{$cat['url_name']}\"> &raquo;&raquo; {$cat['categoria']}</option>";
+                                                    endforeach;
+                                                endif;
+                                                ?>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="row">
                                         <div class="col-md-12">
                                             <label for="url">Url do Video do YouTube</label>
                                             <div class="input-group">
@@ -86,6 +109,20 @@
                                         <div class="col-md-12">
                                             <label for="autor">Autor</label>
                                             <input type="text" name="autor" class="form-control" id="autor" value="<?= isset($dados['autor']) ? $dados['autor'] : ''; ?>" placeholder="Informe o autor do Video">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <label for="descricao">Descrição</label>
+                                            <textarea name="descricao" rows="10" class="form-control" id="editor">
+                                                <?= isset($dados['descricao']) ? $dados['descricao'] : ''; ?>
+                                            </textarea>
                                         </div>
                                     </div>
                                 </div>
