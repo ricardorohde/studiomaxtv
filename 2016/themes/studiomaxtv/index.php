@@ -1,4 +1,5 @@
 <?php
+$View = new View;
 $ReadMain = new Read;
 $banners = $ReadMain;
 $banners->ExeRead("banners", "WHERE tipo = :idtipo AND data_inicial <= CURRENT_DATE() AND data_final >= CURRENT_DATE() ORDER BY RAND()", "idtipo=1");
@@ -45,60 +46,90 @@ endif;
         <div class="wrapper-category">
             <div class="vin vin-green">
                 <span class="vin-title">Últimos</span>
-                <span class="vin-btn btn-green">VER MAIS</span>
+                <a href="<?= HOME.'/categoria/ultimos';?>" title="Últimos" class="vin-btn btn-green">VER MAIS</a>
             </div>
             <div class="video-group">
-                <?php for ($v = 1; $v <= 5; $v++): ?>
-                    <div class="video-box">
-                        <div class="video-thumb"><img src="https://placeimg.com/640/380/arch" alt="Video EXE"></div>
-                        <div class="video-title">Titulo do video aparecerá aqui para visualização</div>
-                    </div>
-                <?php endfor; ?>
+                <?php
+                $lastVideos = $ReadMain;
+                $lastVideos->ExeRead('videos', "WHERE titulo != :tit ORDER BY data DESC LIMIT :limit", "tit=''&limit=5");
+                if ($lastVideos->getResult()):
+                    $tpl_lastVideos = $View->Load('videos');
+
+                    foreach ($lastVideos->getResult() as $last):
+                        $last['titulo'] = Check::Words($last['titulo'], 7);
+                        $View->Show($last, $tpl_lastVideos);
+                    endforeach;
+                else:
+                    WSErro("<span class='fa fa-exclamation-triangle'></span> Desculpe, ainda estamos cadastrando videos para esta categoria.. :)", WS_ALERT);
+                endif;
+                ?>
             </div>
         </div>
 
         <div class="wrapper-category">
             <div class="vin vin-blue">
                 <span class="vin-title">Política</span>
-                <span class="vin-btn btn-blue">VER MAIS</span>
+                <a href="<?= HOME.'/categoria/politica';?>" title="Política" class="vin-btn btn-blue">VER MAIS</a>
             </div>
             <div class="video-group">
-                <?php for ($v = 1; $v <= 5; $v++): ?>
-                    <div class="video-box">
-                        <div class="video-thumb"><img src="https://placeimg.com/640/380/people" alt="Video EXE"></div>
-                        <div class="video-title">Titulo do video aparecerá aqui para visualização</div>
-                    </div>
-                <?php endfor; ?>
+                <?php
+                $Videos = $ReadMain;
+                $Videos->ExeRead('videos', "WHERE titulo != :tit AND categoria = :cat ORDER BY data DESC LIMIT :limit", "tit=''&cat=politica&limit=5");
+                if ($Videos->getResult()):
+                    $tpl_videos = $View->Load('videos');
+
+                    foreach ($Videos->getResult() as $v):
+                        $v['titulo'] = Check::Words($v['titulo'], 7);
+                        $View->Show($v, $tpl_videos);
+                    endforeach;
+                else:
+                    WSErro("<span class='fa fa-exclamation-triangle'></span> Desculpe, ainda estamos cadastrando videos para esta categoria.. :)", WS_ALERT);
+                endif;
+                ?>
             </div>
         </div>
 
         <div class="wrapper-category">
             <div class="vin vin-red">
                 <span class="vin-title">Policía</span>
-                <span class="vin-btn btn-red">VER MAIS</span>
+                <a href="<?= HOME.'/categoria/policia';?>" title="Policía" class="vin-btn btn-red">VER MAIS</a>
             </div>
             <div class="video-group">
-                <?php for ($v = 1; $v <= 5; $v++): ?>
-                    <div class="video-box">
-                        <div class="video-thumb"><img src="https://placeimg.com/640/380/nature" alt="Video EXE"></div>
-                        <div class="video-title">Titulo do video aparecerá aqui para visualização</div>
-                    </div>
-                <?php endfor; ?>
+               <?php
+                $Videos->setPlaces("tit=''&cat=policia&limit=5");                
+                if ($Videos->getResult()):
+                    $tpl_videos = $View->Load('videos');
+
+                    foreach ($Videos->getResult() as $v):
+                        $v['titulo'] = Check::Words($v['titulo'], 7);
+                        $View->Show($v, $tpl_videos);
+                    endforeach;
+                else:
+                    WSErro("<span class='fa fa-exclamation-triangle'></span> Desculpe, ainda estamos cadastrando videos para esta categoria.. :)", WS_ALERT);
+                endif;
+                ?>
             </div>
         </div>
 
         <div class="wrapper-category">
             <div class="vin vin-orange">
                 <span class="vin-title">Saúde</span>
-                <span class="vin-btn btn-orange">VER MAIS</span>
+                <a href="<?= HOME.'/categoria/saude';?>" title="Saúde" class="vin-btn btn-orange">VER MAIS</a>
             </div>
             <div class="video-group">
-                <?php for ($v = 1; $v <= 5; $v++): ?>
-                    <div class="video-box">
-                        <div class="video-thumb"><img src="https://placeimg.com/640/380/tech" alt="Video EXE"></div>
-                        <div class="video-title">Titulo do video aparecerá aqui para visualização</div>
-                    </div>
-                <?php endfor; ?>
+                <?php
+                $Videos->setPlaces("tit=''&cat=saude&limit=5");
+                if ($Videos->getResult()):
+                    $tpl_videos = $View->Load('videos');
+
+                    foreach ($Videos->getResult() as $v):
+                        $v['titulo'] = Check::Words($v['titulo'], 7);
+                        $View->Show($v, $tpl_videos);
+                    endforeach;
+                else:
+                    WSErro("<span class='fa fa-exclamation-triangle'></span> Desculpe, ainda estamos cadastrando videos para esta categoria.. :)", WS_ALERT);
+                endif;
+                ?>
             </div>
         </div>
     </section>
