@@ -100,7 +100,15 @@ class Seo {
 
             //SEO:: CATEGORIA
             case 'categoria':
-                $this->Data = [SITENAME . " - Videos", "Nossa galeria de vídeos STÚDIO MAX TV", HOME . '/videos', INCLUDE_PATH . '/images/logo_midia.jpg'];
+                $ReadSeo->ExeRead("videos_categoria", "WHERE url_name = :link", "link={$this->Link}");
+                if (!$ReadSeo->getResult()):
+                    $this->seoData = null;
+                    $this->seoTags = null;
+                else:
+                    extract($ReadSeo->getResult()[0]);
+                    $this->seoData = $ReadSeo->getResult()[0];
+                    $this->Data = [$categoria . ' - ' . SITENAME,  "Nossa galeria de vídeos para a categoria: {$categoria} - STÚDIO MAX TV", HOME . "/categoria/{$categoria}", INCLUDE_PATH . '/images/logo_midia.jpg'];
+                endif;
                 break;
 
             //SEO:: SOBRE NOS

@@ -33,20 +33,12 @@ endif;
             <div class="player-desc">Descrição sobre o video em execução, trazendo informações sobre o que o usário irá assistir.</div>
         </div>
     </section>
-    <section class="wrapper-busca">
-        <div class="busca-tit">Buscar</div>
-        <div class="busca-form">
-            <form action="">
-                <input type="text" name="s" class="busca-input" placeholder="Digite o que deseja buscar. Ex. Tribuna Livre...">
-                <button type="submit" name="searchSubmit" class="busca-btn"><span class="fa fa-search fa-2x"></span> Buscar</button>
-            </form>
-        </div>
-    </section>
+    <?php require(REQUIRE_PATH . '/inc/busca.inc.php'); ?>
     <section class="wrapper-videos">
         <div class="wrapper-category">
             <div class="vin vin-green">
                 <span class="vin-title">Últimos</span>
-                <a href="<?= HOME.'/categoria/ultimos';?>" title="Últimos" class="vin-btn btn-green">VER MAIS</a>
+                <a href="<?= HOME . '/categoria/ultimos'; ?>" title="Últimos" class="vin-btn btn-green">VER MAIS</a>
             </div>
             <div class="video-group">
                 <?php
@@ -69,7 +61,7 @@ endif;
         <div class="wrapper-category">
             <div class="vin vin-blue">
                 <span class="vin-title">Política</span>
-                <a href="<?= HOME.'/categoria/politica';?>" title="Política" class="vin-btn btn-blue">VER MAIS</a>
+                <a href="<?= HOME . '/categoria/politica'; ?>" title="Política" class="vin-btn btn-blue">VER MAIS</a>
             </div>
             <div class="video-group">
                 <?php
@@ -92,11 +84,11 @@ endif;
         <div class="wrapper-category">
             <div class="vin vin-red">
                 <span class="vin-title">Policía</span>
-                <a href="<?= HOME.'/categoria/policia';?>" title="Policía" class="vin-btn btn-red">VER MAIS</a>
+                <a href="<?= HOME . '/categoria/policia'; ?>" title="Policía" class="vin-btn btn-red">VER MAIS</a>
             </div>
             <div class="video-group">
-               <?php
-                $Videos->setPlaces("tit=''&cat=policia&limit=5");                
+                <?php
+                $Videos->setPlaces("tit=''&cat=policia&limit=5");
                 if ($Videos->getResult()):
                     $tpl_videos = $View->Load('videos');
 
@@ -114,7 +106,7 @@ endif;
         <div class="wrapper-category">
             <div class="vin vin-orange">
                 <span class="vin-title">Saúde</span>
-                <a href="<?= HOME.'/categoria/saude';?>" title="Saúde" class="vin-btn btn-orange">VER MAIS</a>
+                <a href="<?= HOME . '/categoria/saude'; ?>" title="Saúde" class="vin-btn btn-orange">VER MAIS</a>
             </div>
             <div class="video-group">
                 <?php

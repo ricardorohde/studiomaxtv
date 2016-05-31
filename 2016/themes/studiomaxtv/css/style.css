@@ -14,25 +14,40 @@ body{ background-color: #F1F1F1; }
 .main-rds .fa-youtube-square{ color: #BD1E00;}
 /*Vinhetas*/
 .vin{ width: 100%; border-left: 4px solid #FFF; float: left;}
-.vin-title{ width: 10%; font-size: 1.2em; font-weight: 500; padding: 8px 0 0 10px; float: left;}
+.vin-title{ width: 15%; font-size: 1.2em; font-weight: 500; padding: 8px 0 0 10px; float: left;}
+.vin-search{width: 100%;}
 .vin-green{ border-color: #00B22D;}
-.vin-red{border-color: #FF4D4D;}
+.vin-green2{ border-color: #00cc66;}
+.vin-red{border-color: #ff9999;}
+.vin-red2{border-color: #ff6666;}
 .vin-blue{border-color: #99B3FF;}
+.vin-blue2{border-color: #576d7e;}
 .vin-orange{border-color: #FF9673;}
 .vin-purple{border-color: #79698C;}
-.vin-gray{border-color: #666666;}
+.vin-purple2{border-color: #cc99ff;}
+.vin-gray{border-color: #999999;}
 /*Btns*/
 .vin-btn{ padding: 10px; font-size: 0.75em; float: left;}
 .btn-green{ color: #FFF; background: #00B22D;}
 .btn-green:hover{ background: #009933; cursor: pointer;}
-.btn-red{ color: #FFF; background: #FF4D4D;}
+.btn-green2{ color: #FFF; background: #00cc66;}
+.btn-green2:hover{ background: #009900; cursor: pointer;}
+.btn-red{ color: #FFF; background: #ff9999;}
 .btn-red:hover{ background: #ff3333; cursor: pointer;}
+.btn-red2{ color: #FFF; background: #ff6666;}
+.btn-red2:hover{ background: #990000; cursor: pointer;}
 .btn-blue{ color: #FFF; background: #99B3FF;}
 .btn-blue:hover{ background: #3366ff; cursor: pointer;}
+.btn-blue2{ color: #FFF; background: #576d7e;}
+.btn-blue2:hover{ background: #017ebc; cursor: pointer;}
 .btn-orange{ color: #FFF; background: #FF9673;}
 .btn-orange:hover{ background: #ff9933; cursor: pointer;}
 .btn-purple{ color: #FFF; background: #79698C;}
 .btn-purple:hover{ background: #660066; cursor: pointer;}
+.btn-purple2{ color: #FFF; background: #cc99ff;}
+.btn-purple2:hover{ background: #9933ff; cursor: pointer;}
+.btn-gray{ color: #FFF; background: #999999;}
+.btn-gray:hover{ background: #333333; cursor: pointer;}
 /*txt*/
 .txt-categories{ color: #0096BD;}
 .txt-categories:hover{ color: #FF6600;}
@@ -88,7 +103,7 @@ body{ background-color: #F1F1F1; }
 .video-box{ width: 19.2%; float: left; margin-right: 1%;}
 .video-box:last-child{ margin-right: 0;}
 .video-thumb{ width: 100%; min-height: 128px; float: left; background: url(../images/ico-play.png) center center no-repeat #CCC;}
-.video-title{ width: 100%; padding-top: 3px; font-size: 0.875em; float: left;}
+.video-title{ width: 100%; padding-top: 3px; font-size: 0.875em; float: left; color: #333;}
 .wrapper-newsletter{ width: 100%; padding: 10px 5px; margin: 10px 0; float: left; background: #FFF;}
 .newsletter-form{ width: 100%; float: left;}
 .newsletter-input{ width: 40%; float: left; margin: 10px 1% 0 0;}

@@ -17,15 +17,7 @@
             ?>
         </ul>
     </section>
-    <section class="wrapper-busca">
-        <div class="busca-tit">Buscar</div>
-        <div class="busca-form">
-            <form action="">
-                <input type="text" name="s" class="busca-input" placeholder="Digite o que deseja buscar. Ex. Tribuna Livre...">
-                <button type="submit" name="searchSubmit" class="busca-btn"><span class="fa fa-search fa-2x"></span> Buscar</button>
-            </form>
-        </div>
-    </section>
+    <?php require(REQUIRE_PATH . '/inc/busca.inc.php'); ?>
     <section class="wrapper-videos">
         <div class="wrapper-category">
             <div class="vin vin-green">
@@ -49,72 +41,36 @@
                 ?>
             </div>
         </div>
-
-        <div class="wrapper-category">
-            <div class="vin vin-blue">
-                <span class="vin-title">Política</span>
-                <a href="#" class="vin-btn btn-blue">VER MAIS</a>
-            </div>
-            <div class="video-group">
+        <?php
+        $Categories = new Read;
+        $Categories->ExeRead('videos_categoria', "ORDER BY categoria ASC");
+        if ($Categories->getResult()):
+            foreach ($Categories->getResult() as $Cats):
+                ?>
+                <div class="wrapper-category">
+                    <div class="vin vin-<?= $Cats['color']; ?>">
+                        <span class="vin-title"><?= $Cats['categoria']; ?></span>
+                        <a href="<?= HOME . '/categoria/' . $Cats['url_name']; ?>" class="vin-btn btn-<?= $Cats['color']; ?>">VER MAIS</a>
+                    </div>
+                    <div class="video-group">
+                        <?php
+                        $Videos = $ReadVideo;
+                        $Videos->ExeRead('videos', "WHERE titulo != :tit AND categoria = :cat ORDER BY data DESC LIMIT :limit", "tit=''&cat={$Cats['url_name']}&limit=5");
+                        if ($Videos->getResult()):
+                            $tpl_videos = $View->Load('videos');
+                            foreach ($Videos->getResult() as $v):
+                                $v['titulo'] = Check::Words($v['titulo'], 7);
+                                $View->Show($v, $tpl_videos);
+                            endforeach;
+                        else:
+                            WSErro("<span class='fa fa-exclamation-triangle'></span> Desculpe, ainda estamos cadastrando videos para esta categoria.. :)", WS_ALERT);
+                        endif;
+                        ?>
+                    </div>
+                </div>
                 <?php
-                $Videos = $ReadVideo;
-                $Videos->ExeRead('videos', "WHERE titulo != :tit AND categoria = :cat ORDER BY data DESC LIMIT :limit", "tit=''&cat=politica&limit=5");
-                if ($Videos->getResult()):
-                    $tpl_videos = $View->Load('videos');
-
-                    foreach ($Videos->getResult() as $v):
-                        $v['titulo'] = Check::Words($v['titulo'], 7);
-                        $View->Show($v, $tpl_videos);
-                    endforeach;
-                else:
-                    WSErro("<span class='fa fa-exclamation-triangle'></span> Desculpe, ainda estamos cadastrando videos para esta categoria.. :)", WS_ALERT);
-                endif;
-                ?>
-            </div>
-        </div>
-
-        <div class="wrapper-category">
-            <div class="vin vin-red">
-                <span class="vin-title">Policía</span>
-                <a href="#" class="vin-btn btn-red">VER MAIS</a>
-            </div>
-            <div class="video-group">
-               <?php
-                $Videos->setPlaces("tit=''&cat=policia&limit=5");                
-                if ($Videos->getResult()):
-                    $tpl_videos = $View->Load('videos');
-
-                    foreach ($Videos->getResult() as $v):
-                        $v['titulo'] = Check::Words($v['titulo'], 7);
-                        $View->Show($v, $tpl_videos);
-                    endforeach;
-                else:
-                    WSErro("<span class='fa fa-exclamation-triangle'></span> Desculpe, ainda estamos cadastrando videos para esta categoria.. :)", WS_ALERT);
-                endif;
-                ?>
-            </div>
-        </div>
-
-        <div class="wrapper-category">
-            <div class="vin vin-orange">
-                <span class="vin-title">Saúde</span>
-                <a href="#" class="vin-btn btn-orange">VER MAIS</a>
-            </div>
-            <div class="video-group">
-                <?php
-                $Videos->setPlaces("tit=''&cat=saude&limit=5");
-                if ($Videos->getResult()):
-                    $tpl_videos = $View->Load('videos');
-
-                    foreach ($Videos->getResult() as $v):
-                        $v['titulo'] = Check::Words($v['titulo'], 7);
-                        $View->Show($v, $tpl_videos);
-                    endforeach;
-                else:
-                    WSErro("<span class='fa fa-exclamation-triangle'></span> Desculpe, ainda estamos cadastrando videos para esta categoria.. :)", WS_ALERT);
-                endif;
-                ?>
-            </div>
-        </div>
+            endforeach;
+        endif;
+        ?>
     </section>
 </div>
