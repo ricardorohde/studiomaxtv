@@ -11,22 +11,7 @@ endif;
         <div class="vin vin-gray">
             <span class="vin-title">Filtrar</span>
         </div>
-        <ul>
-            <?php
-            $getPage = (!empty($Link->getLocal()[2]) ? $Link->getLocal()[2] : 1);
-            $Pager = new Pager(HOME . '/categoria/' . $categoria . '/');
-            $Pager->ExePager($getPage, 25);
-
-            $ReadVideo = new Read;
-            $Categories = $ReadVideo;
-            $Categories->ExeRead('videos_categoria', "WHERE categoria != :cat AND url_name != :url ORDER BY categoria ASC", "cat=''&url=''");
-            if ($Categories->getResult()):
-                foreach ($Categories->getResult() as $Cat):
-                    echo '<li><a href="' . HOME . '/categoria/' . $Cat['url_name'] . '" class="txt-categories">' . mb_strtoupper($Cat['categoria'], 'UTF-8') . '</a></li>';
-                endforeach;
-            endif;
-            ?>
-        </ul>
+        <?php require(REQUIRE_PATH . '/inc/filtro-categoria.inc.php'); ?>
     </section>
     <?php require(REQUIRE_PATH . '/inc/busca.inc.php'); ?>
     <div class="wrapper-category">

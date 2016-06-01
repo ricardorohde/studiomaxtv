@@ -30,7 +30,7 @@ $allowedSites = array(
     'wordpress.com',
     'img.youtube.com',
     'upload.wikimedia.org',
-    'harves.net',
+    'harves.net',    
 );
 
 // STOP MODIFYING HERE!

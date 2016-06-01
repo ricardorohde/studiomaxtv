@@ -7,19 +7,7 @@ $count = ($Link->getData()['count'] ? $Link->getData()['count'] : '0');
         <div class="vin vin-gray">
             <span class="vin-title">Filtrar</span>
         </div>
-        <ul>
-            <?php
-            $View = new View;
-            $ReadVideo = new Read;
-            $Categories = $ReadVideo;
-            $Categories->ExeRead('videos_categoria', "WHERE categoria != :cat AND url_name != :url ORDER BY categoria ASC", "cat=''&url=''");
-            if ($Categories->getResult()):
-                foreach ($Categories->getResult() as $Cat):
-                    echo '<li><a href="' . HOME . '/categoria/' . $Cat['url_name'] . '" class="txt-categories">' . mb_strtoupper($Cat['categoria'], 'UTF-8') . '</a></li>';
-                endforeach;
-            endif;
-            ?>
-        </ul>
+        <?php require(REQUIRE_PATH . '/inc/filtro-categoria.inc.php'); ?>
     </section>
     <?php require(REQUIRE_PATH . '/inc/busca.inc.php'); ?>
     <div class="wrapper-category">

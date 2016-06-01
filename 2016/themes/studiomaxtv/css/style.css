@@ -51,6 +51,7 @@ body{ background-color: #F1F1F1; }
 /*txt*/
 .txt-categories{ color: #0096BD;}
 .txt-categories:hover{ color: #FF6600;}
+.txt-categories.active{ color: #FF6600;}
 .text-center{ text-align: center;}
 /*Alerts*/
 .alert { padding: 15px; margin-bottom: 10px; border: 1px solid transparent; border-radius: 4px;}
@@ -158,7 +159,7 @@ body{ background-color: #F1F1F1; }
 }
 
 @media (max-width: 770px){
-    .vin-title{ width: 20%;}
+    .vin-title{ width: 30%;}
     .player-box{ width: 100%;}
     .player-dados{ width: 100%;}
     .wrapper-busca{ padding: 2% 2% 5% 2%;}
@@ -174,6 +175,8 @@ body{ background-color: #F1F1F1; }
 }
 
 @media (max-width: 540px){
+    .vin-title{ width: 75%;}  
+    .vin-btn{ float: right;}
     .main-header-menu ul{ width: 72%;}
     .busca-input{ width: 70%;}
     .busca-btn{ width: 30%;}
@@ -181,13 +184,14 @@ body{ background-color: #F1F1F1; }
     .video-box:nth-child(2){ margin-right: 0;}
     .video-box:nth-child(3){ display: none;}
     .newsletter-btn{ width: 40%; float: right;}
+    .sobre-img{ width: 100%; text-align: center; float: left;}
+    .sobre-txt{ width: 100%; margin-left: 0; font-size: 1.2em; float: left;}
 }
 
 @media (max-width: 430px){
     .main-header-menu ul{ width: 90%;}
     .main-header-logo{width: 100%; float: right; position: relative; z-index: 12;}
     .main-header .main-rds{ display: none;}
-    .vin-title{ width: 30%;}
     .video-box{ width: 100%; margin-right: 0;}    
     .video-box:nth-child(2){ display: none;}
     .newsletter-input label{ width: 30%;}
