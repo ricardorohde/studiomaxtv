@@ -193,7 +193,7 @@ class Check {
 
     /**
      * <b>ytVideo:</b> este HELPER serve para exibir a ID do video do YOUTUBE.
-     * @return HTML = imagem redimencionada!
+     * @return STRING = ID do video do youtube!
      */
     public static function ytVideo($video) {
         self::$Data = $video;

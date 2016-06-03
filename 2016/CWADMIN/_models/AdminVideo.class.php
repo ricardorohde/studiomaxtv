@@ -24,7 +24,16 @@ class AdminVideo {
     public function ExeCreate(array $Data) {
         $this->Data = $Data;
         $this->checkData();
-        if ($this->getResult()):
+        $this->setData();
+        if ($this->Data['foto']):
+            $upload = new Upload;
+            $upload->Image($this->Data['foto'], $this->Data['titulo'], 1024, 'videos');
+        endif;
+        if (isset($upload) && $upload->getResult()):
+            $this->Data['foto'] = $upload->getResult();
+            $this->Create();
+        else:
+            $this->Data['foto'] = "https://i.ytimg.com/vi/{$this->Data['link']}/mqdefault.jpg";
             $this->Create();
         endif;
     }
@@ -39,7 +48,16 @@ class AdminVideo {
         $this->Id = (int) $VideoId;
         $this->Data = $Data;
         $this->checkData();
-        if ($this->getResult()):
+        $this->setData();
+        if ($this->Data['foto']):
+            $upload = new Upload;
+            $upload->Image($this->Data['foto'], $this->Data['titulo'], 1024, 'videos');
+        endif;
+        if (isset($upload) && $upload->getResult()):
+            $this->Data['foto'] = $upload->getResult();
+            $this->Update();
+        else:
+            $this->Data['foto'] = "https://i.ytimg.com/vi/{$this->Data['link']}/mqdefault.jpg";
             $this->Update();
         endif;
     }
@@ -100,21 +118,12 @@ class AdminVideo {
     private function setData() {
         $this->Data['data'] = Check::Data($this->Data['data']);
         $this->Data['url_name'] = Check::Name($this->Data['titulo']);
-        $this->trataVideo();
-    }
-
-    //Pega dados do video no youtube
-    private function trataVideo() {
-        $videoId = array();
-        preg_match('/(v=)([^&]+)/', $this->Data['url'], $videoId);
-        $this->Data['link'] = $videoId[2];
-        $this->Data['foto'] = "http://i1.ytimg.com/vi/{$videoId[2]}/hqdefault.jpg";
+        $this->Data['link'] = Check::ytVideo($this->Data['url']);
     }
 
     //Cadastra Video
     private function Create() {
         $Create = new Create;
-        $this->setData();
         $this->Data['qm_cadastr'] = $_SESSION['userlogin']['id'];
 
         $Create->ExeCreate(self::Entity, $this->Data);
@@ -127,7 +136,6 @@ class AdminVideo {
     //Atualiza Video
     private function Update() {
         $Update = new Update;
-        $this->setData();
         $this->Data['qm_alterou'] = $_SESSION['userlogin']['id'];
 
         $Update->ExeUpdate(self::Entity, $this->Data, "WHERE id = :id", "id={$this->Id}");

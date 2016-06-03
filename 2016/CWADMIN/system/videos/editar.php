@@ -16,6 +16,7 @@
             $dados = filter_input_array(INPUT_POST, FILTER_DEFAULT);
             $idEdit = filter_input(INPUT_GET, 'id', FILTER_VALIDATE_INT);
             if (isset($dados) && $dados['SendPostForm']):
+                $dados['foto'] = ($_FILES['foto']['tmp_name'] ? $_FILES['foto'] : null);
                 unset($dados['SendPostForm']);
 
                 require('_models/AdminVideo.class.php');
@@ -38,7 +39,7 @@
                 endif;
             endif;
             ?>
-            <form role="form" name="UserCreateForm" action="" method="post" enctype="multipart/form-data">
+            <form role="form" name="CreateForm" action="" method="post" enctype="multipart/form-data">
                 <div class="box box-primary">
                     <div class="box-header"><h3 class="box-title">Dados do Video</h3></div>
                     <div class="box-body">
@@ -126,8 +127,10 @@
                                 <div class="form-group">
                                     <div class="row">
                                         <div class="col-md-12">
-                                            <label>Imagem do Video</label>
+                                            <label>Capa do Video</label>
                                             <div class="help-image"><img src="<?= $dados['foto']; ?>" class="img-thumbnail img-responsive"></div>
+                                            <input type="file" name="foto" class="form-control" id="foto">
+                                            <p class="help-block">Selecione a foto capa do video.</p>
                                         </div>
                                     </div>
                                 </div>

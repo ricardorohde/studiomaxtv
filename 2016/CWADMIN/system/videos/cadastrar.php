@@ -15,6 +15,7 @@
             <?php
             $dados = filter_input_array(INPUT_POST, FILTER_DEFAULT);
             if (isset($dados) && $dados['SendPostForm']):
+                $dados['foto'] = ($_FILES['foto']['tmp_name'] ? $_FILES['foto'] : null);
                 unset($dados['SendPostForm']);
 
                 require('_models/AdminVideo.class.php');
@@ -24,12 +25,11 @@
                 if (!$cadastra->getResult()):
                     WSErro($cadastra->getError()[0], $cadastra->getError()[1]);
                 else:
-                    #WSErro($cadastra->getError()[0], $cadastra->getError()[1]);
                     header("Location: painel.php?exe=videos/listar&acao=cadastrar&id={$cadastra->getResult()}");
                 endif;
             endif;
             ?>
-            <form role="form" name="UserCreateForm" action="" method="post" enctype="multipart/form-data">
+            <form role="form" name="CreateForm" action="" method="post" enctype="multipart/form-data">
                 <div class="box box-primary">
                     <div class="box-header"><h3 class="box-title">Dados do Video</h3></div>
                     <div class="box-body">
@@ -109,6 +109,17 @@
                                         <div class="col-md-12">
                                             <label for="autor">Autor</label>
                                             <input type="text" name="autor" class="form-control" id="autor" value="<?= isset($dados['autor']) ? $dados['autor'] : ''; ?>" placeholder="Informe o autor do Video">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <label for="foto">Foto Capa</label>
+                                            <input type="file" name="foto" class="form-control" id="foto">
+                                            <p class="help-block">Selecione a foto capa do video.</p>
                                         </div>
                                     </div>
                                 </div>
