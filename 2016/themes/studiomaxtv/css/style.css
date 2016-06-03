@@ -109,8 +109,8 @@ body{ background-color: #F1F1F1; }
 .video-thumb{ width: 100%; min-height: 120px; max-height: 180px; text-align: center; float: left; background: url(../images/ico-play.png) center center no-repeat #CCC;}
 .video-title{ width: 100%; padding-top: 3px; font-size: 0.875em; float: left; color: #333;}
 .wrapper-newsletter{ width: 100%; padding: 10px 5px; margin: 10px 0; float: left; background: #FFF;}
-.newsletter-form{ width: 100%; float: left;}
-.newsletter-input{ width: 40%; float: left; margin: 10px 1% 0 0;}
+.newsletter-form{ width: 100%; margin-top: 10px; float: left;}
+.newsletter-input{ width: 40%; float: left; margin: 0 1% 0 0;}
 .newsletter-input label{ width: 20%; color: #FFF; text-align: center; padding: 10px; float: left; background: #79698C;}
 .newsletter-input input{ width: 80%; font-size: 1em; padding: 9px 10px; border: 1px solid #CCC; margin: 0; float: left;}
 .newsletter-btn{ width: 18%; font-size: 1em; margin-top: 10px; padding: 10px; border: none; float: left;}

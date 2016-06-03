@@ -130,6 +130,12 @@ endif;
             <span class="vin-title">Newsletter</span>
         </div>
         <div class="newsletter-form">
+            <div class="alert alert-success text-center"><span class="fa fa-check-circle"></span> Cadastro realizado com sucesso, acesse seu e-mail e confirme sua assinatura!</div>
+            
+            <div class="alert alert-danger text-center"><span class="fa fa-exclamation-circle"></span> Ocorreu um erro ao tentar efetuar o cadastro!</div>
+
+            <div class="alert alert-danger text-center"><span class="fa fa-exclamation-circle"></span> Não foi possivel efetuar o cadastro! Já existe um cadastro com esse e-mail.</div>
+
             <form action="">
                 <div class="newsletter-input">
                     <label for="news_nome">NOME</label>

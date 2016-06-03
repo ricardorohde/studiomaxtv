@@ -414,7 +414,7 @@ CREATE TABLE IF NOT EXISTS `usuarios` (
 DELETE FROM `usuarios`;
 /*!40000 ALTER TABLE `usuarios` DISABLE KEYS */;
 INSERT INTO `usuarios` (`id`, `url_name`, `nome`, `email`, `data_nasc`, `sexo`, `login`, `senha`, `foto`, `ativo`, `nivel`, `cont_acesso`, `ip`, `ultimo_acesso`, `qm_cadastr`, `dt_cadastr`, `qm_alterou`, `dt_alterou`) VALUES
-	(1, 'creative-websites', 'Creative Websites', 'suporte@creativewebsites.com.br', '2015-02-14', 1, 'creative', '19d910ef608e4947aa0c6dcee352a3e8', 'usuarios/2015/03/creative.jpeg', 's', 1, 56, '::1', '2015-02-13 22:33:25', 1, NULL, 1, '2015-03-25 21:57:12');
+	(1, 'creative-websites', 'Creative Websites', 'suporte@creativewebsites.com.br', '2015-02-14', 1, 'creative', '19d910ef608e4947aa0c6dcee352a3e8', 'usuarios/2015/03/creative.jpeg', 's', 1, 57, '::1', '2015-02-13 22:33:25', 1, NULL, 1, '2015-03-25 21:57:12');
 /*!40000 ALTER TABLE `usuarios` ENABLE KEYS */;
 
 -- Copiando estrutura para tabela _studiomaxtv_2016.videos
@@ -444,14 +444,17 @@ CREATE TABLE IF NOT EXISTS `videos` (
   CONSTRAINT `fk_videos_categoria` FOREIGN KEY (`categoria`) REFERENCES `videos_categoria` (`url_name`),
   CONSTRAINT `fk_videos_qm_alterou` FOREIGN KEY (`qm_alterou`) REFERENCES `usuarios` (`id`),
   CONSTRAINT `fk_videos_qm_cadastr` FOREIGN KEY (`qm_cadastr`) REFERENCES `usuarios` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COMMENT='Armazena informações de cadastro de videos.';
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8 COMMENT='Armazena informações de cadastro de videos.';
 
 -- Copiando dados para a tabela _studiomaxtv_2016.videos: ~2 rows (aproximadamente)
 DELETE FROM `videos`;
 /*!40000 ALTER TABLE `videos` DISABLE KEYS */;
 INSERT INTO `videos` (`id`, `url_name`, `categoria`, `titulo`, `url`, `link`, `destaque`, `autor`, `data`, `foto`, `descricao`, `qm_cadastr`, `dt_cadastr`, `qm_alterou`, `dt_alterou`) VALUES
-	(1, 'essa-mina-e-louca-clipe-oficial', 'policia', 'Essa mina é Louca - Clipe Oficial', 'https://www.youtube.com/watch?v=ghQOd88PM80', 'ghQOd88PM80', 'sim', 'Studio Max TV', '2016-05-27 08:12:47', 'http://i1.ytimg.com/vi/ghQOd88PM80/hqdefault.jpg', '<p>Essa mina &eacute; louca, &eacute; um clipe de uma m&uacute;sica muito tosca.</p>\r\n', 1, '2016-05-27 13:48:23', 1, NULL),
-	(2, 'na-batida-clipe-oficial', 'entretenimento', 'Na Batida (Clipe Oficial)', 'https://www.youtube.com/watch?v=w1vNtmh1SqU', 'w1vNtmh1SqU', 'sim', 'Anitta', '2016-05-28 08:14:48', 'http://i1.ytimg.com/vi/w1vNtmh1SqU/hqdefault.jpg', '<p>N&atilde;o conhce&ccedil;o esse clipe, deve ser diferente.</p>\r\n', 1, '2016-05-28 08:14:48', NULL, NULL);
+	(1, 'essa-mina-e-louca-clipe-oficial', 'policia', 'Essa mina é Louca - Clipe Oficial', 'https://www.youtube.com/watch?v=ghQOd88PM80', 'ghQOd88PM80', 'sim', 'Studio Max TV', '2016-05-27 08:12:47', 'http://i.ytimg.com/vi/ghQOd88PM80/mqdefault.jpg', '<p>Essa mina &eacute; louca, &eacute; um clipe de uma m&uacute;sica muito tosca.</p>\r\n', 1, '2016-05-27 13:48:23', 1, NULL),
+	(2, 'na-batida-clipe-oficial', 'entretenimento', 'Na Batida (Clipe Oficial)', 'https://www.youtube.com/watch?v=w1vNtmh1SqU', 'w1vNtmh1SqU', 'sim', 'Anitta', '2016-05-28 08:14:48', 'http://i.ytimg.com/vi/w1vNtmh1SqU/mqdefault.jpg', '<p>N&atilde;o conhce&ccedil;o esse clipe, deve ser diferente.</p>\r\n', 1, '2016-05-28 08:14:48', NULL, NULL),
+	(3, 'historia-de-superacao-de-daniel-neumann-parte-01', 'saude', 'História de superação de Daniel Neumann Parte 01', 'https://www.youtube.com/watch?v=CxyYwzdRl18', 'CxyYwzdRl18', 'sim', 'Studio Max TV', '2016-06-03 13:28:40', 'http://i.ytimg.com/vi/CxyYwzdRl18/mqdefault.jpg', '<p>Conhe&ccedil;a a hist&oacute;rio de supera&ccedil;&atilde;o de Daniel&nbsp;</p>\r\n', 1, '2016-06-03 13:28:40', NULL, NULL),
+	(12, 'historia-de-superacao-de-daniel-neumann-parte-01', 'bronca-livre', 'História de superação de Daniel Neumann Parte 01', 'https://www.youtube.com/watch?v=CxyYwzdRl18', 'CxyYwzdRl18', 'sim', 'Studio Max TV', '2016-06-03 14:16:13', 'https://i.ytimg.com/vi/CxyYwzdRl18/mqdefault.jpg', '<p>Teste</p>\r\n', 1, '2016-06-03 13:46:27', 1, NULL),
+	(13, 'rotary-clube-lanca-campanha-vote-certo-em-rolim-de-moura', 'saude', 'Rotary Clube lança campanha Vote Certo em Rolim de Moura', 'https://www.youtube.com/watch?v=oGt1MavqMYA', 'oGt1MavqMYA', 'sim', 'Studio Max TV', '2016-06-03 14:11:03', 'https://i.ytimg.com/vi/oGt1MavqMYA/mqdefault.jpg', '<p>teste de video 2</p>\r\n', 1, '2016-06-03 14:11:03', NULL, NULL);
 /*!40000 ALTER TABLE `videos` ENABLE KEYS */;
 
 -- Copiando estrutura para tabela _studiomaxtv_2016.videos_categoria
@@ -491,9 +494,9 @@ CREATE TABLE IF NOT EXISTS `ws_siteviews` (
   `siteviews_pages` decimal(10,0) NOT NULL,
   PRIMARY KEY (`siteviews_id`),
   KEY `idx_1` (`siteviews_date`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
 
--- Copiando dados para a tabela _studiomaxtv_2016.ws_siteviews: ~3 rows (aproximadamente)
+-- Copiando dados para a tabela _studiomaxtv_2016.ws_siteviews: ~2 rows (aproximadamente)
 DELETE FROM `ws_siteviews`;
 /*!40000 ALTER TABLE `ws_siteviews` DISABLE KEYS */;
 INSERT INTO `ws_siteviews` (`siteviews_id`, `siteviews_date`, `siteviews_users`, `siteviews_views`, `siteviews_pages`) VALUES
@@ -501,7 +504,9 @@ INSERT INTO `ws_siteviews` (`siteviews_id`, `siteviews_date`, `siteviews_users`,
 	(2, '2016-05-26', 1, 1, 11),
 	(3, '2016-05-27', 1, 1, 3),
 	(4, '2016-05-28', 1, 1, 30),
-	(5, '2016-05-31', 1, 1, 173);
+	(5, '2016-05-31', 1, 1, 173),
+	(6, '2016-06-01', 1, 1, 145),
+	(7, '2016-06-02', 1, 1, 1);
 /*!40000 ALTER TABLE `ws_siteviews` ENABLE KEYS */;
 
 -- Copiando estrutura para tabela _studiomaxtv_2016.ws_siteviews_agent
@@ -518,7 +523,7 @@ CREATE TABLE IF NOT EXISTS `ws_siteviews_agent` (
 DELETE FROM `ws_siteviews_agent`;
 /*!40000 ALTER TABLE `ws_siteviews_agent` DISABLE KEYS */;
 INSERT INTO `ws_siteviews_agent` (`agent_id`, `agent_name`, `agent_views`) VALUES
-	(1, 'Chrome', 4),
+	(1, 'Chrome', 6),
 	(2, 'IE', 1);
 /*!40000 ALTER TABLE `ws_siteviews_agent` ENABLE KEYS */;
 
@@ -534,13 +539,13 @@ CREATE TABLE IF NOT EXISTS `ws_siteviews_online` (
   `online_agent` varchar(255) CHARACTER SET latin1 NOT NULL,
   `agent_name` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`online_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8;
 
 -- Copiando dados para a tabela _studiomaxtv_2016.ws_siteviews_online: ~1 rows (aproximadamente)
 DELETE FROM `ws_siteviews_online`;
 /*!40000 ALTER TABLE `ws_siteviews_online` DISABLE KEYS */;
 INSERT INTO `ws_siteviews_online` (`online_id`, `online_session`, `online_startview`, `online_endview`, `online_ip`, `online_url`, `online_agent`, `agent_name`) VALUES
-	(8, 'i22caiegdlr0j6v72lmahoph27', '2016-05-31 09:03:54', '2016-05-31 17:13:57', '::1', '/servidor/studiomaxtv/2016/', 'Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.110 Safari/537.36', 'Chrome');
+	(11, '1ioqe804m7j7djvtbjijfr1be7', '2016-06-03 08:48:41', '2016-06-03 16:00:52', '::1', '/servidor/studiomaxtv/2016/', 'Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.110 Safari/537.36', 'Chrome');
 /*!40000 ALTER TABLE `ws_siteviews_online` ENABLE KEYS */;
 
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
