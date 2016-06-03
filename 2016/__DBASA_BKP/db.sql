@@ -295,6 +295,20 @@ INSERT INTO `menu_tipo` (`id_menu_tipo`, `tipo`) VALUES
 	(2, 'painel_est_sidebar');
 /*!40000 ALTER TABLE `menu_tipo` ENABLE KEYS */;
 
+-- Copiando estrutura para tabela _studiomaxtv_2016.newsletter_usuario
+DROP TABLE IF EXISTS `newsletter_usuario`;
+CREATE TABLE IF NOT EXISTS `newsletter_usuario` (
+  `id` int(11) NOT NULL,
+  `nome` varchar(50) NOT NULL,
+  `e-mail` varchar(250) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Usuários cadastrados na newsletter';
+
+-- Copiando dados para a tabela _studiomaxtv_2016.newsletter_usuario: ~0 rows (aproximadamente)
+DELETE FROM `newsletter_usuario`;
+/*!40000 ALTER TABLE `newsletter_usuario` DISABLE KEYS */;
+/*!40000 ALTER TABLE `newsletter_usuario` ENABLE KEYS */;
+
 -- Copiando estrutura para tabela _studiomaxtv_2016.noticias
 DROP TABLE IF EXISTS `noticias`;
 CREATE TABLE IF NOT EXISTS `noticias` (
@@ -446,7 +460,7 @@ CREATE TABLE IF NOT EXISTS `videos` (
   CONSTRAINT `fk_videos_qm_cadastr` FOREIGN KEY (`qm_cadastr`) REFERENCES `usuarios` (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8 COMMENT='Armazena informações de cadastro de videos.';
 
--- Copiando dados para a tabela _studiomaxtv_2016.videos: ~2 rows (aproximadamente)
+-- Copiando dados para a tabela _studiomaxtv_2016.videos: ~5 rows (aproximadamente)
 DELETE FROM `videos`;
 /*!40000 ALTER TABLE `videos` DISABLE KEYS */;
 INSERT INTO `videos` (`id`, `url_name`, `categoria`, `titulo`, `url`, `link`, `destaque`, `autor`, `data`, `foto`, `descricao`, `qm_cadastr`, `dt_cadastr`, `qm_alterou`, `dt_alterou`) VALUES
@@ -545,7 +559,7 @@ CREATE TABLE IF NOT EXISTS `ws_siteviews_online` (
 DELETE FROM `ws_siteviews_online`;
 /*!40000 ALTER TABLE `ws_siteviews_online` DISABLE KEYS */;
 INSERT INTO `ws_siteviews_online` (`online_id`, `online_session`, `online_startview`, `online_endview`, `online_ip`, `online_url`, `online_agent`, `agent_name`) VALUES
-	(11, '1ioqe804m7j7djvtbjijfr1be7', '2016-06-03 08:48:41', '2016-06-03 16:00:52', '::1', '/servidor/studiomaxtv/2016/', 'Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.110 Safari/537.36', 'Chrome');
+	(11, '1ioqe804m7j7djvtbjijfr1be7', '2016-06-03 08:48:41', '2016-06-03 16:32:38', '::1', '/servidor/studiomaxtv/2016/', 'Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.110 Safari/537.36', 'Chrome');
 /*!40000 ALTER TABLE `ws_siteviews_online` ENABLE KEYS */;
 
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
