@@ -198,10 +198,18 @@ class Check {
     public static function ytVideo($video) {
         self::$Data = $video;
         $videoId = array();
-        preg_match('/(v=)([^&]+)/', self::$Data, $videoId);
-        self::$Data = $videoId[2];
-        if (!empty(self::$Data)):
-            return self::$Data;
+        if (preg_match("/youtu.be\/[a-z1-9.-_]+/", self::$Data)):
+            preg_match("/youtu.be\/([a-z1-9.-_]+)/", self::$Data, $videoId);
+            if (isset($videoId[1])):
+                self::$Data = $videoId[1];
+                return self::$Data;
+            endif;
+        elseif (preg_match("/youtube.com(.+)v=([^&]+)/", self::$Data)):
+            preg_match("/v=([^&]+)/", self::$Data, $videoId);
+            if (isset($videoId[1])):
+                self::$Data = $videoId[1];
+                return self::$Data;
+            endif;
         else:
             return false;
         endif;

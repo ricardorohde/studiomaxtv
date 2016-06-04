@@ -56,37 +56,21 @@ $(function () {
     });
 });
 
-//Desabilita campos 
-$(function checkDestaque() {
-    var cDestaque = "#destaque";
-    var cDestaqueTipo = '#destaque_tipo';
-    var cDataFSlide = '#data_fslide';
-    $(cDestaque).change(function () {
-        if ($(this).val() === 'sim') {
-            $(cDestaqueTipo).removeAttr("disabled");
-            $(cDataFSlide).removeAttr("disabled");
-            $(cDestaqueTipo).change(function () {
-                if ($(cDestaqueTipo).val() === 'slide') {
-                    $(cDataFSlide).removeAttr("disabled");
-                } else {
-                    $(cDataFSlide).attr("disabled", "disabled");
-                }
-            });
-        } else {
-            $(cDestaqueTipo).attr("disabled", "disabled");
-            $(cDataFSlide).attr("disabled", "disabled");
-        }
-    });
-});
-
-$(function checkColunista() {
-    var cColuna = "#coluna";
-    var cColunista = '#colunista';
+//Desabilita campos
+$(function checkTipo() {
+    var cIframe = ".tp-iframe";
+    var cYoutube = ".tp-youtube";
+    var cColuna = "#tipo";
     $(cColuna).change(function () {
-        if ($(this).val() === 'sim') {
-            $(cColunista).removeAttr("disabled");
+        if ($(this).val() === 'tv') {
+            $(cIframe).show();
         } else {
-            $(cColunista).attr("disabled", "disabled");
+            $(cIframe).hide();
+        }
+        if ($(this).val() === 'video') {
+            $(cYoutube).show();
+        } else {
+            $(cYoutube).hide();
         }
     });
 });

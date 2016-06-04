@@ -94,7 +94,7 @@ class Seo {
                 else:
                     $extract = extract($ReadSeo->getResult()[0]);
                     $this->seoData = $ReadSeo->getResult()[0];
-                    $this->Data = ["Video: {$titulo}" . ' - ' . SITENAME, "Exibição do video: {$titulo}", HOME . "/video/{$url_name}", $foto];
+                    $this->Data = ["Video: {$titulo}" . ' - ' . SITENAME, "{$descricao}", HOME . "/video/{$url_name}", $foto];
                 endif;
                 break;
 

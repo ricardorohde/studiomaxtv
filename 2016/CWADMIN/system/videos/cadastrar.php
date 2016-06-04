@@ -58,7 +58,7 @@
                                                         if ($dados['categoria'] == $cat['url_name']):
                                                             echo "selected=\"selected\" ";
                                                         endif;
-                                                        echo "value=\"{$cat['url_name']}\"> &raquo;&raquo; {$cat['categoria']}</option>";
+                                                        echo "value=\"{$cat['url_name']}\">{$cat['categoria']}</option>";
                                                     endforeach;
                                                 endif;
                                                 ?>
@@ -68,13 +68,38 @@
                                 </div>
                                 <div class="form-group">
                                     <div class="row">
+                                        <div class="col-md-4">
+                                            <label for="tipo">Tipo de Vídeo</label>
+                                            <select name="tipo" class="form-control" id="tipo">
+                                                <option value="" <?= ($dados['tipo'] == '') ? ' selected="selected"' : ''; ?>>Selecione...</option>
+                                                <option value="tv" <?= ($dados['tipo'] == 'tv') ? ' selected="selected"' : ''; ?>>Tv</option>
+                                                <option value="video" <?= ($dados['tipo'] == 'video') ? ' selected="selected"' : ''; ?>>Vídeo</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group tp-youtube">
+                                    <div class="row">
                                         <div class="col-md-12">
-                                            <label for="url">Url do Video do YouTube</label>
+                                            <label for="youtube">Url do Video do YouTube</label>
                                             <div class="input-group">
                                                 <div class="input-group-addon">
                                                     <i class="fa fa-youtube-play"></i>
                                                 </div>
-                                                <input type="text" name="url" class="form-control" id="url" value="<?= isset($dados['url']) ? $dados['url'] : ''; ?>" placeholder="Informe a url do video do YouTube">
+                                                <input type="text" name="youtube" class="form-control" id="youtube" value="<?= isset($dados['youtube']) ? $dados['youtube'] : ''; ?>" placeholder="Informe a url do video do YouTube">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group tp-iframe">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <label for="iframe">Url do Iframe da TV</label>
+                                            <div class="input-group">
+                                                <div class="input-group-addon">
+                                                    <i class="fa fa-desktop"></i>
+                                                </div>
+                                                <input type="text" name="iframe" class="form-control" id="iframe" value="<?= isset($dados['iframe']) ? $dados['iframe'] : ''; ?>" placeholder="Informe a url do iframe da TV">
                                             </div>
                                         </div>
                                     </div>
@@ -95,11 +120,23 @@
                                 <div class="form-group">
                                     <div class="row">
                                         <div class="col-md-4">
-                                            <label for="destaque">Em Destaque</label>
-                                            <select name="destaque" class="form-control" id="sexo">
+                                            <label for="destaque">Player Principal</label>
+                                            <select name="destaque" class="form-control" id="destaque">
                                                 <option value="" <?= ($dados['destaque'] == '') ? ' selected="selected"' : ''; ?>>Selecione...</option>
                                                 <option value="sim" <?= ($dados['destaque'] == 'sim') ? ' selected="selected"' : ''; ?>>Sim</option>
                                                 <option value="nao" <?= ($dados['destaque'] == 'nao') ? ' selected="selected"' : ''; ?>>Não</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <label for="transmissao">Tipo de Transmissão</label>
+                                            <select name="transmissao" class="form-control" id="transmissao">
+                                                <option value="" <?= ($dados['transmissao'] == '') ? ' selected="selected"' : ''; ?>>Selecione...</option>
+                                                <option value="ao-vivo" <?= ($dados['transmissao'] == 'ao-vivo') ? ' selected="selected"' : ''; ?>>Ao Vivo</option>
+                                                <option value="gravada" <?= ($dados['transmissao'] == 'gravada') ? ' selected="selected"' : ''; ?>>Gravada</option>
                                             </select>
                                         </div>
                                     </div>

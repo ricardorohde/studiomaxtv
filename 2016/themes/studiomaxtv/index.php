@@ -25,13 +25,26 @@ endif;
 ?>
 <div class="content">
     <section class="wrapper-player">
-        <div class="player-box"><img src="<?= INCLUDE_PATH; ?>/images/EXE_player.jpg" alt="PLAYER"></div>
-        <div class="player-dados">
-            <div class="player-status"> <span class="fa fa-circle live"></span> AO VIVO</div>
-            <div class="player-status"> <span class="fa fa-circle rec"></span> REC</div>
-            <div class="player-tit">TITULO DO VIDEO EM EXECUÇÃO</div>
-            <div class="player-desc">Descrição sobre o video em execução, trazendo informações sobre o que o usário irá assistir.</div>
+        <?php
+        $Player = new Read;
+        $Player->ExeRead("videos", "WHERE destaque = :dest ORDER BY id DESC LIMIT :limit", "dest=sim&limit=1");
+        $regPlayer = $Player->getResult()[0];
+        ?>
+        <div class="player-box">
+            <div class="ratio16">
+                <iframe class="ratio_element" width="100%" src="<?= $regPlayer['tipo'] === 'video' ? 'https://www.youtube.com/embed/' . $regPlayer['link'] . '?rel=0&amp;showinfo=0&autoplay=true' : $regPlayer['iframe'] ?>" frameborder="0" allowfullscreen></iframe>
+            </div>
         </div>
+        <div class="player-dados">
+            <?php if ($regPlayer['transmissao'] === 'ao-vivo'): ?>
+                <div class="player-status"> <span class="fa fa-circle live"></span> AO VIVO</div>
+            <?php else: ?>
+                <div class="player-status"> <span class="fa fa-circle rec"></span> REC</div>
+            <?php endif; ?>
+            <div class="player-tit"><?= $regPlayer['titulo']; ?></div>
+            <div class="player-desc"><?= $regPlayer['descricao']; ?></div>
+        </div>
+
     </section>
     <?php require(REQUIRE_PATH . '/inc/busca.inc.php'); ?>
     <section class="wrapper-videos">
@@ -43,12 +56,15 @@ endif;
             <div class="video-group">
                 <?php
                 $lastVideos = $ReadMain;
-                $lastVideos->ExeRead('videos', "WHERE titulo != :tit ORDER BY data DESC LIMIT :limit", "tit=''&limit=5");
+                $lastVideos->ExeRead('videos', "WHERE titulo != :tit AND destaque = :dest ORDER BY id DESC LIMIT :limit", "tit=''&dest=nao&limit=5");
                 if ($lastVideos->getResult()):
                     $tpl_lastVideos = $View->Load('videos');
 
                     foreach ($lastVideos->getResult() as $last):
                         $last['titulo'] = Check::Words($last['titulo'], 7);
+                        if (file_exists('uploads/' . $last['foto'])):
+                            $last['foto'] = HOME . '/uploads/' . $last['foto'];
+                        endif;
                         $View->Show($last, $tpl_lastVideos);
                     endforeach;
                 else:
@@ -66,12 +82,15 @@ endif;
             <div class="video-group">
                 <?php
                 $Videos = $ReadMain;
-                $Videos->ExeRead('videos', "WHERE titulo != :tit AND categoria = :cat ORDER BY data DESC LIMIT :limit", "tit=''&cat=politica&limit=5");
+                $Videos->ExeRead('videos', "WHERE titulo != :tit AND destaque = :dest AND categoria = :cat ORDER BY id DESC LIMIT :limit", "tit=''&dest=nao&cat=politica&limit=5");
                 if ($Videos->getResult()):
                     $tpl_videos = $View->Load('videos');
 
                     foreach ($Videos->getResult() as $v):
                         $v['titulo'] = Check::Words($v['titulo'], 7);
+                        if (file_exists('uploads/' . $v['foto'])):
+                            $v['foto'] = HOME . '/uploads/' . $v['foto'];
+                        endif;
                         $View->Show($v, $tpl_videos);
                     endforeach;
                 else:
@@ -88,12 +107,15 @@ endif;
             </div>
             <div class="video-group">
                 <?php
-                $Videos->setPlaces("tit=''&cat=policia&limit=5");
+                $Videos->setPlaces("tit=''&dest=nao&cat=policia&limit=5");
                 if ($Videos->getResult()):
                     $tpl_videos = $View->Load('videos');
 
                     foreach ($Videos->getResult() as $v):
                         $v['titulo'] = Check::Words($v['titulo'], 7);
+                        if (file_exists('uploads/' . $v['foto'])):
+                            $v['foto'] = HOME . '/uploads/' . $v['foto'];
+                        endif;
                         $View->Show($v, $tpl_videos);
                     endforeach;
                 else:
@@ -110,12 +132,15 @@ endif;
             </div>
             <div class="video-group">
                 <?php
-                $Videos->setPlaces("tit=''&cat=saude&limit=5");
+                $Videos->setPlaces("tit=''&dest=nao&cat=saude&limit=5");
                 if ($Videos->getResult()):
                     $tpl_videos = $View->Load('videos');
 
                     foreach ($Videos->getResult() as $v):
                         $v['titulo'] = Check::Words($v['titulo'], 7);
+                        if (file_exists('uploads/' . $v['foto'])):
+                            $v['foto'] = HOME . '/uploads/' . $v['foto'];
+                        endif;
                         $View->Show($v, $tpl_videos);
                     endforeach;
                 else:
@@ -131,7 +156,7 @@ endif;
         </div>
         <div class="newsletter-form">
             <div class="alert alert-success text-center"><span class="fa fa-check-circle"></span> Cadastro realizado com sucesso, acesse seu e-mail e confirme sua assinatura!</div>
-            
+
             <div class="alert alert-danger text-center"><span class="fa fa-exclamation-circle"></span> Ocorreu um erro ao tentar efetuar o cadastro!</div>
 
             <div class="alert alert-danger text-center"><span class="fa fa-exclamation-circle"></span> Não foi possivel efetuar o cadastro! Já existe um cadastro com esse e-mail.</div>

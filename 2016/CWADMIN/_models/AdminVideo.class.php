@@ -33,7 +33,11 @@ class AdminVideo {
             $this->Data['foto'] = $upload->getResult();
             $this->Create();
         else:
-            $this->Data['foto'] = "https://i.ytimg.com/vi/{$this->Data['link']}/mqdefault.jpg";
+            if (($this->Data['tipo']) === 'video'):
+                $this->Data['foto'] = "https://i.ytimg.com/vi/{$this->Data['link']}/mqdefault.jpg";
+            else:
+                $this->Data['foto'] = NULL;
+            endif;
             $this->Create();
         endif;
     }
@@ -57,7 +61,11 @@ class AdminVideo {
             $this->Data['foto'] = $upload->getResult();
             $this->Update();
         else:
-            $this->Data['foto'] = "https://i.ytimg.com/vi/{$this->Data['link']}/mqdefault.jpg";
+            if (($this->Data['tipo']) === 'video'):
+                $this->Data['foto'] = "https://i.ytimg.com/vi/{$this->Data['link']}/mqdefault.jpg";
+            else:
+                $this->Data['foto'] = NULL;
+            endif;
             $this->Update();
         endif;
     }
@@ -118,7 +126,13 @@ class AdminVideo {
     private function setData() {
         $this->Data['data'] = Check::Data($this->Data['data']);
         $this->Data['url_name'] = Check::Name($this->Data['titulo']);
-        $this->Data['link'] = Check::ytVideo($this->Data['url']);
+        if (($this->Data['tipo']) === 'video'):
+            $this->Data['link'] = Check::ytVideo($this->Data['youtube']);
+            $this->Data['iframe'] = NULL;
+        else:
+            $this->Data['youtube'] = NULL;
+            $this->Data['link'] = NULL;
+        endif;
     }
 
     //Cadastra Video

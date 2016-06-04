@@ -4068,3 +4068,5 @@ Gradient Background colors
 
 /*=== CUSTOM ===*/
 .help-image{ width: 100%; float: left; margin-bottom: 10px;}
+.tp-youtube{ display: none;}
+.tp-iframe{ display: none;}

@@ -18,7 +18,7 @@ endif;
         <article class="video-content">
             <div class="video-frame">
                 <div class="ratio16">
-                    <iframe class="ratio_element" width="100%" src="https://www.youtube.com/embed/<?= $link; ?>?rel=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>
+                    <iframe class="ratio_element" width="100%" src="<?= $tipo === 'video' ? "https://www.youtube.com/embed/{$link}?rel=0&amp;showinfo=0&autoplay=true" : $iframe; ?>" frameborder="0" allowfullscreen></iframe>
                 </div>
             </div>
             <div class="video-dados">
@@ -45,6 +45,9 @@ endif;
                     $tpl_videos = $View->Load('videos');
                     foreach ($Videos->getResult() as $v):
                         $v['titulo'] = Check::Words($v['titulo'], 7);
+                        if (file_exists('uploads/' . $v['foto'])):
+                            $v['foto'] = HOME . '/uploads/' . $v['foto'];
+                        endif;
                         $View->Show($v, $tpl_videos);
                     endforeach;
                 else:

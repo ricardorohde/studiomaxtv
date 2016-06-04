@@ -15,12 +15,15 @@
             <div class="video-group">
                 <?php
                 $lastVideos = $ReadVideo;
-                $lastVideos->ExeRead('videos', "WHERE titulo != :tit ORDER BY data DESC LIMIT :limit", "tit=''&limit=5");
+                $lastVideos->ExeRead('videos', "WHERE titulo != :tit AND destaque = :dest ORDER BY id DESC LIMIT :limit", "tit=''&dest=nao&limit=5");
                 if ($lastVideos->getResult()):
                     $tpl_lastVideos = $View->Load('videos');
 
                     foreach ($lastVideos->getResult() as $last):
                         $last['titulo'] = Check::Words($last['titulo'], 7);
+                        if (file_exists('uploads/' . $last['foto'])):
+                            $last['foto'] = HOME . '/uploads/' . $last['foto'];
+                        endif;
                         $View->Show($last, $tpl_lastVideos);
                     endforeach;
                 else:
@@ -48,6 +51,9 @@
                             $tpl_videos = $View->Load('videos');
                             foreach ($Videos->getResult() as $v):
                                 $v['titulo'] = Check::Words($v['titulo'], 7);
+                                if (file_exists('uploads/' . $v['foto'])):
+                                    $v['foto'] = HOME . '/uploads/' . $v['foto'];
+                                endif;
                                 $View->Show($v, $tpl_videos);
                             endforeach;
                         else:

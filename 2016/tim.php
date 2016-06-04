@@ -29,6 +29,7 @@ $allowedSites = array(
     'blogger.com',
     'wordpress.com',
     'img.youtube.com',
+    'i.ytimg.com',
     'upload.wikimedia.org',
     'harves.net',    
 );

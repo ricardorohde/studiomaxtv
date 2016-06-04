@@ -26,6 +26,9 @@ endif;
                 $tpl_videos = $View->Load('videos');
                 foreach ($Videos->getResult() as $v):
                     $v['titulo'] = Check::Words($v['titulo'], 7);
+                    if (file_exists('uploads/' . $v['foto'])):
+                        $v['foto'] = HOME . '/uploads/' . $v['foto'];
+                    endif;
                     $View->Show($v, $tpl_videos);
                 endforeach;
             else:

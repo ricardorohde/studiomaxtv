@@ -30,6 +30,9 @@ $count = ($Link->getData()['count'] ? $Link->getData()['count'] : '0');
 
                 foreach ($lastVideos->getResult() as $last):
                     $last['titulo'] = Check::Words($last['titulo'], 7);
+                    if (file_exists('uploads/' . $last['foto'])):
+                        $last['foto'] = HOME . '/uploads/' . $last['foto'];
+                    endif;
                     $View->Show($last, $tpl_lastVideos);
                 endforeach;
             else:

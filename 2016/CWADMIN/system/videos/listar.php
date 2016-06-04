@@ -46,8 +46,10 @@
                             <tr>
                                 <th>Id</th>
                                 <th>Titulo</th>
-                                <th>Cadastrado em</th>
-                                <th>Destaque</th>
+                                <th>Data</th>
+                                <th>Tipo</th>
+                                <th>Transm.</th>
+                                <th>Principal</th>
                                 <th>Ação</th>
                             </tr>
                         </thead>
@@ -63,7 +65,9 @@
                                     <tr>
                                         <td><?= $reg['id']; ?></td>
                                         <td><?= $reg['titulo']; ?></td>
-                                        <td><?= date('d/m/Y H:i:s', strtotime($reg['data'])); ?></td>
+                                        <td><?= date('d/m/Y', strtotime($reg['data'])); ?></td>
+                                        <td><?= mb_strtoupper($reg['tipo'], 'UTF-8'); ?></td>
+                                        <td><?= $reg['transmissao'] === 'ao-vivo' ? 'Ao Vivo' : 'Gravada'; ?></td>
                                         <td><?= $reg['destaque']; ?></td>
                                         <td>
                                             <div class="btn-group">
