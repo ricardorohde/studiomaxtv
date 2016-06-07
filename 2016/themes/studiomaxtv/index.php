@@ -155,13 +155,14 @@ endif;
             <span class="vin-title">Newsletter</span>
         </div>
         <div class="newsletter-form">
-            <div class="alert alert-success text-center"><span class="fa fa-check-circle"></span> Cadastro realizado com sucesso, acesse seu e-mail e confirme sua assinatura!</div>
+            <div class="alert alert-success alert-newsletter"><span class="fa fa-check-circle"></span> Cadastro realizado com sucesso, acesse seu e-mail e confirme sua assinatura!</div>
+            <div class="alert alert-danger alert-newsletter"><span class="fa fa-exclamation-circle"></span> Ocorreu um erro ao tentar efetuar o cadastro!</div>
+            <div class="alert alert-danger alert-newsletter"><span class="fa fa-exclamation-circle"></span> Não foi possivel efetuar o cadastro! Já existe um cadastro com esse e-mail.</div>
+            <form name="newsletter_register" class="j_newssubmit" method="post" action="">
+                <input type="hidden" id="action" name="action" value="create">
 
-            <div class="alert alert-danger text-center"><span class="fa fa-exclamation-circle"></span> Ocorreu um erro ao tentar efetuar o cadastro!</div>
+                <div class="alert j_ico_process"><span class="fa fa-spin fa-refresh "></span> Enviando informações</div>
 
-            <div class="alert alert-danger text-center"><span class="fa fa-exclamation-circle"></span> Não foi possivel efetuar o cadastro! Já existe um cadastro com esse e-mail.</div>
-
-            <form action="">
                 <div class="newsletter-input">
                     <label for="news_nome">NOME</label>
                     <input type="text" id="news_nome" name="nome" placeholder="Digite seu nome">
@@ -170,7 +171,7 @@ endif;
                     <label for="news_email">E-MAIL</label>
                     <input type="text" id="news_email" name="email" placeholder="Digite seu e-mail">
                 </div>
-                <button type="submit" class="newsletter-btn btn-purple"> <span class="fa fa-send"></span> Cadastrar</button>
+                <button type="submit" class="newsletter-btn btn-purple"><span class="fa fa-send"></span> Cadastrar</button>
             </form>
         </div>
     </section>

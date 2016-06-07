@@ -74,6 +74,7 @@ body{ background-color: #F1F1F1; }
 .alert-danger { color: #a94442; background-color: #f2dede; border-color: #ebccd1;}
 .alert-danger hr { border-top-color: #e4b9c0;}
 .alert-danger .alert-link { color: #843534;}
+.alert-newsletter{ text-align: center; display: none;}
 /*=== HEADER ===*/
 .main-header{ width: 100%; padding: 1.5% 0; border-bottom: 1px solid #CCC; float: left; background: #FFF;}
 .main-header-logo{ width: 100%; max-width: 156px; height: 93px; font-size: 0; float: left; background: url(../images/logo_topo.png) center center no-repeat; background-size: 100% auto;}
@@ -114,6 +115,7 @@ body{ background-color: #F1F1F1; }
 .newsletter-input label{ width: 20%; color: #FFF; text-align: center; padding: 10px; float: left; background: #79698C;}
 .newsletter-input input{ width: 80%; font-size: 1em; padding: 9px 10px; border: 1px solid #CCC; margin: 0; float: left;}
 .newsletter-btn{ width: 18%; font-size: 1em; padding: 10px; border: none; float: left;}
+.j_ico_process{ color:#79698C;  display: none;}
 /*=== FOOTER ===*/
 .main-footer{ width: 100%; padding: 2% 0; float: left; border-top: 4px solid #384952; background: #576D7E;}
 .main-footer-logo{ width: 100%; max-width: 97px; height: 58px; font-size: 0; float: left; background: url(../images/logo_rodape.png) center center no-repeat; background-size: 100% auto;}

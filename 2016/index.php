@@ -39,6 +39,7 @@ Check::UserOnline();
     <!-- JS -->
     <script src="<?= HOME; ?>/_cdn/jquery.js"></script>
     <script src="<?= HOME; ?>/_cdn/flexslider/flexslider.min.js"></script>
+    <script src="<?= HOME; ?>/_cdn/_newsletter.js"></script>
     <script src="<?= HOME; ?>/_cdn/_scripts.conf.js"></script>
 </html>
 <?php
