@@ -14,8 +14,8 @@
             </ul>
         </nav>
         <div class="main-rds">
-            <a href="http://www.facebook.com/studiomaxtv" title="Curta o <?= SITENAME; ?> no Facebook"><span class="fa fa-facebook-official fa-2x"></span></a>
-            <a href="http://www.youtube.com/studiomaxtv" title="<?= SITENAME; ?> no YouTube"><span class="fa fa-youtube-square fa-2x"></span></a>
+            <a href="http://www.facebook.com/sbtcanal08" target="_blank" title="Curta o <?= SITENAME; ?> no Facebook"><span class="fa fa-facebook-official fa-2x"></span></a>
+            <a href="http://www.youtube.com/sbtrolimcanal08" target="_blank" title="<?= SITENAME; ?> no YouTube"><span class="fa fa-youtube-square fa-2x"></span></a>
         </div>
     </div>
 </header>
