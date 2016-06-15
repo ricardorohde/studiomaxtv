@@ -27,7 +27,7 @@ class AdminBanner {
 
         if ($this->Data['banner']):
             $upload = new Upload;
-            $upload->Image($this->Data['banner'], $this->Data['titulo'], NULL, 'banners');
+            $upload->Image($this->Data['banner'], $this->Data['titulo'], 1920, 'banners');
         endif;
 
         if (isset($upload) && $upload->getResult()):
@@ -53,7 +53,7 @@ class AdminBanner {
         if (is_array($this->Data['banner'])):
             $this->fotoDelete($this->Id);
             $upload = new Upload;
-            $upload->Image($this->Data['banner'], $this->Data['titulo'], NULL, 'banners');
+            $upload->Image($this->Data['banner'], $this->Data['titulo'], 1920, 'banners');
         endif;
 
         if (isset($upload) && $upload->getResult()):
