@@ -23,7 +23,7 @@ endif;
             </div>
             <div class="video-dados">
                 <p><b>Autor:</b> <?= $autor; ?></p>
-                <p><b>Postado em:</b> <?= date('d/m/Y H:i', strtotime($data)); ?></p>
+                <p><b>Postado em:</b> <?= date('d/m/Y H:i', strtotime($data)); ?>Hs</p>
                 <p><b>Descrição:</b> <?= $descricao; ?></p>
             </div>
         </article>
