@@ -17,8 +17,8 @@ define('MAILPORT', 'postadeenvio');
 define('MAILHOST', 'servidordeenvio');
 
 // DEFINE IDENTIDADE DO SITE ################
-define('SITENAME', 'STÚDIOMAX TV');
-define('SITEDESC', 'StúdioMax TV, a sua TV na Internet. O melhor da programação online.');
+define('SITENAME', 'STUDIOMAX TV');
+define('SITEDESC', 'STUDIOMAX TV, a sua TV na Internet. O melhor da programação online.');
 define('CIDADE', 'Rolim de Moura');
 define('UF', 'RO');
 
