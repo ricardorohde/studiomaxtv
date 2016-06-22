@@ -75,5 +75,18 @@ $(function checkTipo() {
     });
 });
 
+//Desabilita campos
+$(function checkAgend() {
+    var cAgend = ".agendamento";
+    var cColuna = "#destaque";
+    $(cColuna).change(function () {
+        if ($(this).val() === 'sim') {
+            $(cAgend).show();
+        } else {
+            $(cAgend).hide();
+        }
+    });
+});
+
 //CKEditor
 CKEDITOR.replaceAll();

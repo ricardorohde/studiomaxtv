@@ -125,6 +125,8 @@ class AdminVideo {
     //Seta os Dados
     private function setData() {
         $this->Data['data'] = Check::Data($this->Data['data']);
+        $this->Data['data_inicial'] = Check::Data($this->Data['data_inicial']);
+        $this->Data['data_final'] = Check::Data($this->Data['data_final']);
         $this->Data['url_name'] = Check::Name($this->Data['titulo']);
         if (($this->Data['tipo']) === 'video'):
             $this->Data['link'] = Check::ytVideo($this->Data['youtube']);

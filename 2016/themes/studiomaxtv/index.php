@@ -27,7 +27,7 @@ endif;
     <section class="wrapper-player">
         <?php
         $Player = new Read;
-        $Player->ExeRead("videos", "WHERE destaque = :dest ORDER BY id DESC LIMIT :limit", "dest=sim&limit=1");
+        $Player->ExeRead("videos", "WHERE destaque = :dest AND data_inicial <= CURRENT_TIMESTAMP() AND data_final >= CURRENT_TIMESTAMP()  ORDER BY id DESC LIMIT :limit", "dest=sim&limit=1");
         $regPlayer = $Player->getResult()[0];
         ?>
         <div class="player-box">

@@ -129,6 +129,29 @@
                                         </div>
                                     </div>
                                 </div>
+                                <div class="form-group agendamento" style="display: none;">
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <label for="data_inicial">Inicio da Exibição em</label>
+                                            <div class="input-group">
+                                                <div class="input-group-addon">
+                                                    <i class="fa fa-calendar"></i>
+                                                </div>
+                                                <input type="text" name="data_inicial" class="form-control" id="data_inicial" value="<?= isset($dados['data_inicial']) ? $dados['data_inicial'] : ''; ?>" data-inputmask="'alias': 'dd/mm/yyyy h:i'" datetime-mask/>
+                                            </div>
+                                        </div>
+                                    
+                                        <div class="col-md-4">
+                                            <label for="data_final">Fim da Exibição em</label>
+                                            <div class="input-group">
+                                                <div class="input-group-addon">
+                                                    <i class="fa fa-calendar"></i>
+                                                </div>
+                                                <input type="text" name="data_final" class="form-control" id="data_final" value="<?= isset($dados['data_final']) ? $dados['data_final'] : '' ?>" data-inputmask="'alias': 'dd/mm/yyyy h:i'" datetime-mask/>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                                 <div class="form-group">
                                     <div class="row">
                                         <div class="col-md-4">

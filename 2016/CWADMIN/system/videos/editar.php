@@ -36,6 +36,8 @@
                 else:
                     $dados = $read->getResult()[0];
                     $dados['data'] = date('d/m/Y', strtotime($dados['data']));
+                    $dados['data_inicial'] = !empty($dados['data_inicial']) ? date('d/m/Y H:i', strtotime($dados['data_inicial'])) : null;
+                    $dados['data_final'] = !empty($dados['data_final']) ?  date('d/m/Y H:i', strtotime($dados['data_final'])): null;
                 endif;
             endif;
             ?>
@@ -136,6 +138,29 @@
                                                 <option value="sim" <?= ($dados['destaque'] == 'sim') ? ' selected="selected"' : ''; ?>>Sim</option>
                                                 <option value="nao" <?= ($dados['destaque'] == 'nao') ? ' selected="selected"' : ''; ?>>Não</option>
                                             </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group agendamento" <?= ($dados['destaque'] == 'nao') ? ' style="display: none;"' : ''; ?>>
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <label for="data_inicial">Inicio da Exibição em</label>
+                                            <div class="input-group">
+                                                <div class="input-group-addon">
+                                                    <i class="fa fa-calendar"></i>
+                                                </div>
+                                                <input type="text" name="data_inicial" class="form-control" id="data_inicial" value="<?= isset($dados['data_inicial']) ? $dados['data_inicial'] : ''; ?>" data-inputmask="'alias': 'dd/mm/yyyy h:i'" datetime-mask/>
+                                            </div>
+                                        </div>
+                                    
+                                        <div class="col-md-4">
+                                            <label for="data_final">Fim da Exibição em</label>
+                                            <div class="input-group">
+                                                <div class="input-group-addon">
+                                                    <i class="fa fa-calendar"></i>
+                                                </div>
+                                                <input type="text" name="data_final" class="form-control" id="data_final" value="<?= isset($dados['data_final']) ? $dados['data_final'] : '' ?>" data-inputmask="'alias': 'dd/mm/yyyy h:i'" datetime-mask/>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
