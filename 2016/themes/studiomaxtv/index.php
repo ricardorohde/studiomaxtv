@@ -1,4 +1,5 @@
 <?php
+$datetime_now = date('Y-m-d H:i');
 $View = new View;
 $ReadMain = new Read;
 $banners = $ReadMain;
@@ -24,29 +25,32 @@ if ($banners->getResult()):
 endif;
 ?>
 <div class="content">
-    <section class="wrapper-player">
-        <?php
-        $Player = new Read;
-        $Player->ExeRead("videos", "WHERE destaque = :dest AND data_inicial <= CURRENT_TIMESTAMP() AND data_final >= CURRENT_TIMESTAMP()  ORDER BY id DESC LIMIT :limit", "dest=sim&limit=1");
-        $regPlayer = $Player->getResult()[0];
+    <?php
+    $Player = new Read;
+    $Player->ExeRead("videos", "WHERE destaque = :dest AND data_inicial <= :dt_ini AND data_final >= :dt_fim  ORDER BY id DESC LIMIT :limit", "dest=sim&dt_ini={$datetime_now}&dt_fim={$datetime_now}&limit=1");
+    $regPlayer = $Player->getResult()[0];
+    if ($regPlayer):
         ?>
-        <div class="player-box">
-            <div class="ratio16">
-                <iframe class="ratio_element" width="100%" src="<?= $regPlayer['tipo'] === 'video' ? 'https://www.youtube.com/embed/' . $regPlayer['link'] . '?rel=0&amp;showinfo=0&autoplay=true' : $regPlayer['iframe'] ?>" frameborder="0" allowfullscreen></iframe>
+        <section class="wrapper-player">   
+            <div class="player-box">
+                <div class="ratio16">
+                    <iframe class="ratio_element" width="100%" src="<?= $regPlayer['tipo'] === 'video' ? 'https://www.youtube.com/embed/' . $regPlayer['link'] . '?rel=0&amp;showinfo=0&autoplay=true' : $regPlayer['iframe'] ?>" frameborder="0" allowfullscreen></iframe>
+                </div>
             </div>
-        </div>
-        <div class="player-dados">
-            <?php if ($regPlayer['transmissao'] === 'ao-vivo'): ?>
-                <div class="player-status"> <span class="fa fa-circle live"></span> AO VIVO</div>
-            <?php else: ?>
-                <div class="player-status"> <span class="fa fa-circle rec"></span> REC</div>
-            <?php endif; ?>
-            <div class="player-tit"><?= $regPlayer['titulo']; ?></div>
-            <div class="player-desc"><?= $regPlayer['descricao']; ?></div>
-        </div>
-
-    </section>
-    <?php require(REQUIRE_PATH . '/inc/busca.inc.php'); ?>
+            <div class="player-dados">
+                <?php if ($regPlayer['transmissao'] === 'ao-vivo'): ?>
+                    <div class="player-status"> <span class="fa fa-circle live"></span> AO VIVO</div>
+                <?php else: ?>
+                    <div class="player-status"> <span class="fa fa-circle rec"></span> REC</div>
+                <?php endif; ?>
+                <div class="player-tit"><?= $regPlayer['titulo']; ?></div>
+                <div class="player-desc"><?= $regPlayer['descricao']; ?></div>
+            </div>
+        </section>
+        <?php
+    endif;
+    require(REQUIRE_PATH . '/inc/busca.inc.php');
+    ?>
     <section class="wrapper-videos">
         <div class="wrapper-category">
             <div class="vin vin-green">
