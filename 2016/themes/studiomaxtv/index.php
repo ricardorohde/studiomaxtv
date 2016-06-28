@@ -25,7 +25,7 @@ if ($banners->getResult()):
 endif;
 ?>
 <div class="content">
-    <?php
+    <?php    
     $Player = new Read;
     $Player->ExeRead("videos", "WHERE destaque = :dest AND data_inicial <= :dt_ini AND data_final >= :dt_fim  ORDER BY id DESC LIMIT :limit", "dest=sim&dt_ini={$datetime_now}&dt_fim={$datetime_now}&limit=1");
     $regPlayer = $Player->getResult()[0];
