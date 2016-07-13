@@ -25,13 +25,13 @@ if ($banners->getResult()):
 endif;
 ?>
 <div class="content">
-    <?php    
+    <?php
     $Player = new Read;
     $Player->ExeRead("videos", "WHERE destaque = :dest AND data_inicial <= :dt_ini AND data_final >= :dt_fim  ORDER BY id DESC LIMIT :limit", "dest=sim&dt_ini={$datetime_now}&dt_fim={$datetime_now}&limit=1");
     $regPlayer = $Player->getResult()[0];
-    if ($regPlayer):
+    if ($Player->getRowCount() > 0):
         ?>
-        <section class="wrapper-player">   
+        <section class="wrapper-player">
             <div class="player-box">
                 <div class="ratio16">
                     <iframe class="ratio_element" width="100%" src="<?= $regPlayer['tipo'] === 'video' ? 'https://www.youtube.com/embed/' . $regPlayer['link'] . '?rel=0&amp;showinfo=0&autoplay=true' : $regPlayer['iframe'] ?>" frameborder="0" allowfullscreen></iframe>
