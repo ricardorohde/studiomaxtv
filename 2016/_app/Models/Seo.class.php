@@ -3,7 +3,7 @@
 /**
  * Seo [ MODEL ]
  * Classe de apoio para o modelo LINK. Pode ser utilizada para gerar SSEO para as páginas do sistema!
- * 
+ *
  * @copyright (c) 2014, Robson V. Leite UPINSIDE TECNOLOGIA
  */
 class Seo {
@@ -25,7 +25,7 @@ class Seo {
     /**
      * <b>Obter MetaTags:</b> Execute este método informando os valores de navegação para que o mesmo obtenha
      * todas as metas como title, description, og, itemgroup, etc.
-     * 
+     *
      * <b>Deve ser usada com um ECHO dentro da tag HEAD!</b>
      * @return HTML TAGS =  Retorna todas as tags HEAD
      */
@@ -37,7 +37,7 @@ class Seo {
     /**
      * <b>Obter Dados:</b> Este será automaticamente povoado com valores de uma tabela single para arquivos
      * como categoria, artigo, etc. Basta usar um extract para obter as variáveis da tabela!
-     * 
+     *
      * @return ARRAY = Dados da tabela
      */
     public function getData() {
@@ -107,7 +107,7 @@ class Seo {
                 else:
                     extract($ReadSeo->getResult()[0]);
                     $this->seoData = $ReadSeo->getResult()[0];
-                    $this->Data = [$categoria . ' - ' . SITENAME,  "Nossa galeria de vídeos para a categoria: {$categoria} - STÚDIO MAX TV", HOME . "/categoria/{$categoria}", INCLUDE_PATH . '/images/logo_midia.jpg'];
+                    $this->Data = [$categoria . ' - ' . SITENAME, "Nossa galeria de vídeos para a categoria: {$categoria} - STÚDIO MAX TV", HOME . "/categoria/{$categoria}", INCLUDE_PATH . '/images/logo_midia.jpg'];
                 endif;
                 break;
 
@@ -152,6 +152,7 @@ class Seo {
         $this->seoTags .= '<link rel="canonical" href="' . $this->Tags['Link'] . '">' . "\n";
         $this->seoTags .= '<meta name="reply-to" content="contato@creativewebsites.com.br"/>' . "\n";
         $this->seoTags .= '<meta name="copyright" content="Creative Websites" />' . "\n";
+        $this->seoTags .= '<meta name="uptec" content="https://www.upinside.com.br/s/GeanBertani">' . "\n";
         $this->seoTags .= "\n";
 
         //FACEBOOK
