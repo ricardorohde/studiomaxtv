@@ -3,7 +3,7 @@
 /**
  * AdminVideo.class [ MODEL ADMIN ]
  * Respnsável por gerenciar os videos no Admin do sistema!
- * 
+ *
  * @copyright (c) 2014, Gean Marques - CREATIVE WEBSITES
  */
 class AdminVideo {
@@ -64,7 +64,13 @@ class AdminVideo {
             if (($this->Data['tipo']) === 'video'):
                 $this->Data['foto'] = "https://i.ytimg.com/vi/{$this->Data['link']}/mqdefault.jpg";
             else:
-                $this->Data['foto'] = NULL;
+                $ImgCapa = new Read;
+                $ImgCapa->FullRead("SELECT foto FROM videos WHERE id = :id", "id={$this->Id}");
+                if ($ImgCapa->getResult()):
+                    $this->Data['foto'] = $ImgCapa->getResult()[0]['foto'];
+                else:
+                    $this->Data['foto'] = null;
+                endif;
             endif;
             $this->Update();
         endif;
