@@ -152,6 +152,7 @@ class Seo {
         $this->seoTags .= '<link rel="canonical" href="' . $this->Tags['Link'] . '">' . "\n";
         $this->seoTags .= '<meta name="reply-to" content="contato@creativewebsites.com.br"/>' . "\n";
         $this->seoTags .= '<meta name="copyright" content="Creative Websites" />' . "\n";
+        $this->seoTags .= '<meta name="uptec" content="https://www.upinside.com.br/s/GeanBertani">' . "\n";
         $this->seoTags .= "\n";
 
         //FACEBOOK
