@@ -1,8 +1,8 @@
 -- --------------------------------------------------------
--- Servidor:                     studiomaxtv.com.br
--- Versão do servidor:           10.0.26-MariaDB - MariaDB Server
+-- Servidor:                     bdsite2016.mysql.uhserver.com
+-- Versão do servidor:           5.6.26-log - MySQL Community Server (GPL)
 -- OS do Servidor:               Linux
--- HeidiSQL Versão:              9.3.0.5107
+-- HeidiSQL Versão:              9.3.0.5116
 -- --------------------------------------------------------
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
@@ -11,7 +11,7 @@
 /*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 
--- Copiando estrutura para tabela studioma_dbsite2016.banco_fotos
+-- Copiando estrutura para tabela bdsite2016.banco_fotos
 DROP TABLE IF EXISTS `banco_fotos`;
 CREATE TABLE IF NOT EXISTS `banco_fotos` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -26,11 +26,11 @@ CREATE TABLE IF NOT EXISTS `banco_fotos` (
   KEY `nome` (`foto`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Armazena as fotos selecionadas na opção mais fotos, dependendo do tipo.';
 
--- Copiando dados para a tabela studioma_dbsite2016.banco_fotos: ~0 rows (aproximadamente)
+-- Copiando dados para a tabela bdsite2016.banco_fotos: ~0 rows (aproximadamente)
 /*!40000 ALTER TABLE `banco_fotos` DISABLE KEYS */;
 /*!40000 ALTER TABLE `banco_fotos` ENABLE KEYS */;
 
--- Copiando estrutura para tabela studioma_dbsite2016.banners
+-- Copiando estrutura para tabela bdsite2016.banners
 DROP TABLE IF EXISTS `banners`;
 CREATE TABLE IF NOT EXISTS `banners` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -54,16 +54,16 @@ CREATE TABLE IF NOT EXISTS `banners` (
   CONSTRAINT `fk_banners_tipo` FOREIGN KEY (`tipo`) REFERENCES `banners_tipo` (`id_tipo`)
 ) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8 COMMENT='Armazena informações sobre banners de publicidade';
 
--- Copiando dados para a tabela studioma_dbsite2016.banners: ~4 rows (aproximadamente)
+-- Copiando dados para a tabela bdsite2016.banners: ~4 rows (aproximadamente)
 /*!40000 ALTER TABLE `banners` DISABLE KEYS */;
 REPLACE INTO `banners` (`id`, `titulo`, `banner`, `tipo`, `link`, `data_inicial`, `data_final`, `data_atual`, `qm_cadastr`, `qm_alterou`) VALUES
 	(1, 'Slide 1', 'banners/2016/06/slide-1.jpg', 1, '#', '2016-05-23', '2016-12-31', '2016-05-23 23:55:32', 1, 2),
-	(4, 'TRIBUNA LIVRE', 'banners/2016/06/tribuna-livre.jpg', 1, 'http://www.studiomaxtv.com.br/categoria/tribuna-livre', '2016-06-15', '2020-01-01', '2016-06-15 19:17:52', 2, 2),
+	(4, 'Lançamento da Revista Rolim de Moura Capital da Zona da Mata', 'banners/2016/08/tribuna-livre.jpg', 1, 'http://www.afotorm.com.br/html/arquivo/eventos/2016/08-%20Agosto/Revista-Rolim-Moura-pg1.html', '2016-06-15', '2020-01-01', '2016-06-15 19:17:52', 2, 2),
 	(5, 'BRONCA LIVRE', 'banners/2016/06/bronca-livre.jpg', 1, 'http://www.studiomaxtv.com.br/categoria/bronca-livre', '2016-06-15', '2020-01-01', '2016-06-15 20:02:39', 2, 2),
 	(6, 'tvdopovo', 'banners/2016/06/tvdopovo.jpg', 1, 'http://www.tvdopovo.com/', '2016-06-15', '2017-04-29', '2016-06-15 20:22:54', 2, 2);
 /*!40000 ALTER TABLE `banners` ENABLE KEYS */;
 
--- Copiando estrutura para tabela studioma_dbsite2016.banners_tipo
+-- Copiando estrutura para tabela bdsite2016.banners_tipo
 DROP TABLE IF EXISTS `banners_tipo`;
 CREATE TABLE IF NOT EXISTS `banners_tipo` (
   `id_tipo` int(11) NOT NULL AUTO_INCREMENT,
@@ -74,13 +74,13 @@ CREATE TABLE IF NOT EXISTS `banners_tipo` (
   KEY `tipo` (`tipo`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COMMENT='Tipos de banners';
 
--- Copiando dados para a tabela studioma_dbsite2016.banners_tipo: ~1 rows (aproximadamente)
+-- Copiando dados para a tabela bdsite2016.banners_tipo: ~0 rows (aproximadamente)
 /*!40000 ALTER TABLE `banners_tipo` DISABLE KEYS */;
 REPLACE INTO `banners_tipo` (`id_tipo`, `tipo`, `dimens_w`, `dimens_h`) VALUES
 	(1, 'slide', '1920', '480');
 /*!40000 ALTER TABLE `banners_tipo` ENABLE KEYS */;
 
--- Copiando estrutura para tabela studioma_dbsite2016.colunistas
+-- Copiando estrutura para tabela bdsite2016.colunistas
 DROP TABLE IF EXISTS `colunistas`;
 CREATE TABLE IF NOT EXISTS `colunistas` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -100,11 +100,11 @@ CREATE TABLE IF NOT EXISTS `colunistas` (
   CONSTRAINT `fk_colunistas_qm_cadastr` FOREIGN KEY (`qm_cadastr`) REFERENCES `usuarios` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Informações de Colunistas';
 
--- Copiando dados para a tabela studioma_dbsite2016.colunistas: ~0 rows (aproximadamente)
+-- Copiando dados para a tabela bdsite2016.colunistas: ~0 rows (aproximadamente)
 /*!40000 ALTER TABLE `colunistas` DISABLE KEYS */;
 /*!40000 ALTER TABLE `colunistas` ENABLE KEYS */;
 
--- Copiando estrutura para tabela studioma_dbsite2016.cotacao
+-- Copiando estrutura para tabela bdsite2016.cotacao
 DROP TABLE IF EXISTS `cotacao`;
 CREATE TABLE IF NOT EXISTS `cotacao` (
   `id_cotacao` int(11) NOT NULL AUTO_INCREMENT,
@@ -116,11 +116,11 @@ CREATE TABLE IF NOT EXISTS `cotacao` (
   PRIMARY KEY (`id_cotacao`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Dados de cotação financeira de dolar, euro, bovespa.';
 
--- Copiando dados para a tabela studioma_dbsite2016.cotacao: ~0 rows (aproximadamente)
+-- Copiando dados para a tabela bdsite2016.cotacao: ~0 rows (aproximadamente)
 /*!40000 ALTER TABLE `cotacao` DISABLE KEYS */;
 /*!40000 ALTER TABLE `cotacao` ENABLE KEYS */;
 
--- Copiando estrutura para tabela studioma_dbsite2016.enquete
+-- Copiando estrutura para tabela bdsite2016.enquete
 DROP TABLE IF EXISTS `enquete`;
 CREATE TABLE IF NOT EXISTS `enquete` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -136,11 +136,11 @@ CREATE TABLE IF NOT EXISTS `enquete` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Informações sobre enquetes';
 
--- Copiando dados para a tabela studioma_dbsite2016.enquete: ~0 rows (aproximadamente)
+-- Copiando dados para a tabela bdsite2016.enquete: ~0 rows (aproximadamente)
 /*!40000 ALTER TABLE `enquete` DISABLE KEYS */;
 /*!40000 ALTER TABLE `enquete` ENABLE KEYS */;
 
--- Copiando estrutura para tabela studioma_dbsite2016.enquete_usuario
+-- Copiando estrutura para tabela bdsite2016.enquete_usuario
 DROP TABLE IF EXISTS `enquete_usuario`;
 CREATE TABLE IF NOT EXISTS `enquete_usuario` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -150,11 +150,11 @@ CREATE TABLE IF NOT EXISTS `enquete_usuario` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Registrar os usuários que votaram';
 
--- Copiando dados para a tabela studioma_dbsite2016.enquete_usuario: ~0 rows (aproximadamente)
+-- Copiando dados para a tabela bdsite2016.enquete_usuario: ~0 rows (aproximadamente)
 /*!40000 ALTER TABLE `enquete_usuario` DISABLE KEYS */;
 /*!40000 ALTER TABLE `enquete_usuario` ENABLE KEYS */;
 
--- Copiando estrutura para tabela studioma_dbsite2016.enquete_votos
+-- Copiando estrutura para tabela bdsite2016.enquete_votos
 DROP TABLE IF EXISTS `enquete_votos`;
 CREATE TABLE IF NOT EXISTS `enquete_votos` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -166,11 +166,11 @@ CREATE TABLE IF NOT EXISTS `enquete_votos` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Informações dos votos das respectivas enquetes';
 
--- Copiando dados para a tabela studioma_dbsite2016.enquete_votos: ~0 rows (aproximadamente)
+-- Copiando dados para a tabela bdsite2016.enquete_votos: ~0 rows (aproximadamente)
 /*!40000 ALTER TABLE `enquete_votos` DISABLE KEYS */;
 /*!40000 ALTER TABLE `enquete_votos` ENABLE KEYS */;
 
--- Copiando estrutura para tabela studioma_dbsite2016.eventos
+-- Copiando estrutura para tabela bdsite2016.eventos
 DROP TABLE IF EXISTS `eventos`;
 CREATE TABLE IF NOT EXISTS `eventos` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -194,11 +194,11 @@ CREATE TABLE IF NOT EXISTS `eventos` (
   CONSTRAINT `fk_eventos_qm_cadastr` FOREIGN KEY (`qm_cadastr`) REFERENCES `usuarios` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Armazena informações de cadastro de galerias';
 
--- Copiando dados para a tabela studioma_dbsite2016.eventos: ~0 rows (aproximadamente)
+-- Copiando dados para a tabela bdsite2016.eventos: ~0 rows (aproximadamente)
 /*!40000 ALTER TABLE `eventos` DISABLE KEYS */;
 /*!40000 ALTER TABLE `eventos` ENABLE KEYS */;
 
--- Copiando estrutura para tabela studioma_dbsite2016.menu
+-- Copiando estrutura para tabela bdsite2016.menu
 DROP TABLE IF EXISTS `menu`;
 CREATE TABLE IF NOT EXISTS `menu` (
   `id_menu` int(11) NOT NULL AUTO_INCREMENT,
@@ -213,7 +213,7 @@ CREATE TABLE IF NOT EXISTS `menu` (
   CONSTRAINT `fk_menu_id_menu_tipo` FOREIGN KEY (`id_menu_tipo`) REFERENCES `menu_tipo` (`id_menu_tipo`)
 ) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8 COMMENT='Menu';
 
--- Copiando dados para a tabela studioma_dbsite2016.menu: ~4 rows (aproximadamente)
+-- Copiando dados para a tabela bdsite2016.menu: ~4 rows (aproximadamente)
 /*!40000 ALTER TABLE `menu` DISABLE KEYS */;
 REPLACE INTO `menu` (`id_menu`, `id_menu_tipo`, `titulo`, `case`, `pagina`, `ico_menu`, `ativo`) VALUES
 	(1, 1, 'Usuários', 'usuarios', '#', 'fa-users', 'true'),
@@ -222,7 +222,7 @@ REPLACE INTO `menu` (`id_menu`, `id_menu_tipo`, `titulo`, `case`, `pagina`, `ico
 	(14, 1, 'Banners', 'banners', '#', 'fa-photo', 'true');
 /*!40000 ALTER TABLE `menu` ENABLE KEYS */;
 
--- Copiando estrutura para tabela studioma_dbsite2016.menu_sub
+-- Copiando estrutura para tabela bdsite2016.menu_sub
 DROP TABLE IF EXISTS `menu_sub`;
 CREATE TABLE IF NOT EXISTS `menu_sub` (
   `id_menu_sub` int(11) NOT NULL AUTO_INCREMENT,
@@ -237,7 +237,7 @@ CREATE TABLE IF NOT EXISTS `menu_sub` (
   CONSTRAINT `fk_menu_sub_id_menu` FOREIGN KEY (`id_menu`) REFERENCES `menu` (`id_menu`)
 ) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8 COMMENT='Menu Sub';
 
--- Copiando dados para a tabela studioma_dbsite2016.menu_sub: ~8 rows (aproximadamente)
+-- Copiando dados para a tabela bdsite2016.menu_sub: ~8 rows (aproximadamente)
 /*!40000 ALTER TABLE `menu_sub` DISABLE KEYS */;
 REPLACE INTO `menu_sub` (`id_menu_sub`, `id_menu`, `titulo`, `case`, `pagina`, `ico_menu`) VALUES
 	(1, 1, 'Novo Cadastro', 'usuarios', 'cadastrar', 'fa-angle-double-right'),
@@ -250,7 +250,7 @@ REPLACE INTO `menu_sub` (`id_menu_sub`, `id_menu`, `titulo`, `case`, `pagina`, `
 	(18, 2, 'Listar Cadastros', 'tvs', 'listar', 'fa-angle-double-right');
 /*!40000 ALTER TABLE `menu_sub` ENABLE KEYS */;
 
--- Copiando estrutura para tabela studioma_dbsite2016.menu_sub_nav
+-- Copiando estrutura para tabela bdsite2016.menu_sub_nav
 DROP TABLE IF EXISTS `menu_sub_nav`;
 CREATE TABLE IF NOT EXISTS `menu_sub_nav` (
   `id_menu_sub_nav` int(11) NOT NULL AUTO_INCREMENT,
@@ -264,11 +264,11 @@ CREATE TABLE IF NOT EXISTS `menu_sub_nav` (
   CONSTRAINT `fk_menu_sub_id_menu_sub` FOREIGN KEY (`id_menu_sub`) REFERENCES `menu_sub` (`id_menu_sub`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Menu Sub Nav';
 
--- Copiando dados para a tabela studioma_dbsite2016.menu_sub_nav: ~0 rows (aproximadamente)
+-- Copiando dados para a tabela bdsite2016.menu_sub_nav: ~0 rows (aproximadamente)
 /*!40000 ALTER TABLE `menu_sub_nav` DISABLE KEYS */;
 /*!40000 ALTER TABLE `menu_sub_nav` ENABLE KEYS */;
 
--- Copiando estrutura para tabela studioma_dbsite2016.menu_tipo
+-- Copiando estrutura para tabela bdsite2016.menu_tipo
 DROP TABLE IF EXISTS `menu_tipo`;
 CREATE TABLE IF NOT EXISTS `menu_tipo` (
   `id_menu_tipo` int(11) NOT NULL AUTO_INCREMENT,
@@ -276,14 +276,14 @@ CREATE TABLE IF NOT EXISTS `menu_tipo` (
   PRIMARY KEY (`id_menu_tipo`)
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COMMENT='Menu Tipo';
 
--- Copiando dados para a tabela studioma_dbsite2016.menu_tipo: ~2 rows (aproximadamente)
+-- Copiando dados para a tabela bdsite2016.menu_tipo: ~2 rows (aproximadamente)
 /*!40000 ALTER TABLE `menu_tipo` DISABLE KEYS */;
 REPLACE INTO `menu_tipo` (`id_menu_tipo`, `tipo`) VALUES
 	(1, 'painel_adm_sidebar'),
 	(2, 'painel_est_sidebar');
 /*!40000 ALTER TABLE `menu_tipo` ENABLE KEYS */;
 
--- Copiando estrutura para tabela studioma_dbsite2016.newsletter_usuario
+-- Copiando estrutura para tabela bdsite2016.newsletter_usuario
 DROP TABLE IF EXISTS `newsletter_usuario`;
 CREATE TABLE IF NOT EXISTS `newsletter_usuario` (
   `id` int(11) NOT NULL,
@@ -292,11 +292,11 @@ CREATE TABLE IF NOT EXISTS `newsletter_usuario` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Usuários cadastrados na newsletter';
 
--- Copiando dados para a tabela studioma_dbsite2016.newsletter_usuario: ~0 rows (aproximadamente)
+-- Copiando dados para a tabela bdsite2016.newsletter_usuario: ~0 rows (aproximadamente)
 /*!40000 ALTER TABLE `newsletter_usuario` DISABLE KEYS */;
 /*!40000 ALTER TABLE `newsletter_usuario` ENABLE KEYS */;
 
--- Copiando estrutura para tabela studioma_dbsite2016.noticias
+-- Copiando estrutura para tabela bdsite2016.noticias
 DROP TABLE IF EXISTS `noticias`;
 CREATE TABLE IF NOT EXISTS `noticias` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -331,11 +331,11 @@ CREATE TABLE IF NOT EXISTS `noticias` (
   CONSTRAINT `fk_noticias_qm_cadastr` FOREIGN KEY (`qm_cadastr`) REFERENCES `usuarios` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Armazena informações de cadastros de noticias';
 
--- Copiando dados para a tabela studioma_dbsite2016.noticias: ~0 rows (aproximadamente)
+-- Copiando dados para a tabela bdsite2016.noticias: ~0 rows (aproximadamente)
 /*!40000 ALTER TABLE `noticias` DISABLE KEYS */;
 /*!40000 ALTER TABLE `noticias` ENABLE KEYS */;
 
--- Copiando estrutura para tabela studioma_dbsite2016.noticias_categoria
+-- Copiando estrutura para tabela bdsite2016.noticias_categoria
 DROP TABLE IF EXISTS `noticias_categoria`;
 CREATE TABLE IF NOT EXISTS `noticias_categoria` (
   `id_categoria` int(11) NOT NULL AUTO_INCREMENT,
@@ -346,11 +346,11 @@ CREATE TABLE IF NOT EXISTS `noticias_categoria` (
   KEY `categoria` (`categoria`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Categorias das Noticias';
 
--- Copiando dados para a tabela studioma_dbsite2016.noticias_categoria: ~0 rows (aproximadamente)
+-- Copiando dados para a tabela bdsite2016.noticias_categoria: ~0 rows (aproximadamente)
 /*!40000 ALTER TABLE `noticias_categoria` DISABLE KEYS */;
 /*!40000 ALTER TABLE `noticias_categoria` ENABLE KEYS */;
 
--- Copiando estrutura para tabela studioma_dbsite2016.tv
+-- Copiando estrutura para tabela bdsite2016.tv
 DROP TABLE IF EXISTS `tv`;
 CREATE TABLE IF NOT EXISTS `tv` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -375,11 +375,11 @@ CREATE TABLE IF NOT EXISTS `tv` (
   CONSTRAINT `fk_tv_qm_cadastr` FOREIGN KEY (`qm_cadastr`) REFERENCES `usuarios` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Link de Iframe para exibir a TV';
 
--- Copiando dados para a tabela studioma_dbsite2016.tv: ~0 rows (aproximadamente)
+-- Copiando dados para a tabela bdsite2016.tv: ~0 rows (aproximadamente)
 /*!40000 ALTER TABLE `tv` DISABLE KEYS */;
 /*!40000 ALTER TABLE `tv` ENABLE KEYS */;
 
--- Copiando estrutura para tabela studioma_dbsite2016.usuarios
+-- Copiando estrutura para tabela bdsite2016.usuarios
 DROP TABLE IF EXISTS `usuarios`;
 CREATE TABLE IF NOT EXISTS `usuarios` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -406,14 +406,14 @@ CREATE TABLE IF NOT EXISTS `usuarios` (
   KEY `nome` (`nome`)
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COMMENT='Armazena informações dos usuarios do painel';
 
--- Copiando dados para a tabela studioma_dbsite2016.usuarios: ~2 rows (aproximadamente)
+-- Copiando dados para a tabela bdsite2016.usuarios: ~2 rows (aproximadamente)
 /*!40000 ALTER TABLE `usuarios` DISABLE KEYS */;
 REPLACE INTO `usuarios` (`id`, `url_name`, `nome`, `email`, `data_nasc`, `sexo`, `login`, `senha`, `foto`, `ativo`, `nivel`, `cont_acesso`, `ip`, `ultimo_acesso`, `qm_cadastr`, `dt_cadastr`, `qm_alterou`, `dt_alterou`) VALUES
-	(1, 'creative-websites', 'Creative Websites', 'suporte@creativewebsites.com.br', '2015-02-14', 1, 'creative', '19d910ef608e4947aa0c6dcee352a3e8', 'usuarios/2015/03/creative.jpeg', 's', 1, 63, '200.186.30.74', '2016-06-13 12:06:10', 1, NULL, 1, '2015-03-25 21:57:12'),
-	(2, 'gregorio-max', 'Gregório Max', 'studiomaxprodutora@gmail.com', '2016-06-13', 1, 'max', '111800a41cdf95eba55df312879f81df', 'usuarios/2016/06/max.png', 's', 1, 141, '138.219.48.226', '2016-06-18 14:32:33', 1, '2016-06-13 12:06:03', NULL, NULL);
+	(1, 'creative-websites', 'Creative Websites', 'suporte@creativewebsites.com.br', '2015-02-14', 1, 'creative', '19d910ef608e4947aa0c6dcee352a3e8', 'usuarios/2015/03/creative.jpeg', 's', 1, 64, '10.195.0.1', '2016-06-13 12:06:10', 1, NULL, 1, '2015-03-25 21:57:12'),
+	(2, 'gregorio-max', 'Gregório Max', 'studiomaxprodutora@gmail.com', '2016-06-13', 1, 'max', '111800a41cdf95eba55df312879f81df', 'usuarios/2016/06/max.png', 's', 1, 170, '10.195.0.1', '2016-06-18 14:32:33', 1, '2016-06-13 12:06:03', NULL, NULL);
 /*!40000 ALTER TABLE `usuarios` ENABLE KEYS */;
 
--- Copiando estrutura para tabela studioma_dbsite2016.videos
+-- Copiando estrutura para tabela bdsite2016.videos
 DROP TABLE IF EXISTS `videos`;
 CREATE TABLE IF NOT EXISTS `videos` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -445,9 +445,9 @@ CREATE TABLE IF NOT EXISTS `videos` (
   CONSTRAINT `fk_videos_categoria` FOREIGN KEY (`categoria`) REFERENCES `videos_categoria` (`url_name`),
   CONSTRAINT `fk_videos_qm_alterou` FOREIGN KEY (`qm_alterou`) REFERENCES `usuarios` (`id`),
   CONSTRAINT `fk_videos_qm_cadastr` FOREIGN KEY (`qm_cadastr`) REFERENCES `usuarios` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=288 DEFAULT CHARSET=utf8 COMMENT='Armazena informações de cadastro de videos.';
+) ENGINE=InnoDB AUTO_INCREMENT=321 DEFAULT CHARSET=utf8 COMMENT='Armazena informações de cadastro de videos.';
 
--- Copiando dados para a tabela studioma_dbsite2016.videos: ~209 rows (aproximadamente)
+-- Copiando dados para a tabela bdsite2016.videos: ~266 rows (aproximadamente)
 /*!40000 ALTER TABLE `videos` DISABLE KEYS */;
 REPLACE INTO `videos` (`id`, `url_name`, `categoria`, `titulo`, `iframe`, `youtube`, `link`, `destaque`, `autor`, `data`, `foto`, `descricao`, `tipo`, `data_inicial`, `data_final`, `transmissao`, `qm_cadastr`, `dt_cadastr`, `qm_alterou`, `dt_alterou`) VALUES
 	(13, 'rotary-clube-lanca-campanha-vote-certo-em-rolim-de-moura', 'politica', 'Rotary Clube lança campanha Vote Certo em Rolim de Moura', NULL, 'https://www.youtube.com/watch?v=oGt1MavqMYA', 'oGt1MavqMYA', 'nao', 'Studio Max TV', '2016-06-03', 'https://i.ytimg.com/vi/oGt1MavqMYA/mqdefault.jpg', '<p>teste de video 2</p>\r\n', 'video', NULL, NULL, 'gravada', 1, '2016-06-03 14:11:03', 1, '2016-06-04 01:16:07'),
@@ -548,7 +548,7 @@ REPLACE INTO `videos` (`id`, `url_name`, `categoria`, `titulo`, `iframe`, `youtu
 	(132, 'especial-festa-junina-promocoes-laranjas-rolim', 'entretenimento', 'Especial Festa Junina: Promoções Laranjas Rolim', NULL, 'https://youtu.be/p2eybM8HA8I', 'p2eybM8HA8I', 'nao', 'STUDIOMAX TV', '2016-06-25', 'videos/2016/06/especial-festa-junina-promocoes-laranjas-rolim.jpg', '<p>Acompanhe o melhor da TV Online.</p>\r\n\r\n<p>ACOMPANHE NO CANAL 39 EM HD</p>\r\n\r\n<p>StudioMax Comunica&ccedil;&atilde;o desde de 2009 atuando no mercado de publicidade produzindo programas de TV, sempre cobrindo eventos importantes,&nbsp; trouxe em&nbsp; janeiro de 2011 em parceria com a TV ALLAMANDA afiliada ao SBT aliado a grade nacional, SBT CANAL 08 que foi ao ar com diversos programas locais feitos com o objetivo de deixar a popula&ccedil;&atilde;o bem informada. S&oacute; not&iacute;cias, entrevistas, apresenta&ccedil;&otilde;es musicais, coberturas de eventos, tudo com a qualidade e a rapidez que voc&ecirc; necessita para estar sempre antenada com a realidade da regi&bdquo;o da Zona da Mata, em 2015 ELEITA a melhor emissora local pesquisa feita pela associa&ccedil;&atilde;o comercial.</p>\r\n', 'video', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 'gravada', 2, '2016-06-25 10:21:14', NULL, NULL),
 	(133, 'programa-especial-de-sao-joao-24-06-2016', 'bronca-livre', 'Programa Especial de São João (24-06-2016) ', NULL, 'https://youtu.be/wq7nSkALFf0', 'wq7nSkALFf0', 'nao', 'STUDIOMAX TV', '2016-06-25', 'https://i.ytimg.com/vi/wq7nSkALFf0/mqdefault.jpg', '<p>Acompanhe o melhor da TV Online.</p>\r\n\r\n<p>ACOMPANHE NO CANAL 39 EM HD</p>\r\n\r\n<p>StudioMax Comunica&ccedil;&atilde;o desde de 2009 atuando no mercado de publicidade produzindo programas de TV, sempre cobrindo eventos importantes,&nbsp; trouxe em&nbsp; janeiro de 2011 em parceria com a TV ALLAMANDA afiliada ao SBT aliado a grade nacional, SBT CANAL 08 em 2015 ELEITA a melhor emissora local pesquisa feita pela associa&ccedil;&atilde;o comercial.</p>\r\n', 'video', '2016-06-25 16:00:00', '2016-06-27 09:55:00', 'gravada', 2, '2016-06-25 17:30:36', 2, NULL),
 	(134, 'plano-de-desenvolvimento-estadual-sustentavel-pdes-ro-2015-2030', 'politica', 'Plano de desenvolvimento Estadual sustentável - PDES/RO 2015-2030.', NULL, 'https://youtu.be/kuJEm3QoZLE', 'kuJEm3QoZLE', 'nao', 'STUDIOMAX TV', '2016-06-25', 'https://i.ytimg.com/vi/kuJEm3QoZLE/mqdefault.jpg', '<p>Acompanhe o melhor da TV Online.</p>\r\n\r\n<p>ACOMPANHE NO CANAL 39 EM HD</p>\r\n\r\n<p>StudioMax Comunica&ccedil;&atilde;o desde de 2009 atuando no mercado de publicidade produzindo programas de TV, sempre cobrindo eventos importantes, &nbsp;trouxe em &nbsp;janeiro de 2011 em parceria com a TV ALLAMANDA afiliada ao SBT aliado &agrave; grade nacional, SBT CANAL 08 que foi ao ar com diversos programas locais feitos com o objetivo de deixar a popula&ccedil;&atilde;o bem informada. em 2015 ELEITA a melhor emissora local pesquisa feita pela associa&ccedil;&atilde;o comercial.</p>\r\n', 'video', '2000-11-30 10:00:00', '2000-11-30 10:00:00', 'gravada', 2, '2016-06-25 21:26:53', 2, NULL),
-	(135, 'tv-do-povo-a-tv-do-futuro-que-ja-esta-no-ar', 'ao-vivo', 'TV DO POVO - A TV do futuro que já está no ar!!!', 'https://iframe.dacast.com/b/20748/c/80130', NULL, NULL, 'sim', 'STUDIOMAX TV', '2016-06-28', 'videos/2016/07/tv-do-povo-a-tv-do-futuro-que-ja-esta-no-ar-1469717555.jpg', '<p>E-mails : tvjornet@gmail.com ou tvjornet@tvjornet.com.br</p>\r\n\r\n<p>Reda&ccedil;&atilde;o TV: tvdopovo1@gmail.com</p>\r\n\r\n<p>Setor Comercial : tvjornet@gmail.com</p>\r\n\r\n<p>Nossa reda&ccedil;&atilde;o :Av. Pinheiro Machado, 4146 - Embratel<br />\r\nCEP : 76820-765 - Porto Velho-RO &ndash; FONE e WHATSAPP : (69) 8421-9145</p>\r\n', 'tv', '2016-07-15 19:30:00', '2016-12-30 02:00:00', 'ao-vivo', 2, '2016-06-28 13:50:16', 2, NULL),
+	(135, 'tv-do-povo-a-tv-do-futuro-que-ja-esta-no-ar', 'ao-vivo', 'TV DO POVO - A TV do futuro que já está no ar!!!', 'https://iframe.dacast.com/b/20748/c/80130', NULL, NULL, 'nao', 'STUDIOMAX TV', '2016-06-28', 'videos/2016/08/tv-do-povo-a-tv-do-futuro-que-ja-esta-no-ar.jpg', '<p>E-mails : tvjornet@gmail.com ou tvjornet@tvjornet.com.br</p>\r\n\r\n<p>Reda&ccedil;&atilde;o TV: tvdopovo1@gmail.com</p>\r\n\r\n<p>Setor Comercial : tvjornet@gmail.com</p>\r\n\r\n<p>Nossa reda&ccedil;&atilde;o :Av. Pinheiro Machado, 4146 - Embratel<br />\r\nCEP : 76820-765 - Porto Velho-RO &ndash; FONE e WHATSAPP : (69) 8421-9145</p>\r\n', 'tv', '2016-07-15 19:30:00', '2016-12-30 02:00:00', 'ao-vivo', 2, '2016-06-28 13:50:16', 2, NULL),
 	(136, '1-leilao-direito-ao-saber', 'entretenimento', '1º Leilão Direito ao Saber ', NULL, 'https://youtu.be/onH05pCSAHk', 'onH05pCSAHk', 'nao', 'STUDIOMAX TV', '2016-07-01', 'https://i.ytimg.com/vi/onH05pCSAHk/mqdefault.jpg', '<p>Acompanhe o melhor da TV Online.</p>\r\n\r\n<p>ACOMPANHE NO CANAL 39 EM HD</p>\r\n\r\n<p>StudioMax Comunica&ccedil;&atilde;o desde de 2009 atuando no mercado de publicidade produzindo programas de TV, sempre cobrindo eventos importantes, &nbsp;trouxe em &nbsp;janeiro de 2011 em parceria com a TV ALLAMANDA afiliada ao SBT aliado &agrave; grade nacional, SBT CANAL 08 que foi ao ar com diversos programas locais feitos com o objetivo de deixar a popula&ccedil;&atilde;o bem informada. em 2015 ELEITA a melhor emissora local pesquisa feita pela associa&ccedil;&atilde;o comercial.</p>\r\n', 'video', '2000-11-30 10:00:00', '2000-11-30 10:00:00', 'gravada', 2, '2016-07-01 05:32:27', 2, NULL),
 	(137, 'audiencia-publica-sobre-o-plano-de-desenvolvimento-estadual-sustentavel', 'politica', 'Audiência pública sobre o Plano de Desenvolvimento Estadual Sustentável ', NULL, 'https://www.youtube.com/watch?v=AxkpIb-XQSc', 'AxkpIb-XQSc', 'nao', 'STUDIOMAX TV', '2016-07-01', 'https://i.ytimg.com/vi/AxkpIb-XQSc/mqdefault.jpg', '<p>Acompanhe o melhor da TV Online.</p>\r\n\r\n<p>ACOMPANHE NO CANAL 39 EM HD</p>\r\n\r\n<p>StudioMax Comunica&ccedil;&atilde;o desde de 2009 atuando no mercado de publicidade produzindo programas de TV, sempre cobrindo eventos importantes, &nbsp;trouxe em &nbsp;janeiro de 2011 em parceria com a TV ALLAMANDA afiliada ao SBT aliado &agrave; grade nacional, SBT CANAL 08 que foi ao ar com diversos programas locais feitos com o objetivo de deixar a popula&ccedil;&atilde;o bem informada. em 2015 ELEITA a melhor emissora local pesquisa feita pela associa&ccedil;&atilde;o comercial.</p>\r\n', 'video', '2000-11-30 10:00:00', '2000-11-30 10:00:00', 'gravada', 2, '2016-07-01 05:33:03', 2, NULL),
 	(138, 'carro-capota-no-centro-da-cidade', 'policia', 'Carro capota no centro da cidade ', NULL, 'https://www.youtube.com/watch?v=uO-G_LcqLMU', 'uO-G_LcqLMU', 'nao', 'STUDIOMAX TV', '2016-07-01', 'https://i.ytimg.com/vi/uO-G_LcqLMU/mqdefault.jpg', '<p>Acompanhe o melhor da TV Online.</p>\r\n\r\n<p>ACOMPANHE NO CANAL 39 EM HD</p>\r\n\r\n<p>StudioMax Comunica&ccedil;&atilde;o desde de 2009 atuando no mercado de publicidade produzindo programas de TV, sempre cobrindo eventos importantes, &nbsp;trouxe em &nbsp;janeiro de 2011 em parceria com a TV ALLAMANDA afiliada ao SBT aliado &agrave; grade nacional, SBT CANAL 08 que foi ao ar com diversos programas locais feitos com o objetivo de deixar a popula&ccedil;&atilde;o bem informada. em 2015 ELEITA a melhor emissora local pesquisa feita pela associa&ccedil;&atilde;o comercial.</p>\r\n', 'video', '2000-11-30 10:00:00', '2000-11-30 10:00:00', 'gravada', 2, '2016-07-01 05:33:35', 2, NULL),
@@ -647,7 +647,7 @@ REPLACE INTO `videos` (`id`, `url_name`, `categoria`, `titulo`, `iframe`, `youtu
 	(244, 'preparativos-para-festa-do-milho', 'entretenimento', 'Preparativos para festa do milho', NULL, 'https://www.youtube.com/watch?v=OfAU6fEbL9g', 'OfAU6fEbL9g', 'nao', 'STUDIOMAX TV', '2016-07-25', 'https://i.ytimg.com/vi/OfAU6fEbL9g/mqdefault.jpg', '<p>Reportagem: Gislaine Lima<br />\r\nImagens: Mayke J&uacute;nior<br />\r\nEdi&ccedil;&atilde;o: Mayke J&uacute;nior<br />\r\nProdu&ccedil;&atilde;o: StudioMax Comunica&ccedil;&atilde;o e Marketing</p>\r\n', 'video', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 'gravada', 2, '2016-07-25 23:05:04', NULL, NULL),
 	(245, 'ucaver-promove-palestra-no-mes-de-agosto-em-rolim-de-moura', 'tecnologia', 'Ucaver promove palestra no mês de agosto em Rolim de Moura ', NULL, 'https://www.youtube.com/watch?v=uS121Wk7bPc', 'uS121Wk7bPc', 'nao', 'STUDIOMAX TV', '2016-07-25', 'https://i.ytimg.com/vi/uS121Wk7bPc/mqdefault.jpg', '<p>Reportagem: Maycon Pavin<br />\r\nImagens: Tayson Maximo<br />\r\nEdi&ccedil;&atilde;o: Mayke J&uacute;nior<br />\r\nProdu&ccedil;&atilde;o: StudioMax Comunica&ccedil;&atilde;o e Marketing</p>\r\n', 'video', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 'gravada', 2, '2016-07-25 23:05:52', NULL, NULL),
 	(246, 'web-na-mira-do-povo-22-07-2016', 'mira-do-povo', 'Web "NA MIRA DO POVO" 22/07/2016 ', NULL, 'https://www.youtube.com/watch?v=TT5RgIfBHQk', 'TT5RgIfBHQk', 'nao', 'STUDIOMAX TV', '2016-07-25', 'https://i.ytimg.com/vi/TT5RgIfBHQk/mqdefault.jpg', '<p>Produ&ccedil;&atilde;o: StudioMax Comunica&ccedil;&atilde;o e Marketing</p>\r\n', 'video', '2000-11-30 10:00:00', '2000-11-30 10:00:00', 'gravada', 2, '2016-07-25 23:07:15', 2, NULL),
-	(248, 'transmissao-ao-vivo-studiomax-tv', 'ao-vivo', ' Transmissão AO VIVO - STUDIOMAX TV', 'https://iframe.dacast.com/b/20748/c/219949', NULL, NULL, 'nao', 'STUDIOMAX TV', '2016-07-27', 'videos/2016/07/transmissao-ao-vivo-studiomax-tv-1469719425.jpg', '<p>Acompanhe o melhor da TV Online.</p>\r\n\r\n<p>ACOMPANHE NO CANAL 39 EM HD</p>\r\n\r\n<p>StudioMax Comunica&ccedil;&atilde;o desde de 2009 atuando no mercado de publicidade produzindo programas de TV, sempre cobrindo eventos importantes, trouxe em &nbsp;janeiro de 2011 &nbsp;foi ao ar com diversos programas locais feitos com o objetivo de deixar a popula&ccedil;&atilde;o bem informada. Em 2015 ELEITA a melhor produtora local na pesquisa feita pela associa&ccedil;&atilde;o comercial.</p>\r\n', 'tv', '2016-07-27 09:55:00', '2016-12-29 00:00:00', 'ao-vivo', 2, '2016-07-27 09:53:10', 2, NULL),
+	(248, 'transmissao-ao-vivo-studiomax-tv', 'ao-vivo', ' Transmissão AO VIVO - STUDIOMAX TV', 'https://iframe.dacast.com/b/20748/c/219949', NULL, NULL, 'sim', 'STUDIOMAX TV', '2016-07-27', 'videos/2016/07/transmissao-ao-vivo-studiomax-tv-1469719425.jpg', '<p>Acompanhe o melhor da TV Online.</p>\r\n\r\n<p>ACOMPANHE NO CANAL 39 EM HD</p>\r\n\r\n<p>StudioMax Comunica&ccedil;&atilde;o desde de 2009 atuando no mercado de publicidade produzindo programas de TV, sempre cobrindo eventos importantes, trouxe em &nbsp;janeiro de 2011 &nbsp;foi ao ar com diversos programas locais feitos com o objetivo de deixar a popula&ccedil;&atilde;o bem informada. Em 2015 ELEITA a melhor produtora local na pesquisa feita pela associa&ccedil;&atilde;o comercial.</p>\r\n', 'tv', '2016-07-27 09:55:00', '2016-12-29 00:00:00', 'ao-vivo', 2, '2016-07-27 09:53:10', 2, NULL),
 	(249, 'campanha-julho-amarelo-incentiva-testes-de-hepatites-e-dsts', 'saude', 'Campanha Julho Amarelo incentiva testes de hepatites e DSTs ', NULL, 'https://www.youtube.com/watch?v=Cq-hqNXcIL0', 'Cq-hqNXcIL0', 'nao', 'STUDIOMAX TV', '2016-07-28', 'https://i.ytimg.com/vi/Cq-hqNXcIL0/mqdefault.jpg', '<p>Reportagem: Maycon Pavin<br />\r\nImagens: Tayson Maximo<br />\r\nEdi&ccedil;&atilde;o: Mayke J&uacute;nior&nbsp;<br />\r\nProdu&ccedil;&atilde;o: StudioMax Comunica&ccedil;&atilde;o e Marketing</p>\r\n', 'video', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 'gravada', 2, '2016-07-28 11:54:51', NULL, NULL),
 	(250, 'tem-inicio-o-periodo-de-convencoes-partidarias', 'politica', 'Tem início o período de convenções partidárias ', NULL, 'https://www.youtube.com/watch?v=96ttI7Q9nzA', '96ttI7Q9nzA', 'nao', 'STUDIOMAX TV', '2016-07-28', 'https://i.ytimg.com/vi/96ttI7Q9nzA/mqdefault.jpg', '<p>Reportagem: Maycon Pavin<br />\r\nImagens: Tayson Maximo<br />\r\nEdi&ccedil;&atilde;o: Mayke J&uacute;nior&nbsp;<br />\r\nProdu&ccedil;&atilde;o: StudioMax Comunica&ccedil;&atilde;o e Marketing</p>\r\n', 'video', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 'gravada', 2, '2016-07-28 11:56:09', NULL, NULL),
 	(251, 'pais-buscam-solucao-para-o-retorno-do-transporte-escolar', 'educacao', 'Pais buscam solução para o retorno do transporte escolar ', NULL, 'https://www.youtube.com/watch?v=hHKAdtzXsYw', 'hHKAdtzXsYw', 'nao', 'STUDIOMAX TV', '2016-07-28', 'https://i.ytimg.com/vi/hHKAdtzXsYw/mqdefault.jpg', '<p>Reportagem: Maycon Pavin<br />\r\nImagens: Tayson Maximo<br />\r\nEdi&ccedil;&atilde;o: Mayke J&uacute;nior&nbsp;<br />\r\nProdu&ccedil;&atilde;o: StudioMax Comunica&ccedil;&atilde;o e Marketing</p>\r\n', 'video', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 'gravada', 2, '2016-07-28 11:56:49', NULL, NULL),
@@ -684,10 +684,42 @@ REPLACE INTO `videos` (`id`, `url_name`, `categoria`, `titulo`, `iframe`, `youtu
 	(284, 'canopus-motos-realiza-cafe-da-manha-em-homenagem-aos-motociclistas', 'economia', 'Canopus Motos realiza café da manhã em homenagem aos motociclistas ', NULL, 'https://www.youtube.com/watch?v=5RBDwR_KpkE', '5RBDwR_KpkE', 'nao', 'STUDIOMAX TV', '2016-08-04', 'https://i.ytimg.com/vi/5RBDwR_KpkE/mqdefault.jpg', '<p>Reportagem: Maycon Pavin<br />\r\nImagens: Mayke J&uacute;nior&nbsp;<br />\r\nEdi&ccedil;&atilde;o: Mayke J&uacute;nior&nbsp;<br />\r\nProdu&ccedil;&atilde;o: StudioMax Comunica&ccedil;&atilde;o e Marketing</p>\r\n', 'video', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 'gravada', 2, '2016-08-04 11:57:54', NULL, NULL),
 	(285, 'judo-da-escola-candido-portinari-e-ouro-no-estado', 'esporte', 'Judô da escola Cândido Portinari é ouro no estado ', NULL, 'https://www.youtube.com/watch?v=louA703AJpw', 'louA703AJpw', 'nao', 'STUDIOMAX TV', '2016-08-04', 'https://i.ytimg.com/vi/louA703AJpw/mqdefault.jpg', '<p>Reportagem: Gislaine Lima<br />\r\nImagens: Tayson Maximo<br />\r\nEdi&ccedil;&atilde;o: Mayke J&uacute;nior&nbsp;<br />\r\nProdu&ccedil;&atilde;o: StudioMax Comunica&ccedil;&atilde;o e Marketing</p>\r\n', 'video', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 'gravada', 2, '2016-08-04 11:58:45', NULL, NULL),
 	(286, 'rolim-de-moura-tera-programacao-especial-de-aniversario', 'cultura', 'Rolim de Moura terá programação especial de aniversário ', NULL, 'https://www.youtube.com/watch?v=pJcBJvSpplQ', 'pJcBJvSpplQ', 'nao', 'STUDIOMAX TV', '2016-08-04', 'https://i.ytimg.com/vi/pJcBJvSpplQ/mqdefault.jpg', '<p>Reportagem: Maycon Pavin<br />\r\nImagens: Tayson Maximo<br />\r\nEdi&ccedil;&atilde;o: Mayke J&uacute;nior&nbsp;<br />\r\nProdu&ccedil;&atilde;o: StudioMax Comunica&ccedil;&atilde;o e Marketing</p>\r\n', 'video', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 'gravada', 2, '2016-08-04 11:59:34', NULL, NULL),
-	(287, 'web-programa-na-mira-do-povo-04-08-2016', 'mira-do-povo', 'Web programa "NA MIRA DO POVO" 04/08/2016 ', NULL, 'https://www.youtube.com/watch?v=Yz0JwhJ0l3U', 'Yz0JwhJ0l3U', 'nao', 'STUDIOMAX TV ', '2016-08-05', 'https://i.ytimg.com/vi/Yz0JwhJ0l3U/mqdefault.jpg', '<p>Apresenta&ccedil;&atilde;o: FLORENTINO<br />\r\nDire&ccedil;&atilde;o: GREG&Oacute;RIO MAX<br />\r\nProdu&ccedil;&atilde;o: StudioMax Comunica&ccedil;&atilde;o e Marketing</p>\r\n', 'video', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 'gravada', 2, '2016-08-05 06:34:21', NULL, NULL);
+	(287, 'web-programa-na-mira-do-povo-04-08-2016', 'mira-do-povo', 'Web programa "NA MIRA DO POVO" 04/08/2016 ', NULL, 'https://www.youtube.com/watch?v=Yz0JwhJ0l3U', 'Yz0JwhJ0l3U', 'nao', 'STUDIOMAX TV ', '2016-08-05', 'https://i.ytimg.com/vi/Yz0JwhJ0l3U/mqdefault.jpg', '<p>Apresenta&ccedil;&atilde;o: FLORENTINO<br />\r\nDire&ccedil;&atilde;o: GREG&Oacute;RIO MAX<br />\r\nProdu&ccedil;&atilde;o: StudioMax Comunica&ccedil;&atilde;o e Marketing</p>\r\n', 'video', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 'gravada', 2, '2016-08-05 06:34:21', NULL, NULL),
+	(288, 'movimento-cultural-promove-caminhada-com-cacaieiros-de-rolim-de-moura', 'cultura', 'Movimento cultural promove caminhada com cacaieiros de Rolim de Moura', NULL, 'https://www.youtube.com/watch?v=02a25Lg5Fe0', '02a25Lg5Fe0', 'nao', 'STUDIOMAX TV', '2016-08-06', 'https://i.ytimg.com/vi/02a25Lg5Fe0/mqdefault.jpg', '<p>Reportagem: Maycon Pavin<br />\r\nImagens: Mayke J&uacute;nior&nbsp;<br />\r\nEdi&ccedil;&atilde;o: Mayke J&uacute;nior&nbsp;<br />\r\nProdu&ccedil;&atilde;o: StudioMax Comunica&ccedil;&atilde;o e Marketing</p>\r\n', 'video', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 'gravada', 2, '2016-08-06 10:23:09', NULL, NULL),
+	(289, '31-expoagro-segunda-noite-de-atracoes', 'entretenimento', '31ª Expoagro: Segunda noite de atrações ', NULL, 'https://www.youtube.com/watch?v=va_7rmswH7g', 'va_7rmswH7g', 'nao', 'STUDIOMAX TV', '2016-08-06', 'https://i.ytimg.com/vi/va_7rmswH7g/mqdefault.jpg', '<p>Reportagem: Gislaine Lima<br />\r\nImagens: Tayson Maximo<br />\r\nEdi&ccedil;&atilde;o: Mayke J&uacute;nior&nbsp;<br />\r\nProdu&ccedil;&atilde;o: StudioMax Comunica&ccedil;&atilde;o e Marketing</p>\r\n', 'video', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 'gravada', 2, '2016-08-06 10:23:55', NULL, NULL),
+	(290, 'especial-rolim-de-moura-33-anos-recordacoes-parte-02', 'cultura', 'Especial Rolim de Moura 33 anos: Recordações parte 02 ', NULL, 'https://www.youtube.com/watch?v=CXE3o9UHHc0', 'CXE3o9UHHc0', 'nao', 'STUDIOMAX TV', '2016-08-06', 'https://i.ytimg.com/vi/CXE3o9UHHc0/mqdefault.jpg', '<p>Reportagem: Maycon pavin<br />\r\nImagens: Tayson Maximo<br />\r\nEdi&ccedil;&atilde;o: Mayke J&uacute;nior&nbsp;<br />\r\nProdu&ccedil;&atilde;o: StudioMax Comunica&ccedil;&atilde;o e Marketing</p>\r\n', 'video', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 'gravada', 2, '2016-08-06 10:24:45', NULL, NULL),
+	(291, 'especial-rolim-de-moura-33-anos-recordacoes-parte-03', 'cultura', 'Especial Rolim de Moura 33 anos: Recordações parte 03 ', NULL, 'https://www.youtube.com/watch?v=0b2PwipSxJM', '0b2PwipSxJM', 'nao', 'STUDIOMAX TV', '2016-08-06', 'https://i.ytimg.com/vi/0b2PwipSxJM/mqdefault.jpg', '<p>Reportagem: Maycon Pavin<br />\r\nImagens: Tayson Maximo<br />\r\nEdi&ccedil;&atilde;o: Mayke J&uacute;nior&nbsp;<br />\r\nProdu&ccedil;&atilde;o: StudioMax Comunica&ccedil;&atilde;o e Marketing</p>\r\n', 'video', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 'gravada', 2, '2016-08-06 10:25:35', NULL, NULL),
+	(292, '31-expoagro-noite-de-sabado-com-show-de-felipe-e-ferrari', 'entretenimento', '31ª Expoagro: Noite de sabado com show de Felipe e Ferrari ', NULL, 'https://www.youtube.com/watch?v=lED76gFutFI', 'lED76gFutFI', 'nao', 'STUDIOMAX TV', '2016-08-08', 'https://i.ytimg.com/vi/lED76gFutFI/mqdefault.jpg', '<p>Reportagem: Gislaine Lima<br />\r\nImagens: Tayson Maximo<br />\r\nEdi&ccedil;&atilde;o: Mayke J&uacute;nior&nbsp;<br />\r\nProdu&ccedil;&atilde;o: StudioMax Comunica&ccedil;&atilde;o e Marketing</p>\r\n', 'video', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 'gravada', 2, '2016-08-08 22:33:11', NULL, NULL),
+	(293, 'colegio-clarice-lispector-e-penta-campeao-no-handebol-no-joer', 'esporte', 'Colégio Clarice Lispector é penta-campeão no Handebol no Joer ', NULL, 'https://www.youtube.com/watch?v=pnZV7rYfh1I', 'pnZV7rYfh1I', 'nao', 'STUDIOMAX TV', '2016-08-08', 'https://i.ytimg.com/vi/pnZV7rYfh1I/mqdefault.jpg', '<p>Reportagem: Maycon Pavin<br />\r\nImagens: Tayson Maximo<br />\r\nEdi&ccedil;&atilde;o: Mayke J&uacute;nior&nbsp;<br />\r\nProdu&ccedil;&atilde;o: StudioMax Comunica&ccedil;&atilde;o e Marketing</p>\r\n', 'video', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 'gravada', 2, '2016-08-08 22:33:58', NULL, NULL),
+	(294, '31-expoagro-rodeio-ganha-tecnologias-e-leva-cobertura-ao-vivo-aos-espectadores', 'entretenimento', '31ª Expoagro: Rodeio ganha tecnologias e leva cobertura ao vivo aos espectadores ', NULL, 'https://www.youtube.com/watch?v=OE9jPS9JqDE', 'OE9jPS9JqDE', 'nao', 'STUDIOMAX TV', '2016-08-08', 'https://i.ytimg.com/vi/OE9jPS9JqDE/mqdefault.jpg', '<p>Reportagem: Maycon Pavin<br />\r\nImagens: Tayson Maximo<br />\r\nEdi&ccedil;&atilde;o: Mayke J&uacute;nior&nbsp;<br />\r\nProdu&ccedil;&atilde;o: StudioMax Comunica&ccedil;&atilde;o e Marketing</p>\r\n', 'video', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 'gravada', 2, '2016-08-08 22:34:57', NULL, NULL),
+	(295, 'rolim-de-moura-completa-33-anos-com-festiva-na-praca-municipal', 'cultura', 'Rolim de Moura completa 33 anos com festiva na praça municipal ', NULL, 'https://www.youtube.com/watch?v=9KGNF2kmyQw', '9KGNF2kmyQw', 'nao', 'STUDIOMAX TV', '2016-08-08', 'https://i.ytimg.com/vi/9KGNF2kmyQw/mqdefault.jpg', '<p>Reportagem: Maycon Pavin<br />\r\nImagens: Tayson Maximo<br />\r\nEdi&ccedil;&atilde;o: Mayke J&uacute;nior&nbsp;<br />\r\nProdu&ccedil;&atilde;o: StudioMax Comunica&ccedil;&atilde;o e Marketing</p>\r\n', 'video', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 'gravada', 2, '2016-08-08 22:35:47', NULL, NULL),
+	(296, 'rotary-club-desenvolve-campanha-durante-expoagro', 'saude', 'Rotary Club desenvolve campanha durante Expoagro ', NULL, 'https://www.youtube.com/watch?v=zWBCwoW-8n4', 'zWBCwoW-8n4', 'nao', 'STUDIOMAX TV', '2016-08-08', 'https://i.ytimg.com/vi/zWBCwoW-8n4/mqdefault.jpg', '<p>Reportagem: Maycon Pavin<br />\r\nImagens: Tayson Maximo<br />\r\nEdi&ccedil;&atilde;o: Mayke J&uacute;nior&nbsp;<br />\r\nProdu&ccedil;&atilde;o: StudioMax Comunica&ccedil;&atilde;o e Marketing</p>\r\n', 'video', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 'gravada', 2, '2016-08-08 22:37:11', NULL, NULL),
+	(297, 'ultima-noite-da-31-expoagro', 'entretenimento', 'Última noite da 31ª Expoagro ', NULL, 'https://www.youtube.com/watch?v=HxvaDsWoXjQ', 'HxvaDsWoXjQ', 'nao', 'STUDIOMAX TV', '2016-08-08', 'https://i.ytimg.com/vi/HxvaDsWoXjQ/mqdefault.jpg', '<p>Reportagem: Gislaine Lima<br />\r\nImagens: Tayson Maximo<br />\r\nEdi&ccedil;&atilde;o: Mayke J&uacute;nior&nbsp;<br />\r\nProdu&ccedil;&atilde;o: StudioMax Comunica&ccedil;&atilde;o e Marketing</p>\r\n', 'video', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 'gravada', 2, '2016-08-08 22:38:31', NULL, NULL),
+	(298, 'web-programa-na-mira-do-povo-08-08-2016', 'mira-do-povo', 'Web programa "NA MIRA DO POVO" 08/08/2016 ', NULL, 'https://www.youtube.com/watch?v=3_TiEHL2mzQ', '3_TiEHL2mzQ', 'nao', 'STUDIOMAX TV', '2016-08-12', 'https://i.ytimg.com/vi/3_TiEHL2mzQ/mqdefault.jpg', '', 'video', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 'gravada', 2, '2016-08-12 08:56:06', NULL, NULL),
+	(299, 'apresentacao-do-projeto-por-amor-a-rolim', 'politica', 'Apresentação do projeto Por Amor a Rolim ', NULL, 'https://www.youtube.com/watch?v=4FF1BTMdTXU', '4FF1BTMdTXU', 'nao', 'STUDIOMAX TV', '2016-08-12', 'https://i.ytimg.com/vi/4FF1BTMdTXU/mqdefault.jpg', '<p>Reportagem: Gislaine Lima<br />\r\nImagens: Tayson Maximo<br />\r\nEdi&ccedil;&atilde;o: Mayke J&uacute;nior&nbsp;<br />\r\nProdu&ccedil;&atilde;o: StudioMax Comunica&ccedil;&atilde;o e Marketing</p>\r\n', 'video', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 'gravada', 2, '2016-08-12 08:57:04', NULL, NULL),
+	(300, 'camara-mantem-salario-de-vereadores-e-prefeito-para-proximo-mandato', 'politica', 'Câmara mantém salário de vereadores e prefeito para próximo mandato ', NULL, 'https://www.youtube.com/watch?v=eqUBYEE1cfo', 'eqUBYEE1cfo', 'nao', 'STUDIOMAX TV', '2016-08-12', 'https://i.ytimg.com/vi/eqUBYEE1cfo/mqdefault.jpg', '<p>Reportagem: Maycon Pavin<br />\r\nImagens: Tayson Maximo<br />\r\nEdi&ccedil;&atilde;o: Mayke J&uacute;nior&nbsp;<br />\r\nProdu&ccedil;&atilde;o: StudioMax Comunica&ccedil;&atilde;o e Marketing</p>\r\n', 'video', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 'gravada', 2, '2016-08-12 08:57:58', NULL, NULL),
+	(301, 'colisao-entre-dois-veiculos-no-cruzamento-da-avenida-joao-pessoa-com-a-rua-guapore', 'policia', 'Colisão entre dois veículos no cruzamento da avenida João Pessoa com a Rua Guaporé ', NULL, 'https://www.youtube.com/watch?v=Qr6m-h4s-Q8', 'Qr6m-h4s-Q8', 'nao', 'STUDIOMAX TV', '2016-08-12', 'https://i.ytimg.com/vi/Qr6m-h4s-Q8/mqdefault.jpg', '<p>Reportagem: Maycon Pavin<br />\r\nImagens: Tayson Maximo<br />\r\nEdi&ccedil;&atilde;o: Mayke J&uacute;nior&nbsp;<br />\r\nProdu&ccedil;&atilde;o: StudioMax Comunica&ccedil;&atilde;o e Marketing</p>\r\n', 'video', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 'gravada', 2, '2016-08-12 08:58:53', NULL, NULL),
+	(302, 'prefeitura-garante-novamente-o-certificado-de-regularidade-previdenciaria', 'policia', 'Prefeitura garante novamente o Certificado de Regularidade Previdenciária ', NULL, 'https://www.youtube.com/watch?v=aiiK2Pn_b6M', 'aiiK2Pn_b6M', 'nao', 'STUDIOMAX TV', '2016-08-12', 'https://i.ytimg.com/vi/aiiK2Pn_b6M/mqdefault.jpg', '<p>Reportagem: Maycon Pavin<br />\r\nImagens: Tayson Maximo<br />\r\nEdi&ccedil;&atilde;o: Mayke J&uacute;nior&nbsp;<br />\r\nProdu&ccedil;&atilde;o: StudioMax Comunica&ccedil;&atilde;o e Marketing</p>\r\n', 'video', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 'gravada', 2, '2016-08-12 08:59:46', NULL, NULL),
+	(303, 'web-programa-na-mira-do-povo-09-08-2016', 'mira-do-povo', 'Web programa "NA MIRA DO POVO" 09/08/2016 ', NULL, 'https://www.youtube.com/watch?v=beguhhCnnbs', 'beguhhCnnbs', 'nao', 'STUDIOMAX TV', '2016-08-12', 'https://i.ytimg.com/vi/beguhhCnnbs/mqdefault.jpg', '<p>Reportagem: Maycon Pavin e Gislaine Lima<br />\r\nImagens: Tayson Maximo<br />\r\nEdi&ccedil;&atilde;o: Mayke J&uacute;nior<br />\r\nProdu&ccedil;&atilde;o: StudioMax Comunica&ccedil;&atilde;o e Marketing</p>\r\n', 'video', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 'gravada', 2, '2016-08-12 09:00:34', NULL, NULL),
+	(304, 'escola-tancredo-a-neves-promove-jogos-escolares-com-alunos', 'esporte', 'Escola Tancredo A. Neves promove Jogos Escolares com alunos ', NULL, 'https://www.youtube.com/watch?v=1dPxEA4aNYc', '1dPxEA4aNYc', 'nao', 'STUDIOMAX TV', '2016-08-12', 'https://i.ytimg.com/vi/1dPxEA4aNYc/mqdefault.jpg', '<p>Reportagem: Maycon Pavin<br />\r\nImagens: Tayson Maximo<br />\r\nEdi&ccedil;&atilde;o: Mayke J&uacute;nior&nbsp;<br />\r\nProdu&ccedil;&atilde;o: StudioMax Comunica&ccedil;&atilde;o e Marketing</p>\r\n', 'video', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 'gravada', 2, '2016-08-12 09:01:33', NULL, NULL),
+	(305, 'motoristas-passam-em-local-indevido-e-crianca-quase-e-atropelada-no-jardim-dos-lagos', 'policia', 'Motoristas passam em local indevido e criança quase é atropelada no Jardim dos Lagos ', NULL, 'https://www.youtube.com/watch?v=Qc803mBZFbQ', 'Qc803mBZFbQ', 'nao', 'STUDIOMAX TV', '2016-08-12', 'https://i.ytimg.com/vi/Qc803mBZFbQ/mqdefault.jpg', '<p>Reportagem: Maycon Pavin<br />\r\nImagens: Tayson Maximo<br />\r\nEdi&ccedil;&atilde;o: Mayke J&uacute;nior&nbsp;<br />\r\nProdu&ccedil;&atilde;o: StudioMax Comunica&ccedil;&atilde;o e Marketing</p>\r\n', 'video', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 'gravada', 2, '2016-08-12 09:02:28', NULL, NULL),
+	(306, 'rotary-entrega-alimentos-arrecadados-na-expoagro-a-pastoral-do-menor', 'cultura', 'Rotary entrega alimentos arrecadados na Expoagro à pastoral do menor ', NULL, 'https://www.youtube.com/watch?v=eDVohcxuCAA', 'eDVohcxuCAA', 'nao', 'STUDIOMAX TV', '2016-08-12', 'https://i.ytimg.com/vi/eDVohcxuCAA/mqdefault.jpg', '<p>Reportagem: Maycon Pavin<br />\r\nImagens: Tayson Maximo<br />\r\nEdi&ccedil;&atilde;o: Mayke J&uacute;nior&nbsp;<br />\r\nProdu&ccedil;&atilde;o: StudioMax Comunica&ccedil;&atilde;o e Marketing</p>\r\n', 'video', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 'gravada', 2, '2016-08-12 09:03:21', NULL, NULL),
+	(307, 'servidor-publico-municipal-e-preso-na-blitz-da-lei-seca-em-rolim-de-moura', 'policia', 'Servidor público municipal é preso na blitz da lei seca em Rolim de Moura ', NULL, 'https://www.youtube.com/watch?v=BJQ3yI8fZB0', 'BJQ3yI8fZB0', 'nao', 'STUDIOMAX TV', '2016-08-12', 'https://i.ytimg.com/vi/BJQ3yI8fZB0/mqdefault.jpg', '<p>Reportagem: Maycon Pavin<br />\r\nImagens: Tayson Maximo<br />\r\nEdi&ccedil;&atilde;o: Mayke J&uacute;nior&nbsp;<br />\r\nProdu&ccedil;&atilde;o: StudioMax Comunica&ccedil;&atilde;o e Marketing</p>\r\n', 'video', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 'gravada', 2, '2016-08-12 09:04:15', NULL, NULL),
+	(308, 'web-programa-na-mira-do-povo-10-08-2016', 'mira-do-povo', 'Web programa "NA MIRA DO POVO" 10/08/2016 ', NULL, 'https://www.youtube.com/watch?v=WNKWV0HAzvw', 'WNKWV0HAzvw', 'nao', 'STUDIOMAX TV', '2016-08-12', 'https://i.ytimg.com/vi/WNKWV0HAzvw/mqdefault.jpg', '<p>Reportagem: Gislaine Lima e Maycon Pavin<br />\r\nImagens: Tayson Maximo<br />\r\nEdi&ccedil;&atilde;o: Mayke J&uacute;nior&nbsp;<br />\r\nDire&ccedil;&atilde;o: Gregorio Max<br />\r\nProdu&ccedil;&atilde;o: StudioMax Comunica&ccedil;&atilde;o e Marketing</p>\r\n', 'video', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 'gravada', 2, '2016-08-12 09:05:08', NULL, NULL),
+	(309, '11-de-agosto-dia-da-televisao-no-brasil', 'cultura', '11 de agosto: Dia da televisão no Brasil ', NULL, 'https://www.youtube.com/watch?v=uLUVqfy27bE', 'uLUVqfy27bE', 'nao', 'STUDIOMAX TV', '2016-08-12', 'https://i.ytimg.com/vi/uLUVqfy27bE/mqdefault.jpg', '<p>Reportagem: Maycon Pavin<br />\r\nImagens: Tayson Maximo<br />\r\nEdi&ccedil;&atilde;o: Mayke J&uacute;nior&nbsp;<br />\r\nProdu&ccedil;&atilde;o: StudioMax Comunica&ccedil;&atilde;o e Marketing</p>\r\n', 'video', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 'gravada', 2, '2016-08-12 09:05:50', NULL, NULL),
+	(310, 'web-programa-na-mira-do-povo-11-08-2016', 'mira-do-povo', 'Web programa "NA MIRA DO POVO" 11/08/2016 ', NULL, 'https://www.youtube.com/watch?v=YXKDna3OJHw', 'YXKDna3OJHw', 'nao', 'STUDIOMAX TV', '2016-08-12', 'https://i.ytimg.com/vi/YXKDna3OJHw/mqdefault.jpg', '<p>Reportagem: Gislaine Lima e Maycon Pavin<br />\r\nImagens: Tayson Maximo e Jheison de Paula<br />\r\nEdi&ccedil;&atilde;o: Mayke J&uacute;nior<br />\r\nDire&ccedil;&atilde;o: Gregorio Max&nbsp;<br />\r\nProdu&ccedil;&atilde;o: StudioMax Comunica&ccedil;&atilde;o e Marketing</p>\r\n', 'video', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 'gravada', 2, '2016-08-12 09:06:42', NULL, NULL),
+	(311, 'chefe-de-gabinete-fala-sobre-servidor-publico-preso-em-blitz-da-lei-seca', 'policia', 'Chefe de gabinete fala sobre servidor público preso em blitz da Lei Seca ', NULL, 'https://www.youtube.com/watch?v=cgcEU3rIF0s', 'cgcEU3rIF0s', 'nao', 'STUDIOMAX TV', '2016-08-12', 'https://i.ytimg.com/vi/cgcEU3rIF0s/mqdefault.jpg', '<p>Reportagem: Maycon Pavin<br />\r\nImagens: Tayson Maximo<br />\r\nEdi&ccedil;&atilde;o: Mayke J&uacute;nior&nbsp;<br />\r\nProdu&ccedil;&atilde;o: StudioMax Comunica&ccedil;&atilde;o e Marketing</p>\r\n', 'video', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 'gravada', 2, '2016-08-12 09:08:00', NULL, NULL),
+	(312, 'entrevista-livro-amazonia-recursos-hidricos', 'tribuna-livre', 'Entrevista : Livro Amazônia Recursos Hídricos ', NULL, 'https://www.youtube.com/watch?v=KGWoL9avTa4', 'KGWoL9avTa4', 'nao', 'STUDIOMAX TV', '2016-08-12', 'https://i.ytimg.com/vi/KGWoL9avTa4/mqdefault.jpg', '<p>Edi&ccedil;&atilde;o: Mayke J&uacute;nior&nbsp;<br />\r\nProdu&ccedil;&atilde;o: StudioMax Comunica&ccedil;&atilde;o e Marketing</p>\r\n', 'video', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 'gravada', 2, '2016-08-12 22:31:06', NULL, NULL),
+	(313, 'nova-sede-do-corpo-de-bombeiros-e-inaugurada-em-rolim-de-moura', 'politica', 'Nova sede do Corpo de Bombeiros é inaugurada em Rolim de Moura ', NULL, 'https://www.youtube.com/watch?v=LKqYP5Hprx8', 'LKqYP5Hprx8', 'nao', 'STUDIOMAX TV', '2016-08-12', 'https://i.ytimg.com/vi/LKqYP5Hprx8/mqdefault.jpg', '<p>Reportagem: Maycon Pavin<br />\r\nImagens: Tayson Maximo<br />\r\nEdi&ccedil;&atilde;o: Mayke J&uacute;nior&nbsp;<br />\r\nProdu&ccedil;&atilde;o: StudioMax Comunica&ccedil;&atilde;o e Marketing</p>\r\n', 'video', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 'gravada', 2, '2016-08-12 22:31:41', NULL, NULL),
+	(314, 'livro-sobre-recursos-hidricos-e-lancado-em-rolim-de-moura', 'educacao', 'Livro sobre recursos hídricos é lançado em Rolim de Moura ', NULL, 'https://www.youtube.com/watch?v=OsMcuXjum3E', 'OsMcuXjum3E', 'nao', 'STUDIOMAX TV', '2016-08-12', 'https://i.ytimg.com/vi/OsMcuXjum3E/mqdefault.jpg', '<p>Reportagem: Gislaine Lima<br />\r\nImagens: Tayson Maximo<br />\r\nEdi&ccedil;&atilde;o: Mayke J&uacute;nior&nbsp;<br />\r\nProdu&ccedil;&atilde;o: StudioMax Comunica&ccedil;&atilde;o e Marketing</p>\r\n', 'video', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 'gravada', 2, '2016-08-12 22:32:23', NULL, NULL),
+	(315, 'venda-para-o-dia-dos-pais-estao-baixas-no-comercio-parte-01', 'economia', 'Venda para o dia dos pais estão baixas no comércio - parte 01 ', NULL, 'https://www.youtube.com/watch?v=RVb1JaSkpKs', 'RVb1JaSkpKs', 'nao', 'STUDIOMAX TV', '2016-08-12', 'https://i.ytimg.com/vi/RVb1JaSkpKs/mqdefault.jpg', '<p>Reportagem: Maycon Pavin<br />\r\nImagens: Tayson Maximo<br />\r\nEdi&ccedil;&atilde;o: Mayke J&uacute;nior&nbsp;<br />\r\nProdu&ccedil;&atilde;o: StudioMax Comunica&ccedil;&atilde;o e Marketing</p>\r\n', 'video', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 'gravada', 2, '2016-08-12 22:32:58', NULL, NULL),
+	(316, 'venda-para-o-dia-dos-pais-estao-baixas-no-comercio-parte-02', 'economia', 'Venda para o dia dos pais estão baixas no comércio - parte 02 ', NULL, 'https://www.youtube.com/watch?v=aTNF7Md33oc', 'aTNF7Md33oc', 'nao', 'STUDIOMAX TV', '2016-08-12', 'https://i.ytimg.com/vi/aTNF7Md33oc/mqdefault.jpg', '<p>Reportagem: Maycon Pavin<br />\r\nImagens: Tayson Maximo<br />\r\nEdi&ccedil;&atilde;o: Mayke J&uacute;nior&nbsp;<br />\r\nProdu&ccedil;&atilde;o: StudioMax Comunica&ccedil;&atilde;o e Marketing</p>\r\n', 'video', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 'gravada', 2, '2016-08-12 22:33:35', NULL, NULL),
+	(317, 'web-programa-na-mira-do-povo-12-08-2016', 'mira-do-povo', 'Web programa "NA MIRA DO POVO" 12/08/2016 ', NULL, 'https://www.youtube.com/watch?v=M2OA_CYXH6M', 'M2OA_CYXH6M', 'nao', 'STUDIOMAX TV', '2016-08-13', 'https://i.ytimg.com/vi/M2OA_CYXH6M/mqdefault.jpg', '<p>Produ&ccedil;&atilde;o: StudioMax Comunica&ccedil;&atilde;o e Marketing</p>\r\n', 'video', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 'gravada', 2, '2016-08-13 11:49:31', NULL, NULL),
+	(318, 'homem-e-agredido-a-pauladas-na-linha-184-zona-rural-de-rolim-de-moura', 'policia', 'Homem é agredido a pauladas na linha 184, Zona Rural de Rolim de Moura', NULL, 'https://www.youtube.com/watch?v=QXkk6m3AE2M', 'QXkk6m3AE2M', 'nao', 'STUDIOMAX TV', '2016-08-27', 'https://i.ytimg.com/vi/QXkk6m3AE2M/mqdefault.jpg', '', 'video', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 'gravada', 2, '2016-08-27 21:51:04', NULL, NULL),
+	(319, 'eleicoes-2016-debate-com-os-candidatos-a-prefeito-por-rolim-de-moura', 'politica', 'Eleições 2016: Debate com os candidatos a Prefeito por Rolim de Moura', NULL, 'https://www.youtube.com/watch?v=ppQzET0-pyU', 'ppQzET0-pyU', 'sim', 'TV JORNET; STUDIOMAXTV', '2016-09-09', 'videos/2016/09/eleicoes-2016-debate-com-os-candidatos-a-prefeito-por-rolim-de-moura-1473511240.jpg', '<p>Debate realizado em parceria com a TV Jornet e StudioMaxTV com os candidatos a prefeito de Rolim de Moura.</p>\r\n', 'video', '2016-09-10 09:30:00', '2016-09-12 10:00:00', 'gravada', 2, '2016-09-10 09:40:40', NULL, NULL);
 /*!40000 ALTER TABLE `videos` ENABLE KEYS */;
 
--- Copiando estrutura para tabela studioma_dbsite2016.videos_categoria
+-- Copiando estrutura para tabela bdsite2016.videos_categoria
 DROP TABLE IF EXISTS `videos_categoria`;
 CREATE TABLE IF NOT EXISTS `videos_categoria` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -699,7 +731,7 @@ CREATE TABLE IF NOT EXISTS `videos_categoria` (
   KEY `categoria` (`categoria`)
 ) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8 COMMENT='Categorias de Videos';
 
--- Copiando dados para a tabela studioma_dbsite2016.videos_categoria: ~16 rows (aproximadamente)
+-- Copiando dados para a tabela bdsite2016.videos_categoria: ~17 rows (aproximadamente)
 /*!40000 ALTER TABLE `videos_categoria` DISABLE KEYS */;
 REPLACE INTO `videos_categoria` (`id`, `url_name`, `categoria`, `color`) VALUES
 	(1, 'educacao', 'Educação', 'blue2'),
@@ -721,7 +753,7 @@ REPLACE INTO `videos_categoria` (`id`, `url_name`, `categoria`, `color`) VALUES
 	(18, 'mira-do-povo', 'Na Mira do Povo', 'gray');
 /*!40000 ALTER TABLE `videos_categoria` ENABLE KEYS */;
 
--- Copiando estrutura para tabela studioma_dbsite2016.ws_siteviews
+-- Copiando estrutura para tabela bdsite2016.ws_siteviews
 DROP TABLE IF EXISTS `ws_siteviews`;
 CREATE TABLE IF NOT EXISTS `ws_siteviews` (
   `siteviews_id` int(11) NOT NULL AUTO_INCREMENT,
@@ -731,9 +763,9 @@ CREATE TABLE IF NOT EXISTS `ws_siteviews` (
   `siteviews_pages` decimal(10,0) NOT NULL,
   PRIMARY KEY (`siteviews_id`),
   KEY `idx_1` (`siteviews_date`)
-) ENGINE=InnoDB AUTO_INCREMENT=63 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=102 DEFAULT CHARSET=utf8;
 
--- Copiando dados para a tabela studioma_dbsite2016.ws_siteviews: ~43 rows (aproximadamente)
+-- Copiando dados para a tabela bdsite2016.ws_siteviews: ~101 rows (aproximadamente)
 /*!40000 ALTER TABLE `ws_siteviews` DISABLE KEYS */;
 REPLACE INTO `ws_siteviews` (`siteviews_id`, `siteviews_date`, `siteviews_users`, `siteviews_views`, `siteviews_pages`) VALUES
 	(1, '2016-05-24', 1, 1, 3),
@@ -797,10 +829,49 @@ REPLACE INTO `ws_siteviews` (`siteviews_id`, `siteviews_date`, `siteviews_users`
 	(59, '2016-08-02', 44, 47, 77),
 	(60, '2016-08-03', 36, 39, 71),
 	(61, '2016-08-04', 37, 41, 65),
-	(62, '2016-08-05', 36, 39, 64);
+	(62, '2016-08-05', 44, 47, 72),
+	(63, '2016-08-06', 26, 29, 43),
+	(64, '2016-08-07', 31, 31, 56),
+	(65, '2016-08-08', 37, 37, 52),
+	(66, '2016-08-09', 76, 79, 105),
+	(67, '2016-08-10', 47, 47, 67),
+	(68, '2016-08-11', 73, 73, 97),
+	(69, '2016-08-12', 97, 101, 143),
+	(70, '2016-08-13', 200, 201, 219),
+	(71, '2016-08-14', 63, 64, 75),
+	(72, '2016-08-15', 192, 198, 236),
+	(73, '2016-08-16', 62, 65, 116),
+	(74, '2016-08-17', 54, 57, 73),
+	(75, '2016-08-18', 69, 71, 86),
+	(76, '2016-08-19', 86, 95, 117),
+	(77, '2016-08-20', 93, 94, 101),
+	(78, '2016-08-21', 93, 96, 121),
+	(79, '2016-08-22', 60, 62, 99),
+	(80, '2016-08-23', 30, 32, 37),
+	(81, '2016-08-24', 199, 201, 301),
+	(82, '2016-08-25', 154, 160, 179),
+	(83, '2016-08-26', 186, 186, 225),
+	(84, '2016-08-27', 122, 122, 145),
+	(85, '2016-08-28', 44, 45, 390),
+	(86, '2016-08-29', 71, 71, 91),
+	(87, '2016-08-30', 198, 206, 401),
+	(88, '2016-08-31', 99, 103, 133),
+	(89, '2016-09-01', 44, 49, 90),
+	(90, '2016-09-02', 119, 126, 302),
+	(91, '2016-09-03', 33, 34, 63),
+	(92, '2016-09-04', 59, 61, 65),
+	(93, '2016-09-05', 145, 146, 184),
+	(94, '2016-09-06', 41, 46, 87),
+	(95, '2016-09-07', 24, 25, 35),
+	(96, '2016-09-08', 40, 41, 51),
+	(97, '2016-09-09', 154, 172, 391),
+	(98, '2016-09-10', 105, 124, 198),
+	(99, '2016-09-11', 94, 101, 119),
+	(100, '2016-09-12', 116, 121, 190),
+	(101, '2016-09-13', 74, 78, 139);
 /*!40000 ALTER TABLE `ws_siteviews` ENABLE KEYS */;
 
--- Copiando estrutura para tabela studioma_dbsite2016.ws_siteviews_agent
+-- Copiando estrutura para tabela bdsite2016.ws_siteviews_agent
 DROP TABLE IF EXISTS `ws_siteviews_agent`;
 CREATE TABLE IF NOT EXISTS `ws_siteviews_agent` (
   `agent_id` int(11) NOT NULL AUTO_INCREMENT,
@@ -810,16 +881,16 @@ CREATE TABLE IF NOT EXISTS `ws_siteviews_agent` (
   KEY `idx_1` (`agent_name`)
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 
--- Copiando dados para a tabela studioma_dbsite2016.ws_siteviews_agent: ~4 rows (aproximadamente)
+-- Copiando dados para a tabela bdsite2016.ws_siteviews_agent: ~4 rows (aproximadamente)
 /*!40000 ALTER TABLE `ws_siteviews_agent` DISABLE KEYS */;
 REPLACE INTO `ws_siteviews_agent` (`agent_id`, `agent_name`, `agent_views`) VALUES
-	(1, 'Chrome', 2005),
-	(2, 'IE', 38),
-	(3, 'Firefox', 118),
-	(4, 'Outros', 1783);
+	(1, 'Chrome', 3178),
+	(2, 'IE', 64),
+	(3, 'Firefox', 170),
+	(4, 'Outros', 4188);
 /*!40000 ALTER TABLE `ws_siteviews_agent` ENABLE KEYS */;
 
--- Copiando estrutura para tabela studioma_dbsite2016.ws_siteviews_online
+-- Copiando estrutura para tabela bdsite2016.ws_siteviews_online
 DROP TABLE IF EXISTS `ws_siteviews_online`;
 CREATE TABLE IF NOT EXISTS `ws_siteviews_online` (
   `online_id` int(11) NOT NULL AUTO_INCREMENT,
@@ -831,12 +902,15 @@ CREATE TABLE IF NOT EXISTS `ws_siteviews_online` (
   `online_agent` varchar(255) CHARACTER SET latin1 NOT NULL,
   `agent_name` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`online_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4057 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=7771 DEFAULT CHARSET=utf8;
 
--- Copiando dados para a tabela studioma_dbsite2016.ws_siteviews_online: ~1 rows (aproximadamente)
+-- Copiando dados para a tabela bdsite2016.ws_siteviews_online: ~2 rows (aproximadamente)
 /*!40000 ALTER TABLE `ws_siteviews_online` DISABLE KEYS */;
 REPLACE INTO `ws_siteviews_online` (`online_id`, `online_session`, `online_startview`, `online_endview`, `online_ip`, `online_url`, `online_agent`, `agent_name`) VALUES
-	(4056, '42758c9b79812ed8aac5bc3b4f2ba37f', '2016-08-05 18:35:43', '2016-08-05 18:55:43', '66.249.85.85', '/', 'Mozilla/5.0 (Linux; Android 5.1.1; SM-J700M Build/LMY48B) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/51.0.2704.81 Mobile Safari/537.36', 'Chrome');
+	(7767, 'eag5sd6rtdmmufia9fpl63nme7', '2016-09-13 21:14:52', '2016-09-13 21:34:52', '10.195.0.1', '/', 'Mozilla/5.0 AppleWebKit/537.36 (KHTML, like Gecko; Google Web Preview Analytics) Chrome/27.0.1453 Safari/537.36 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)', 'Chrome'),
+	(7768, '6d81lk0325910mlkankke5upt4', '2016-09-13 21:15:31', '2016-09-13 21:35:31', '10.195.0.1', '/', 'Mozilla/5.0 (Linux; Android 6.0.1; SM-G900M Build/MMB29M) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.98 Mobile Safari/537.36', 'Chrome'),
+	(7769, 'n38n7kv81stpcpps506col2cc0', '2016-09-13 21:15:34', '2016-09-13 21:35:34', '10.195.0.1', '/', 'Mozilla/5.0 (Linux; Android 6.0.1; SM-G900M Build/MMB29M) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.98 Mobile Safari/537.36', 'Chrome'),
+	(7770, '8col4rp77afc9uku2pspev41u1', '2016-09-13 21:17:10', '2016-09-13 21:37:25', '10.195.0.1', '/video/lindsey-stirling-elements-dracula', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2853.0 Safari/537.36', 'Chrome');
 /*!40000 ALTER TABLE `ws_siteviews_online` ENABLE KEYS */;
 
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;

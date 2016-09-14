@@ -1,6 +1,6 @@
 <section class="content-header">
     <h1>
-        Cadastrar Videos 
+        Cadastrar Videos
         <small>Cadastros de Novos Videos</small>
     </h1>
     <ol class="breadcrumb">
@@ -140,7 +140,7 @@
                                                 <input type="text" name="data_inicial" class="form-control" id="data_inicial" value="<?= isset($dados['data_inicial']) ? $dados['data_inicial'] : ''; ?>" data-inputmask="'alias': 'dd/mm/yyyy h:i'" datetime-mask/>
                                             </div>
                                         </div>
-                                    
+
                                         <div class="col-md-4">
                                             <label for="data_final">Fim da Exibição em</label>
                                             <div class="input-group">
